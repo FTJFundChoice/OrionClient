@@ -13,5 +13,4 @@ The Unofficial Orion API C# Client
     - Search Users
     - Create User
     - Update User (manage profiles)
-
   - Add to Nuget (v0.1.0)
