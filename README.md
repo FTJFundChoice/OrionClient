@@ -8,8 +8,10 @@ The Unofficial Orion API C# Client
   - Create Wholesaler
   - Update Wholesaler
   - Security
-    - User Creation
-    - User Update?
-    - User Search
-    - User Get
-    - Additional User Data
+    - Get Users
+    - Get User
+    - Search Users
+    - Create User
+    - Update User (manage profiles)
+
+  - Add to Nuget (v0.1.0)
