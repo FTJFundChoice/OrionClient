@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrionClient", "OrionClient\OrionClient.csproj", "{E2BE932B-32D5-4E67-8507-B35CDB454D3F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrionClient", "..\OrionClient\OrionClient.csproj", "{E2BE932B-32D5-4E67-8507-B35CDB454D3F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrionClient.Model", "OrionClient.Model\OrionClient.Model.csproj", "{AE53486C-3F4F-47FA-9427-5AF25D015017}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrionClient.Model", "..\OrionClient.Model\OrionClient.Model.csproj", "{AE53486C-3F4F-47FA-9427-5AF25D015017}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrionClient.Test", "OrionClient.Test\OrionClient.Test.csproj", "{30DB7D0A-EAD2-4C77-BBF1-D9876CA055D4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrionClient.Test", "..\OrionClient.Test\OrionClient.Test.csproj", "{30DB7D0A-EAD2-4C77-BBF1-D9876CA055D4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4BA71256-1F57-44B0-81E7-E92CEE9C3274}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

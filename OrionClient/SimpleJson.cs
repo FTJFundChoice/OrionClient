@@ -1,4 +1,4 @@
-﻿/*
+/*
     This version is pulled from here
     https://github.com/Lakritzator/simple-json/blob/6e1eccbe12717e983f6bdfb871ae45dc4929fe8b/src/SimpleJson/SimpleJson.cs
     and supports the EmitDefaultValue DataMemeber property.
