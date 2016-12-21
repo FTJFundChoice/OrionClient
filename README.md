@@ -1,6 +1,4 @@
-# OrionClient
-The Unofficial Orion API C# Client
-
+# Unofficial C# Client for Orion API
 
 ### TODO
   - Create Dealer
