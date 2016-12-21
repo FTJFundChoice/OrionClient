@@ -7,97 +7,98 @@ namespace OrionClient.Model {
     [DataContract()]
     public class Representative {
 
-        [DataMember(Name = "id")]
+        [DataMember(Name = "id", EmitDefaultValue = false)]
         public int? Id { get; set; }
 
-        [DataMember(Name = "name")]
+        [DataMember(Name = "name", EmitDefaultValue = false)]
         public string Name { get; set; }
 
-        [DataMember(Name = "portfolio")]
+        [DataMember(Name = "portfolio", EmitDefaultValue = false)]
         public RepresentativePortfolio Portfolio { get; set; }
 
-        [DataMember(Name = "userDefinedFields")]
-        public IEnumerable<RepresentativeUserDefinedField> UserDefinedFields { get; set; }
+        [DataMember(Name = "userDefinedFields", EmitDefaultValue = false)]
+        public List<RepresentativeUserDefinedField> UserDefinedFields { get; set; }
     }
 
     [DataContract()]
     public class RepresentativePortfolio {
 
         [Obsolete("Do not use this value; use Representative.Id instead.")]
-        [DataMember(Name = "id")]
+        [DataMember(Name = "id", EmitDefaultValue = false)]
         public int? Id { get; set; }
 
-        [DataMember(Name = "brokerDealerId")]
+        [DataMember(Name = "brokerDealerId", EmitDefaultValue = false)]
         public long BrokerDealerId { get; set; }
 
-        [DataMember(Name = "wholesalerId")]
+        [DataMember(Name = "wholesalerId", EmitDefaultValue = false)]
         public long WholesalerId { get; set; }
 
-        [DataMember(Name = "number")]
+        [DataMember(Name = "number", EmitDefaultValue = false)]
         public string Number { get; set; }
 
-        [DataMember(Name = "name")]
+        [DataMember(Name = "name", EmitDefaultValue = false)]
         public string Name { get; set; }
 
-        [DataMember(Name = "firstName")]
+        [DataMember(Name = "firstName", EmitDefaultValue = false)]
         public string FirstName { get; set; }
 
-        [DataMember(Name = "lastName")]
+        [DataMember(Name = "lastName", EmitDefaultValue = false)]
         public string LastName { get; set; }
 
-        [DataMember(Name = "email")]
+        [DataMember(Name = "email", EmitDefaultValue = false)]
         public string Email { get; set; }
 
-        [DataMember(Name = "address1")]
+        [DataMember(Name = "address1", EmitDefaultValue = false)]
         public string Address1 { get; set; }
 
-        [DataMember(Name = "address2")]
+        [DataMember(Name = "address2", EmitDefaultValue = false)]
         public string Address2 { get; set; }
 
-        [DataMember(Name = "address3")]
+        [DataMember(Name = "address3", EmitDefaultValue = false)]
         public string Address3 { get; set; }
 
-        [DataMember(Name = "zip")]
+        [DataMember(Name = "zip", EmitDefaultValue = false)]
         public string Zip { get; set; }
 
-        [DataMember(Name = "city")]
+        [DataMember(Name = "city", EmitDefaultValue = false)]
         public string City { get; set; }
 
-        [DataMember(Name = "state")]
+        [DataMember(Name = "state", EmitDefaultValue = false)]
         public string State { get; set; }
 
-        [DataMember(Name = "businessPhone")]
+        [DataMember(Name = "businessPhone", EmitDefaultValue = false)]
         public string BusinessPhone { get; set; }
 
-        [DataMember(Name = "homePhone")]
+        [DataMember(Name = "homePhone", EmitDefaultValue = false)]
         public string HomePhone { get; set; }
 
-        [DataMember(Name = "otherPhone")]
+        [DataMember(Name = "otherPhone", EmitDefaultValue = false)]
         public string OtherPhone { get; set; }
 
-        [DataMember(Name = "isActive")]
+        [DataMember(Name = "isActive", EmitDefaultValue = false)]
         public bool IsActive { get; set; }
 
-        [DataMember(Name = "createdBy")]
+        [DataMember(Name = "createdBy", EmitDefaultValue = false)]
         public string CreatedBy { get; set; }
 
-        [DataMember(Name = "startDate")]
+        [DataMember(Name = "startDate", EmitDefaultValue = false)]
         public DateTime? StartDate { get; set; }
 
-        [DataMember(Name = "editedBy")]
+        [DataMember(Name = "editedBy", EmitDefaultValue = false)]
         public string EditedBy { get; set; }
 
-        [DataMember(Name = "editedDate")]
+        [DataMember(Name = "editedDate", EmitDefaultValue = false)]
         public string EditedDate { get; set; }
     }
 
+    [DataContract()]
     public class RepresentativeUserDefinedField {
 
-        [DataMember(Name = "userDefinedDefinitionId")]
-        public int UserDefinedDefinitionId { get; set; }
+        [DataMember(Name = "userDefineDefinitionId")]
+        public int UserDefineDefinitionId { get; set; }
 
-        [DataMember(Name = "userDefinedDataId")]
-        public int UserDefinedDataId { get; set; }
+        [DataMember(Name = "userDefineDataId")]
+        public int UserDefineDataId { get; set; }
 
         [DataMember(Name = "name")]
         public string Name { get; set; }

@@ -14,26 +14,26 @@ namespace OrionClient.Compositions {
             this.client = client;
         }
 
-        public IEnumerable<Wholesaler> GetAll(int top = 1000, int skip = 0, bool? IsActive = default(bool?)) {
+        public Result<List<Wholesaler>> GetAll(int top = 1000, int skip = 0, bool? IsActive = default(bool?)) {
             var request = new RestRequest("Portfolio/Wholesalers", Method.GET);
             var result = client.Execute<List<Wholesaler>>(request);
             QueryHelpers.AddTopSkipQueryParameters(request, top, skip);
 
-            return result.Data;
+            return new Result<List<Wholesaler>>(result);
         }
 
-        public Wholesaler Get(long id) {
+        public Result<Wholesaler> Get(long id) {
             var request = new RestRequest("Portfolio/Wholesalers/{id}", Method.GET);
             request.AddUrlSegment("id", id.ToString());
             var result = client.Execute<Wholesaler>(request);
-            return result.Data;
+            return new Result<Wholesaler>(result);
         }
 
-        public Wholesaler Create(Wholesaler representative) {
+        public Result<Wholesaler> Create(Wholesaler representative) {
             throw new NotImplementedException();
         }
 
-        public Wholesaler Update(Wholesaler representative) {
+        public Result<Wholesaler> Update(Wholesaler representative) {
             throw new NotImplementedException();
         }
     }

@@ -1,5 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Linq;
+using System.Net;
 
 namespace OrionClient.Test {
 
@@ -8,16 +8,18 @@ namespace OrionClient.Test {
 
         [TestMethod]
         public void GetAll() {
-            var results = Client.Portfolio.Wholesalers.GetAll().ToList();
+            var result = Client.Portfolio.Wholesalers.GetAll();
 
-            Assert.IsTrue(results.Count > 0);
+            Assert.AreEqual(result.StatusCode, HttpStatusCode.OK);
+            Assert.IsNotNull(result.Data);
         }
 
         [TestMethod]
         public void Get() {
             var result = Client.Portfolio.Wholesalers.Get(13);
 
-            Assert.IsNotNull(result);
+            Assert.AreEqual(result.StatusCode, HttpStatusCode.OK);
+            Assert.IsNotNull(result.Data);
         }
     }
 }

@@ -50,6 +50,7 @@
     <Compile Include="Compositions\PortfolioModule.cs" />
     <Compile Include="Compositions\RepresentativeModule.cs" />
     <Compile Include="Compositions\WholesalerModule.cs" />
+    <Compile Include="OrionException.cs" />
     <Compile Include="Helpers\QueryHelpers.cs" />
     <Compile Include="Interfaces\IBrokerDealerModule.cs" />
     <Compile Include="Interfaces\IPortfolioModule.cs" />
@@ -58,6 +59,7 @@
     <Compile Include="Interfaces\ICommon.cs" />
     <Compile Include="OrionAuthenticator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Result.cs" />
     <Compile Include="SimpleJson.cs" />
   </ItemGroup>
   <ItemGroup>

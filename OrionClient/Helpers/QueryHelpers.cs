@@ -5,15 +5,12 @@ namespace OrionClient.Helpers {
     internal static class QueryHelpers {
 
         internal static void AddExpandQueryParameters(RestRequest request, bool includePorfolio, bool includeUserDefinedFields) {
-            int expandCounter = 0;
             if (includePorfolio) {
-                request.AddQueryParameter(string.Format("expand[{0}]", expandCounter), "1");
-                expandCounter++;
+                request.AddQueryParameter("expand", "1");
             }
 
             if (includeUserDefinedFields) {
-                request.AddQueryParameter(string.Format("expand[{0}]", expandCounter), "32");
-                expandCounter++;
+                request.AddQueryParameter("expand", "32");
             }
         }
 
