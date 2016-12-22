@@ -26,10 +26,10 @@ namespace FTJFundChoice.OrionModels {
         public int? Id { get; set; }
 
         [JsonProperty("brokerDealerId")]
-        public long BrokerDealerId { get; set; }
+        public long? BrokerDealerId { get; set; }
 
         [JsonProperty("wholesalerId")]
-        public long WholesalerId { get; set; }
+        public long? WholesalerId { get; set; }
 
         [JsonProperty("number")]
         public string Number { get; set; }

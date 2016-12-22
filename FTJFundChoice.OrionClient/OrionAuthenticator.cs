@@ -22,6 +22,7 @@ namespace FTJFundChoice.OrionClient {
         }
 
         public void Authenticate(IRestClient client, IRestRequest request) {
+            request.AddHeader("Accept", "application/json");
             HandleAuthentication(client, request);
             HandleImpersonation(request);
             ApplyTokenAuthentication(request);
@@ -58,7 +59,6 @@ namespace FTJFundChoice.OrionClient {
             )));
             var authHeader = string.Format("Basic {0}", authToken);
             request.AddParameter("Authorization", authHeader, ParameterType.HttpHeader);
-            request.AddHeader("Accept", "application/json");
         }
 
         private void ApplyTokenAuthentication(IRestRequest request) {

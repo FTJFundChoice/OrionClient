@@ -23,14 +23,14 @@ namespace FTJFundChoice.OrionClient.Compositions {
         }
 
         public Result<BrokerDealer> Get(long id) {
-            var request = new RestRequest("Portfolio/BrokerDealers/Verbose/{id}", Method.GET);
+            var request = new RestSharp.Newtonsoft.Json.RestRequest("Portfolio/BrokerDealers/Verbose/{id}", Method.GET);
             request.AddUrlSegment("id", id.ToString());
             var result = client.Execute<BrokerDealer>(request);
             return new Result<BrokerDealer>(result);
         }
 
         public Result<List<BrokerDealer>> GetAll(int top = 1000, int skip = 0, bool? IsActive = default(bool?)) {
-            var request = new RestRequest("Portfolio/BrokerDealers/Verbose", Method.GET);
+            var request = new RestSharp.Newtonsoft.Json.RestRequest("Portfolio/BrokerDealers/Verbose", Method.GET);
             QueryHelpers.AddTopSkipQueryParameters(request, top, skip);
 
             var result = client.Execute<List<BrokerDealer>>(request);
