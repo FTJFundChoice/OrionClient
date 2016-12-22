@@ -4,7 +4,6 @@
   - Cleanup
     - Review public\internal accessors
     - Convert OrionClient to interface
-    - Add Success property to Result
   - List Features
   - Examples
   - Testing
