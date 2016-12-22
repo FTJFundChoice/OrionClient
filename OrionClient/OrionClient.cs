@@ -4,12 +4,12 @@ using RestSharp;
 
 namespace OrionClient {
 
-    public class Client {
+    public class OrionClient {
         private IRestClient client = null;
         private IPortfolioModule portfolioModule;
         private ISecurityModule securityModule;
 
-        public Client(string baseUrl, Credentials apiCredentials) {
+        public OrionClient(string baseUrl, Credentials apiCredentials) {
             client = new RestClient(baseUrl);
             client.Authenticator = new OrionAuthenticator(apiCredentials);
 

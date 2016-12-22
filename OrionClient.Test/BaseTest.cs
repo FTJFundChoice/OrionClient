@@ -4,7 +4,7 @@ using System.Configuration;
 namespace OrionClient.Test {
 
     public abstract class BaseTest {
-        public Client Client { get; private set; }
+        public OrionClient Client { get; private set; }
         public int AlClientId { get; private set; }
 
         public BaseTest() {
@@ -15,7 +15,7 @@ namespace OrionClient.Test {
                 Password = ConfigurationManager.AppSettings["api_password"]
             };
 
-            Client = new Client(baseUrl, apiCreds);
+            Client = new OrionClient(baseUrl, apiCreds);
 
             AlClientId = Convert.ToInt32(ConfigurationManager.AppSettings["alClientId"]);
         }

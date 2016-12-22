@@ -45,7 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Client.cs" />
+    <Compile Include="OrionClient.cs" />
     <Compile Include="Compositions\BrokerDealerModule.cs" />
     <Compile Include="Compositions\PortfolioModule.cs" />
     <Compile Include="Compositions\ProfileModule.cs" />
