@@ -1,21 +1,14 @@
-# OrionClient
-Orion API Client
+# Unofficial C# Client for Orion API
 
-
--- TODO
---- Wrap result object in request result.
-
--- Unit Testing
---- Representative expand query string operands
---- Update Rep
----- Update User Defined Fields
---- Create Dealer
---- Update Dealer
---- Create Wholesaler
---- Update Wholesaler
---- Security
----- User Creation
----- User Update?
----- User Search
----- User Get
----- Additional User Data
+### TODO
+  - Create Dealer
+  - Update Dealer
+  - Create Wholesaler
+  - Update Wholesaler
+  - Security
+    - Get Users
+    - Get User
+    - Search Users
+    - Create User
+    - Update User (manage profiles)
+  - Add to Nuget (v0.1.0)
