@@ -13,7 +13,7 @@ namespace FTJFundChoice.OrionModels {
     public class Profile {
 
         [JsonProperty("id")]
-        public long Id { get; set; }
+        public long? Id { get; set; }
 
         [JsonProperty("loginEntityId")]
         public LoginEntityId LoginEntityId { get; set; }
@@ -22,7 +22,7 @@ namespace FTJFundChoice.OrionModels {
         public string Entity { get; set; }
 
         [JsonProperty("entityId")]
-        public long EntityId { get; set; }
+        public long? EntityId { get; set; }
 
         [JsonProperty("advisorName")]
         public string AdvisorName { get; set; }

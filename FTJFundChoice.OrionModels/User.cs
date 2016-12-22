@@ -28,7 +28,7 @@ namespace FTJFundChoice.OrionModels {
         public string FirstName { get; set; }
 
         [JsonProperty("id")]
-        public long Id { get; set; }
+        public long? Id { get; set; }
 
         [JsonProperty("inactiveDate")]
         public DateTime InactiveDate { get; set; }

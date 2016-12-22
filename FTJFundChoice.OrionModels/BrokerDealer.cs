@@ -6,7 +6,7 @@ namespace FTJFundChoice.OrionModels {
     public class BrokerDealer {
 
         [JsonProperty("id")]
-        public int Id { get; set; }
+        public int? Id { get; set; }
 
         [JsonProperty("name")]
         public string Name { get; set; }
@@ -18,7 +18,7 @@ namespace FTJFundChoice.OrionModels {
     public class BrokerDealerPortfolio {
 
         [JsonProperty("id")]
-        public int Id { get; set; }
+        public int? Id { get; set; }
 
         [JsonProperty("name")]
         public string Name { get; set; }
