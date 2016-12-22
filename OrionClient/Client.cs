@@ -6,18 +6,26 @@ namespace OrionClient {
 
     public class Client {
         private IRestClient client = null;
-        private IPortfolioModule _portfolioModule;
+        private IPortfolioModule portfolioModule;
+        private ISecurityModule securityModule;
 
-        public Client(string baseUrl, string username, string password) {
+        public Client(string baseUrl, Credentials apiCredentials) {
             client = new RestClient(baseUrl);
-            client.Authenticator = new OrionAuthenticator(username, password);
+            client.Authenticator = new OrionAuthenticator(apiCredentials);
 
-            _portfolioModule = new PortfolioModule(client);
+            portfolioModule = new PortfolioModule(client);
+            securityModule = new SecurityModule(client);
         }
 
         public IPortfolioModule Portfolio {
             get {
-                return _portfolioModule;
+                return portfolioModule;
+            }
+        }
+
+        public ISecurityModule Security {
+            get {
+                return securityModule;
             }
         }
     }

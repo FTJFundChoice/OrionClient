@@ -1,16 +1,23 @@
-﻿using System.Configuration;
+﻿using System;
+using System.Configuration;
 
 namespace OrionClient.Test {
 
     public abstract class BaseTest {
         public Client Client { get; private set; }
+        public int AlClientId { get; private set; }
 
         public BaseTest() {
             var baseUrl = ConfigurationManager.AppSettings["apiUrl"];
-            var username = ConfigurationManager.AppSettings["username"];
-            var password = ConfigurationManager.AppSettings["password"];
 
-            Client = new Client(baseUrl, username, password);
+            var apiCreds = new Credentials {
+                Username = ConfigurationManager.AppSettings["api_username"],
+                Password = ConfigurationManager.AppSettings["api_password"]
+            };
+
+            Client = new Client(baseUrl, apiCreds);
+
+            AlClientId = Convert.ToInt32(ConfigurationManager.AppSettings["alClientId"]);
         }
     }
 }

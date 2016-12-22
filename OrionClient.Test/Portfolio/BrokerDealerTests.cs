@@ -1,4 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using OrionClient.Model;
+using System;
 using System.Net;
 
 namespace OrionClient.Test.Portfolio {
@@ -21,6 +23,38 @@ namespace OrionClient.Test.Portfolio {
 
             Assert.AreEqual(result.StatusCode, HttpStatusCode.OK);
             Assert.IsNotNull(result.Data.Portfolio.OldBDCode);
+        }
+
+        [TestMethod]
+        public void Create() {
+            var dealer = new BrokerDealer {
+                Name = "Orion Test",
+                Portfolio = new BrokerDealerPortfolio {
+                    Address1 = "TEST ADDRESS",
+                    BusinessPhone = "123-123-1234",
+                    City = "TEST",
+                    State = "KY",
+                    Zip = "12345",
+                    OldBDCode = Guid.NewGuid().ToString().Substring(0, 6),
+                    Email = "test@123.abc",
+                    Name = "Orion Test"
+                }
+            };
+            var result = Client.Portfolio.BrokerDealers.Create(dealer);
+
+            Assert.AreEqual(result.StatusCode, HttpStatusCode.OK);
+            Assert.IsNotNull(result.Data);
+        }
+
+        [TestMethod]
+        public void Update() {
+            var dealer = Client.Portfolio.BrokerDealers.Get(337).Data;
+            dealer.Portfolio.Address1 = "TEST ADDRESS 2";
+
+            var result = Client.Portfolio.BrokerDealers.Update(dealer);
+
+            Assert.AreEqual(result.StatusCode, HttpStatusCode.OK);
+            Assert.IsNotNull(result.Data);
         }
     }
 }

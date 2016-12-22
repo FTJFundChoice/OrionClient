@@ -30,7 +30,7 @@ namespace OrionClient.Test.Portfolio {
         public void GetWithUserDefinedFields() {
             var result = Client.Portfolio.Representatives.Get(349, false, true);
             Assert.AreEqual(result.StatusCode, HttpStatusCode.OK);
-            Assert.IsNotNull(result.Data.Portfolio.Number);
+            Assert.IsNotNull(result.Data.UserDefinedFields);
         }
 
         [TestMethod]

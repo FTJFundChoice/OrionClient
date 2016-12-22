@@ -48,8 +48,15 @@
     <Compile Include="Client.cs" />
     <Compile Include="Compositions\BrokerDealerModule.cs" />
     <Compile Include="Compositions\PortfolioModule.cs" />
+    <Compile Include="Compositions\ProfileModule.cs" />
     <Compile Include="Compositions\RepresentativeModule.cs" />
+    <Compile Include="Compositions\SecurityModule.cs" />
+    <Compile Include="Compositions\UserModule.cs" />
     <Compile Include="Compositions\WholesalerModule.cs" />
+    <Compile Include="Credentials.cs" />
+    <Compile Include="Interfaces\IProfileModule.cs" />
+    <Compile Include="Interfaces\ISecurityModule.cs" />
+    <Compile Include="Interfaces\IUserModule.cs" />
     <Compile Include="OrionException.cs" />
     <Compile Include="Helpers\QueryHelpers.cs" />
     <Compile Include="Interfaces\IBrokerDealerModule.cs" />

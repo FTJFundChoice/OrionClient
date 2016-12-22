@@ -2,5 +2,5 @@
 
 namespace OrionClient.Interfaces {
 
-    public interface IBrokerDealerModule : ICommon<BrokerDealer> { }
+    public interface IBrokerDealerModule : ICommonModify<BrokerDealer>, ICommonRead<BrokerDealer> { }
 }

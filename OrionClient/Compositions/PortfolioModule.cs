@@ -3,7 +3,7 @@ using RestSharp;
 
 namespace OrionClient.Compositions {
 
-    internal class PortfolioModule : IPortfolioModule {
+    public class PortfolioModule : IPortfolioModule {
         private IBrokerDealerModule brokerDealer = null;
         private IRepresentativeModule representative = null;
         private IWholesalerModule wholesaler = null;

@@ -1,6 +1,6 @@
-﻿using OrionClient.Model.Models;
+﻿using OrionClient.Model;
 
 namespace OrionClient.Interfaces {
 
-    public interface IWholesalerModule : ICommon<Wholesaler> { }
+    public interface IWholesalerModule : ICommonRead<Wholesaler> { }
 }

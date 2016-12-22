@@ -45,7 +45,7 @@ namespace OrionClient {
 
         public OrionException OrionException {
             get {
-                if (StatusCode == HttpStatusCode.OK) {
+                if (StatusCode == HttpStatusCode.OK || string.IsNullOrEmpty(Content)) {
                     return null;
                 }
                 return SimpleJson.DeserializeObject<OrionException>(Content, SimpleJson.DataContractJsonSerializerStrategy);
