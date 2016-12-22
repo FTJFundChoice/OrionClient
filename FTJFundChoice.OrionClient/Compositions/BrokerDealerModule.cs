@@ -1,6 +1,7 @@
 ﻿using FTJFundChoice.OrionClient.Helpers;
 using FTJFundChoice.OrionClient.Interfaces;
-using FTJFundChoice.OrionClient.Models;
+using FTJFundChoice.OrionModels;
+using Newtonsoft.Json;
 using RestSharp;
 using System.Collections.Generic;
 
@@ -14,8 +15,8 @@ namespace FTJFundChoice.OrionClient.Compositions {
         }
 
         public Result<BrokerDealer> Create(BrokerDealer brokerDealer) {
-            var request = new RestRequest("Portfolio/BrokerDealers/Verbose", Method.POST);
-            request.AddParameter("application/json", SimpleJson.SerializeObject(brokerDealer, SimpleJson.DataContractJsonSerializerStrategy), ParameterType.RequestBody);
+            var request = new RestSharp.Newtonsoft.Json.RestRequest("Portfolio/BrokerDealers/Verbose", Method.POST);
+            request.AddParameter("application/json", JsonConvert.SerializeObject(brokerDealer), ParameterType.RequestBody);
 
             var result = client.Execute<BrokerDealer>(request);
             return new Result<BrokerDealer>(result);
@@ -37,11 +38,11 @@ namespace FTJFundChoice.OrionClient.Compositions {
         }
 
         public Result<BrokerDealer> Update(BrokerDealer brokerDealer) {
-            var request = new RestRequest("Portfolio/BrokerDealers/Verbose/{id}", Method.PUT);
+            var request = new RestSharp.Newtonsoft.Json.RestRequest("Portfolio/BrokerDealers/Verbose/{id}", Method.PUT);
 
             request.AddUrlSegment("id", brokerDealer.Id.ToString());
 
-            request.AddParameter("application/json", SimpleJson.SerializeObject(brokerDealer, SimpleJson.DataContractJsonSerializerStrategy), ParameterType.RequestBody);
+            request.AddParameter("application/json", JsonConvert.SerializeObject(brokerDealer), ParameterType.RequestBody);
 
             var result = client.Execute<BrokerDealer>(request);
             return new Result<BrokerDealer>(result);

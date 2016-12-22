@@ -1,6 +1,7 @@
 ﻿using FTJFundChoice.OrionClient.Helpers;
 using FTJFundChoice.OrionClient.Interfaces;
-using FTJFundChoice.OrionClient.Models;
+using FTJFundChoice.OrionModels;
+using Newtonsoft.Json;
 using RestSharp;
 using System;
 using System.Collections.Generic;
@@ -20,8 +21,8 @@ namespace FTJFundChoice.OrionClient.Compositions {
         /// <param name="representative"></param>
         /// <returns>Returns Result object with verbose Representative. (no collections)</returns>
         public Result<Representative> Create(Representative representative) {
-            var request = new RestRequest("Portfolio/Representatives/Verbose", Method.POST);
-            request.AddParameter("application/json", SimpleJson.SerializeObject(representative, SimpleJson.DataContractJsonSerializerStrategy), ParameterType.RequestBody);
+            var request = new RestSharp.Newtonsoft.Json.RestRequest("Portfolio/Representatives/Verbose", Method.POST);
+            request.AddParameter("application/json", JsonConvert.SerializeObject(representative), ParameterType.RequestBody);
 
             var result = client.Execute<Representative>(request);
             return new Result<Representative>(result);
@@ -62,14 +63,14 @@ namespace FTJFundChoice.OrionClient.Compositions {
         /// <param name="representative"></param>
         /// <returns>Returns Result object with verbose Representative. (no collections)</returns>
         public Result<Representative> Update(Representative representative) {
-            var request = new RestRequest("Portfolio/Representatives/Verbose/{id}", Method.PUT);
+            var request = new RestSharp.Newtonsoft.Json.RestRequest("Portfolio/Representatives/Verbose/{id}", Method.PUT);
 
             request.AddUrlSegment("id", representative.Id.ToString());
 
             // hopefully a temporary fix, the portfolio.id is not populated on the GET request.
             representative.Portfolio.Id = representative.Id;
 
-            request.AddParameter("application/json", SimpleJson.SerializeObject(representative, SimpleJson.DataContractJsonSerializerStrategy), ParameterType.RequestBody);
+            request.AddParameter("application/json", JsonConvert.SerializeObject(representative), ParameterType.RequestBody);
 
             var result = client.Execute<Representative>(request);
             return new Result<Representative>(result);

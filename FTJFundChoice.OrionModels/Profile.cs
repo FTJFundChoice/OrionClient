@@ -1,6 +1,6 @@
-﻿using System.Runtime.Serialization;
+﻿using Newtonsoft.Json;
 
-namespace FTJFundChoice.OrionClient.Models {
+namespace FTJFundChoice.OrionModels {
 
     public enum LoginEntityId {
         Dealer = 1,
@@ -10,40 +10,39 @@ namespace FTJFundChoice.OrionClient.Models {
         SubAdvisor = 7
     }
 
-    [DataContract()]
     public class Profile {
 
-        [DataMember(Name = "id")]
+        [JsonProperty("id")]
         public long Id { get; set; }
 
-        [DataMember(Name = "loginEntityId")]
+        [JsonProperty("loginEntityId")]
         public LoginEntityId LoginEntityId { get; set; }
 
-        [DataMember(Name = "entity")]
+        [JsonProperty("entity")]
         public string Entity { get; set; }
 
-        [DataMember(Name = "entityId")]
+        [JsonProperty("entityId")]
         public long EntityId { get; set; }
 
-        [DataMember(Name = "advisorName")]
+        [JsonProperty("advisorName")]
         public string AdvisorName { get; set; }
 
-        [DataMember(Name = "entityName")]
+        [JsonProperty("entityName")]
         public string EntityName { get; set; }
 
-        [DataMember(Name = "roleId")]
+        [JsonProperty("roleId")]
         public long RoleId { get; set; }
 
-        [DataMember(Name = "isUserDefault")]
+        [JsonProperty("isUserDefault")]
         public bool IsUserDefault { get; set; }
 
-        [DataMember(Name = "alClientId")]
+        [JsonProperty("alClientId")]
         public long AlClientId { get; set; }
 
-        [DataMember(Name = "roleName")]
+        [JsonProperty("roleName")]
         public string RoleName { get; set; }
 
-        [DataMember(Name = "isInCurrentDb")]
+        [JsonProperty("isInCurrentDb")]
         public bool IsInCurrentDb { get; set; }
     }
 }

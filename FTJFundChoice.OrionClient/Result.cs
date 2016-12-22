@@ -1,4 +1,5 @@
-﻿using RestSharp;
+﻿using Newtonsoft.Json;
+using RestSharp;
 using System;
 using System.Net;
 
@@ -43,12 +44,18 @@ namespace FTJFundChoice.OrionClient {
         //     Description of HTTP status returned
         public string StatusDescription { get; set; }
 
+        public bool Success {
+            get {
+                return StatusCode == HttpStatusCode.OK;
+            }
+        }
+
         public OrionException OrionException {
             get {
                 if (StatusCode == HttpStatusCode.OK || string.IsNullOrEmpty(Content)) {
                     return null;
                 }
-                return SimpleJson.DeserializeObject<OrionException>(Content, SimpleJson.DataContractJsonSerializerStrategy);
+                return JsonConvert.DeserializeObject<OrionException>(Content);
             }
         }
 

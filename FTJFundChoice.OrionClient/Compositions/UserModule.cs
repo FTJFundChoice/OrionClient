@@ -1,6 +1,7 @@
 ﻿using FTJFundChoice.OrionClient.Helpers;
 using FTJFundChoice.OrionClient.Interfaces;
-using FTJFundChoice.OrionClient.Models;
+using FTJFundChoice.OrionModels;
+using Newtonsoft.Json;
 using RestSharp;
 using System.Collections.Generic;
 
@@ -14,8 +15,8 @@ namespace FTJFundChoice.OrionClient.Compositions {
         }
 
         public Result<User> Create(User user) {
-            var request = new RestRequest("Security/Users", Method.POST);
-            request.AddParameter("application/json", SimpleJson.SerializeObject(user, SimpleJson.DataContractJsonSerializerStrategy), ParameterType.RequestBody);
+            var request = new RestSharp.Newtonsoft.Json.RestRequest("Security/Users", Method.POST);
+            request.AddParameter("application/json", JsonConvert.SerializeObject(user), ParameterType.RequestBody);
 
             var result = client.Execute<User>(request);
             return new Result<User>(result);
@@ -37,9 +38,9 @@ namespace FTJFundChoice.OrionClient.Compositions {
         }
 
         public Result<User> Update(User user) {
-            var request = new RestRequest("Security/Users/{id}", Method.PUT);
+            var request = new RestSharp.Newtonsoft.Json.RestRequest("Security/Users/{id}", Method.PUT);
             request.AddUrlSegment("id", user.Id.ToString());
-            request.AddParameter("application/json", SimpleJson.SerializeObject(user, SimpleJson.DataContractJsonSerializerStrategy), ParameterType.RequestBody);
+            request.AddParameter("application/json", JsonConvert.SerializeObject(user), ParameterType.RequestBody);
 
             var result = client.Execute<User>(request);
             return new Result<User>(result);

@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("OrionClient.Model")]
+[assembly: AssemblyTitle("FTJFundChoice.OrionModels")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("OrionClient.Model")]
+[assembly: AssemblyProduct("FTJFundChoice.OrionModels")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("ae53486c-3f4f-47fa-9427-5af25d015017")]
+[assembly: Guid("c36fb9fd-e014-4536-a823-e0079828fc59")]
 
 // Version information for an assembly consists of the following four values:
 //

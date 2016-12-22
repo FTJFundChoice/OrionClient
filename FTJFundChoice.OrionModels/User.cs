@@ -1,64 +1,63 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
-namespace FTJFundChoice.OrionClient.Model {
+namespace FTJFundChoice.OrionModels {
 
-    [DataContract()]
     public class User {
 
-        [DataMember(Name = "id")]
+        [JsonProperty("id")]
         public long Id { get; set; }
 
-        [DataMember(Name = "userId")]
+        [JsonProperty("userId")]
         public string UserId { get; set; }
 
-        [DataMember(Name = "firstName")]
+        [JsonProperty("firstName")]
         public string FirstName { get; set; }
 
-        [DataMember(Name = "lastName")]
+        [JsonProperty("lastName")]
         public string LastName { get; set; }
 
-        [DataMember(Name = "email")]
+        [JsonProperty("email")]
         public string Email { get; set; }
 
-        [DataMember(Name = "isActive")]
+        [JsonProperty("isActive")]
         public bool IsActive { get; set; }
 
-        [DataMember(Name = "activeDate")]
+        [JsonProperty("activeDate")]
         public DateTime ActiveDate { get; set; }
 
-        [DataMember(Name = "inactiveDate")]
+        [JsonProperty("inactiveDate")]
         public DateTime InactiveDate { get; set; }
 
-        [DataMember(Name = "lastLogin")]
+        [JsonProperty("lastLogin")]
         public DateTime LastLogin { get; set; }
 
-        [DataMember(Name = "lastPasswordChange")]
+        [JsonProperty("lastPasswordChange")]
         public DateTime LastPasswordChange { get; set; }
 
-        [DataMember(Name = "isReset")]
+        [JsonProperty("isReset")]
         public bool IsReset { get; set; }
 
-        [DataMember(Name = "mobilePhone")]
+        [JsonProperty("mobilePhone")]
         public string MobilePhone { get; set; }
 
-        [DataMember(Name = "businessPhone")]
+        [JsonProperty("businessPhone")]
         public string BusinessPhone { get; set; }
 
-        [DataMember(Name = "businessPhoneExtension")]
+        [JsonProperty("businessPhoneExtension")]
         public string BusinessPhoneExtension { get; set; }
 
-        [DataMember(Name = "Company")]
+        [JsonProperty("Company")]
         public string Company { get; set; }
 
-        [DataMember(Name = "jobTitle")]
+        [JsonProperty("jobTitle")]
         public string JobTitle { get; set; }
 
-        [DataMember(Name = "entityName")]
+        [JsonProperty("entityName")]
         public string EntityName { get; set; }
 
-        [DataMember(Name = "profiles")]
+        [JsonProperty("profiles")]
         public List<Profile> Profiles { get; set; }
     }
 }

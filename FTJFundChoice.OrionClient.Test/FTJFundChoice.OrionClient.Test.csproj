@@ -70,6 +70,10 @@
       <Project>{e2be932b-32d5-4e67-8507-b35cdb454d3f}</Project>
       <Name>FTJFundChoice.OrionClient</Name>
     </ProjectReference>
+    <ProjectReference Include="..\FTJFundChoice.OrionModels\FTJFundChoice.OrionModels.csproj">
+      <Project>{c36fb9fd-e014-4536-a823-e0079828fc59}</Project>
+      <Name>FTJFundChoice.OrionModels</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

@@ -1,5 +1,5 @@
 ﻿using FTJFundChoice.OrionClient.Interfaces;
-using FTJFundChoice.OrionClient.Models;
+using FTJFundChoice.OrionModels;
 using RestSharp;
 using System.Collections.Generic;
 

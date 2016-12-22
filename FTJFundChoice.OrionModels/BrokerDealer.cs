@@ -1,76 +1,74 @@
-﻿using System;
-using System.Runtime.Serialization;
+﻿using Newtonsoft.Json;
+using System;
 
-namespace FTJFundChoice.OrionClient.Model {
+namespace FTJFundChoice.OrionModels {
 
-    [DataContract()]
     public class BrokerDealer {
 
-        [DataMember(Name = "id")]
+        [JsonProperty("id")]
         public int Id { get; set; }
 
-        [DataMember(Name = "name")]
+        [JsonProperty("name")]
         public string Name { get; set; }
 
-        [DataMember(Name = "portfolio")]
+        [JsonProperty("portfolio")]
         public BrokerDealerPortfolio Portfolio { get; set; }
     }
 
-    [DataContract()]
     public class BrokerDealerPortfolio {
 
-        [DataMember(Name = "id")]
+        [JsonProperty("id")]
         public int Id { get; set; }
 
-        [DataMember(Name = "name")]
+        [JsonProperty("name")]
         public string Name { get; set; }
 
-        [DataMember(Name = "oldBDCode")]
+        [JsonProperty("oldBDCode")]
         public string OldBDCode { get; set; }
 
-        [DataMember(Name = "email")]
+        [JsonProperty("email")]
         public string Email { get; set; }
 
-        [DataMember(Name = "address1")]
+        [JsonProperty("address1")]
         public string Address1 { get; set; }
 
-        [DataMember(Name = "address2")]
+        [JsonProperty("address2")]
         public string Address2 { get; set; }
 
-        [DataMember(Name = "address3")]
+        [JsonProperty("address3")]
         public string Address3 { get; set; }
 
-        [DataMember(Name = "zip")]
+        [JsonProperty("zip")]
         public string Zip { get; set; }
 
-        [DataMember(Name = "city")]
+        [JsonProperty("city")]
         public string City { get; set; }
 
-        [DataMember(Name = "state")]
+        [JsonProperty("state")]
         public string State { get; set; }
 
-        [DataMember(Name = "businessPhone")]
+        [JsonProperty("businessPhone")]
         public string BusinessPhone { get; set; }
 
-        [DataMember(Name = "homePhone")]
+        [JsonProperty("homePhone")]
         public string HomePhone { get; set; }
 
-        [DataMember(Name = "otherPhone")]
+        [JsonProperty("otherPhone")]
         public string OtherPhone { get; set; }
 
-        [DataMember(Name = "isActive")]
+        [JsonProperty("isActive")]
         public bool IsActive { get; set; }
 
-        [DataMember(Name = "createdBy")]
+        [JsonProperty("createdBy")]
         public string CreatedBy { get; set; }
 
-        [DataMember(Name = "createdDate")]
+        [JsonProperty("createdDate")]
         public DateTime CreatedDate { get; set; }
 
-        [DataMember(Name = "editedBy")]
+        [JsonProperty("editedBy")]
         public string EditedBy { get; set; }
 
-        [DataMember(Name = "editedDate")]
+        [JsonProperty("editedDate")]
         public string EditedDate { get; set; }
     }
 }

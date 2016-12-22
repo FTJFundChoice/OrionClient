@@ -1,5 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using FTJFundChoice.OrionClient.Models;
+using FTJFundChoice.OrionModels;
 using System;
 using System.Collections.Generic;
 using System.Net;

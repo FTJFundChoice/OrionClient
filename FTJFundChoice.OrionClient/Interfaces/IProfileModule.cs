@@ -1,4 +1,4 @@
-﻿using FTJFundChoice.OrionClient.Models;
+﻿using FTJFundChoice.OrionModels;
 using System.Collections.Generic;
 
 namespace FTJFundChoice.OrionClient.Interfaces {
