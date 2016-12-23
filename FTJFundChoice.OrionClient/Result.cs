@@ -16,32 +16,16 @@ namespace FTJFundChoice.OrionClient {
         OrionException OrionException { get; }
     }
 
+    public interface IResult<T> : IResult {
+        T Data { get; }
+    }
+
     public class Result : IResult {
         public string Content { get; set; }
-
-        // Summary:
-        //     Exceptions thrown during the request, if any.
-        //
-        // Remarks:
-        //     Will contain only network transport or framework exceptions thrown during the
-        //     request. HTTP protocol errors are handled by RestSharp and will not appear here.
         public Exception ErrorException { get; set; }
-
-        // Summary:
-        //     Transport or other non-HTTP error generated while attempting request
         public string ErrorMessage { get; set; }
-
-        // Summary:
-        //     Status of the request. Will return Error for transport errors. HTTP errors will
-        //     still return ResponseStatus.Completed, check StatusCode instead
         public ResponseStatus ResponseStatus { get; set; }
-
-        // Summary:
-        //     HTTP response status code
         public HttpStatusCode StatusCode { get; set; }
-
-        // Summary:
-        //     Description of HTTP status returned
         public string StatusDescription { get; set; }
 
         public bool Success {
@@ -69,7 +53,7 @@ namespace FTJFundChoice.OrionClient {
         }
     }
 
-    public class Result<T> : Result {
+    public class Result<T> : Result, IResult<T> {
 
         public Result(IRestResponse<T> response) : base(response) {
             Data = response.Data;

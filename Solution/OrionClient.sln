@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FTJFundChoice.OrionClient",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FTJFundChoice.OrionClient.Test", "..\FTJFundChoice.OrionClient.Test\FTJFundChoice.OrionClient.Test.csproj", "{30DB7D0A-EAD2-4C77-BBF1-D9876CA055D4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FTJFundChoice.OrionModels", "..\FTJFundChoice.OrionModels\FTJFundChoice.OrionModels.csproj", "{C36FB9FD-E014-4536-A823-E0079828FC59}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,10 +21,6 @@ Global
 		{30DB7D0A-EAD2-4C77-BBF1-D9876CA055D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{30DB7D0A-EAD2-4C77-BBF1-D9876CA055D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{30DB7D0A-EAD2-4C77-BBF1-D9876CA055D4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C36FB9FD-E014-4536-A823-E0079828FC59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C36FB9FD-E014-4536-A823-E0079828FC59}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C36FB9FD-E014-4536-A823-E0079828FC59}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C36FB9FD-E014-4536-A823-E0079828FC59}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

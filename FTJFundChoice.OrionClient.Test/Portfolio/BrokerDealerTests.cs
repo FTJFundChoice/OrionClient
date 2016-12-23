@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Net;
+using System.Threading.Tasks;
 
 namespace FTJFundChoice.OrionClient.Test.Portfolio {
 
@@ -9,8 +10,8 @@ namespace FTJFundChoice.OrionClient.Test.Portfolio {
     public class BrokerDealerTests : BaseTest {
 
         [TestMethod]
-        public void GetAll() {
-            var result = Client.Portfolio.BrokerDealers.GetAll();
+        public async Task GetAll() {
+            var result = await Client.Portfolio.BrokerDealers.GetAll();
 
             Assert.AreEqual(result.StatusCode, HttpStatusCode.OK);
             Assert.IsTrue(result.Data.Count > 0);
@@ -18,15 +19,15 @@ namespace FTJFundChoice.OrionClient.Test.Portfolio {
         }
 
         [TestMethod]
-        public void Get() {
-            var result = Client.Portfolio.BrokerDealers.Get(3);
+        public async Task Get() {
+            var result = await Client.Portfolio.BrokerDealers.Get(3);
 
             Assert.AreEqual(result.StatusCode, HttpStatusCode.OK);
             Assert.IsNotNull(result.Data.Portfolio.OldBDCode);
         }
 
         [TestMethod]
-        public void Create() {
+        public async Task Create() {
             var dealer = new BrokerDealer {
                 Name = "Orion Test",
                 Portfolio = new BrokerDealerPortfolio {
@@ -40,18 +41,20 @@ namespace FTJFundChoice.OrionClient.Test.Portfolio {
                     Name = "Orion Test"
                 }
             };
-            var result = Client.Portfolio.BrokerDealers.Create(dealer);
+            var result = await Client.Portfolio.BrokerDealers.Create(dealer);
 
             Assert.AreEqual(result.StatusCode, HttpStatusCode.OK);
             Assert.IsNotNull(result.Data);
         }
 
         [TestMethod]
-        public void Update() {
-            var dealer = Client.Portfolio.BrokerDealers.Get(337).Data;
+        public async Task Update() {
+            var result = await Client.Portfolio.BrokerDealers.Get(337);
+
+            var dealer = result.Data;
             dealer.Portfolio.Address1 = "TEST ADDRESS 2";
 
-            var result = Client.Portfolio.BrokerDealers.Update(dealer);
+            result = await Client.Portfolio.BrokerDealers.Update(dealer);
 
             Assert.AreEqual(result.StatusCode, HttpStatusCode.OK);
             Assert.IsNotNull(result.Data);

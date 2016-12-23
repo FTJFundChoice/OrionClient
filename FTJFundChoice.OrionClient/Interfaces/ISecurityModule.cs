@@ -1,4 +1,5 @@
 ﻿using FTJFundChoice.OrionClient.Models;
+using System.Threading.Tasks;
 
 namespace FTJFundChoice.OrionClient.Interfaces {
 
@@ -6,6 +7,8 @@ namespace FTJFundChoice.OrionClient.Interfaces {
         IUserModule Users { get; }
         IProfileModule Profiles { get; }
 
-        Result<AuthToken> ImpersonationToken(string entity, string entityId);
+        Task<IResult<Token>> GetToken(string username, string password);
+
+        Task<IResult<Token>> GetImpersonationToken(string entity, string entityId);
     }
 }

@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace FTJFundChoice.OrionClient.Models {
 
     [DataContract()]
-    public class AuthToken {
+    public class Token {
 
         [DataMember(Name = "access_token")]
         public string AccessToken { get; set; }

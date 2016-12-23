@@ -30,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FTJFundChoice.OrionModels, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\Solution\packages\FTJFundChoice.OrionModels.0.1.0-beta\lib\net461\FTJFundChoice.OrionModels.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\Solution\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
@@ -53,7 +57,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\AuthToken.cs" />
+    <Compile Include="Helpers\AuthenticationHelpers.cs" />
+    <Compile Include="IOrionClient.cs" />
+    <Compile Include="Models\Token.cs" />
     <Compile Include="OrionClient.cs" />
     <Compile Include="Compositions\BrokerDealerModule.cs" />
     <Compile Include="Compositions\PortfolioModule.cs" />
@@ -80,12 +86,6 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\FTJFundChoice.OrionModels\FTJFundChoice.OrionModels.csproj">
-      <Project>{c36fb9fd-e014-4536-a823-e0079828fc59}</Project>
-      <Name>FTJFundChoice.OrionModels</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

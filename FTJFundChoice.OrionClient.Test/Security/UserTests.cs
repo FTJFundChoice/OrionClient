@@ -1,8 +1,9 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using FTJFundChoice.OrionModels;
+﻿using FTJFundChoice.OrionModels;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 using System.Net;
+using System.Threading.Tasks;
 
 namespace FTJFundChoice.OrionClient.Test.Security {
 
@@ -10,23 +11,23 @@ namespace FTJFundChoice.OrionClient.Test.Security {
     public class UserTests : BaseTest {
 
         [TestMethod]
-        public void GetAll() {
-            var result = Client.Security.Users.GetAll();
+        public async Task GetAll() {
+            var result = await Client.Security.Users.GetAll();
             Assert.AreEqual(result.StatusCode, HttpStatusCode.OK);
             Assert.IsTrue(result.Data.Count > 0);
             Assert.IsNotNull(result.Data[0].EntityName);
         }
 
         [TestMethod]
-        public void Get() {
-            var result = Client.Security.Users.Get(65258);
+        public async Task Get() {
+            var result = await Client.Security.Users.Get(65258);
 
             Assert.AreEqual(result.StatusCode, HttpStatusCode.OK);
             Assert.IsNotNull(result.Data.EntityName);
         }
 
         [TestMethod]
-        public void Create() {
+        public async Task Create() {
             var user = new User {
                 EntityName = "ORION_CLIENT_TEST",
                 UserId = Guid.NewGuid().ToString(),
@@ -47,18 +48,19 @@ namespace FTJFundChoice.OrionClient.Test.Security {
                 RoleName = "Representative"
             });
 
-            var result = Client.Security.Users.Create(user);
+            var result = await Client.Security.Users.Create(user);
 
             Assert.AreEqual(result.StatusCode, HttpStatusCode.OK);
             Assert.IsNotNull(result.Data);
         }
 
         [TestMethod]
-        public void Update() {
-            var user = Client.Security.Users.Get(69949).Data;
+        public async Task Update() {
+            var result = await Client.Security.Users.Get(69949);
+            var user = result.Data;
             user.FirstName = "ORION_TEST";
 
-            var result = Client.Security.Users.Update(user);
+            result = await Client.Security.Users.Update(user);
 
             Assert.AreEqual(result.StatusCode, HttpStatusCode.OK);
             Assert.IsNotNull(result.Data);

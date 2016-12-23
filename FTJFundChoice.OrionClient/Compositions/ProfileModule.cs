@@ -2,6 +2,7 @@
 using FTJFundChoice.OrionModels;
 using RestSharp;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace FTJFundChoice.OrionClient.Compositions {
 
@@ -12,14 +13,14 @@ namespace FTJFundChoice.OrionClient.Compositions {
             this.client = client;
         }
 
-        public Result<List<SearchProfile>> GetAll() {
+        public async Task<IResult<List<SearchProfile>>> GetAll() {
             var request = new RestRequest("Security/Profiles", Method.GET);
 
-            var result = client.Execute<List<SearchProfile>>(request);
+            var result = await client.ExecuteTaskAsync<List<SearchProfile>>(request);
             return new Result<List<SearchProfile>>(result);
         }
 
-        public Result<List<SearchProfile>> Search(string search, string entity = null, bool? isActive = default(bool?)) {
+        public async Task<IResult<List<SearchProfile>>> Search(string search, string entity = null, bool? isActive = default(bool?)) {
             var request = new RestRequest("Security/Profiles/Search/{search}", Method.GET);
             request.AddUrlSegment("search", search);
 
@@ -31,7 +32,7 @@ namespace FTJFundChoice.OrionClient.Compositions {
                 request.AddQueryParameter("isActive", isActive.Value ? "1" : "0");
             }
 
-            var result = client.Execute<List<SearchProfile>>(request);
+            var result = await client.ExecuteTaskAsync<List<SearchProfile>>(request);
             return new Result<List<SearchProfile>>(result);
         }
     }

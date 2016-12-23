@@ -4,7 +4,7 @@ using RestSharp;
 
 namespace FTJFundChoice.OrionClient {
 
-    public class OrionClient {
+    public class OrionClient : IOrionClient {
         private IRestClient client = null;
         private IPortfolioModule portfolioModule;
         private ISecurityModule securityModule;

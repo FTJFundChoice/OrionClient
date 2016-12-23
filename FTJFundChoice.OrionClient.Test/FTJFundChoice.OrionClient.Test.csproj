@@ -35,6 +35,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FTJFundChoice.OrionModels, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\Solution\packages\FTJFundChoice.OrionModels.0.1.0-beta\lib\net461\FTJFundChoice.OrionModels.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\Solution\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
   </ItemGroup>
@@ -64,15 +72,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FTJFundChoice.OrionClient\FTJFundChoice.OrionClient.csproj">
       <Project>{e2be932b-32d5-4e67-8507-b35cdb454d3f}</Project>
       <Name>FTJFundChoice.OrionClient</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FTJFundChoice.OrionModels\FTJFundChoice.OrionModels.csproj">
-      <Project>{c36fb9fd-e014-4536-a823-e0079828fc59}</Project>
-      <Name>FTJFundChoice.OrionModels</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

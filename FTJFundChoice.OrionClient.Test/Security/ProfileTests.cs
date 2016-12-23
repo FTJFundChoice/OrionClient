@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Net;
+using System.Threading.Tasks;
 
 namespace FTJFundChoice.OrionClient.Test.Security {
 
@@ -7,16 +8,16 @@ namespace FTJFundChoice.OrionClient.Test.Security {
     public class ProfileTests : BaseTest {
 
         [TestMethod]
-        public void GetAll() {
-            var result = Client.Security.Profiles.GetAll();
+        public async Task GetAll() {
+            var result = await Client.Security.Profiles.GetAll();
 
             Assert.AreEqual(result.StatusCode, HttpStatusCode.OK);
             Assert.IsTrue(result.Data.Count > 0);
         }
 
         [TestMethod]
-        public void Search() {
-            var result = Client.Security.Profiles.Search("testrep@");
+        public async Task Search() {
+            var result = await Client.Security.Profiles.Search("testrep@");
 
             Assert.AreEqual(result.StatusCode, HttpStatusCode.OK);
             Assert.IsTrue(result.Data.Count > 0);
