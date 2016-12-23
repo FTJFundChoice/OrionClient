@@ -14,6 +14,7 @@ namespace FTJFundChoice.OrionClient {
         string StatusDescription { get; set; }
 
         OrionException OrionException { get; }
+        bool Success { get; }
     }
 
     public interface IResult<T> : IResult {

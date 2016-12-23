@@ -15,7 +15,7 @@ namespace FTJFundChoice.OrionClient.Test.Security {
 
             var result = await Client.Security.GetImpersonationToken(entity, entityId);
 
-            Assert.AreEqual(result.StatusCode, HttpStatusCode.OK);
+            Assert.IsTrue(result.Success);
             Assert.IsFalse(string.IsNullOrEmpty(result.Content));
         }
 
@@ -26,7 +26,7 @@ namespace FTJFundChoice.OrionClient.Test.Security {
 
             var result = await Client.Security.GetToken(username, password);
 
-            Assert.AreEqual(result.StatusCode, HttpStatusCode.OK);
+            Assert.IsTrue(result.Success);
             Assert.IsFalse(string.IsNullOrEmpty(result.Content));
         }
     }

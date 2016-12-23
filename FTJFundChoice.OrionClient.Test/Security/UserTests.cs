@@ -13,7 +13,7 @@ namespace FTJFundChoice.OrionClient.Test.Security {
         [TestMethod]
         public async Task GetAll() {
             var result = await Client.Security.Users.GetAll();
-            Assert.AreEqual(result.StatusCode, HttpStatusCode.OK);
+            Assert.IsTrue(result.Success);
             Assert.IsTrue(result.Data.Count > 0);
             Assert.IsNotNull(result.Data[0].EntityName);
         }
@@ -22,7 +22,7 @@ namespace FTJFundChoice.OrionClient.Test.Security {
         public async Task Get() {
             var result = await Client.Security.Users.Get(65258);
 
-            Assert.AreEqual(result.StatusCode, HttpStatusCode.OK);
+            Assert.IsTrue(result.Success);
             Assert.IsNotNull(result.Data.EntityName);
         }
 
@@ -50,7 +50,7 @@ namespace FTJFundChoice.OrionClient.Test.Security {
 
             var result = await Client.Security.Users.Create(user);
 
-            Assert.AreEqual(result.StatusCode, HttpStatusCode.OK);
+            Assert.IsTrue(result.Success);
             Assert.IsNotNull(result.Data);
         }
 
@@ -62,7 +62,7 @@ namespace FTJFundChoice.OrionClient.Test.Security {
 
             result = await Client.Security.Users.Update(user);
 
-            Assert.AreEqual(result.StatusCode, HttpStatusCode.OK);
+            Assert.IsTrue(result.Success);
             Assert.IsNotNull(result.Data);
         }
     }

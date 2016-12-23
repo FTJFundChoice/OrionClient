@@ -11,7 +11,7 @@ namespace FTJFundChoice.OrionClient.Test.Security {
         public async Task GetAll() {
             var result = await Client.Security.Profiles.GetAll();
 
-            Assert.AreEqual(result.StatusCode, HttpStatusCode.OK);
+            Assert.IsTrue(result.Success);
             Assert.IsTrue(result.Data.Count > 0);
         }
 
@@ -19,7 +19,7 @@ namespace FTJFundChoice.OrionClient.Test.Security {
         public async Task Search() {
             var result = await Client.Security.Profiles.Search("testrep@");
 
-            Assert.AreEqual(result.StatusCode, HttpStatusCode.OK);
+            Assert.IsTrue(result.Success);
             Assert.IsTrue(result.Data.Count > 0);
         }
     }
