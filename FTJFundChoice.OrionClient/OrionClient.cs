@@ -1,4 +1,4 @@
-﻿using FTJFundChoice.OrionClient.Compositions;
+﻿using FTJFundChoice.OrionClient.Factories;
 using FTJFundChoice.OrionClient.Interfaces;
 using RestSharp;
 
@@ -6,26 +6,32 @@ namespace FTJFundChoice.OrionClient {
 
     public class OrionClient : IOrionClient {
         private IRestClient client = null;
-        private IPortfolioModule portfolioModule;
-        private ISecurityModule securityModule;
+        private ICompositionFactory factory = null;
 
         public OrionClient(string baseUrl, Credentials apiCredentials) {
             client = new RestClient(baseUrl);
             client.Authenticator = new OrionAuthenticator(apiCredentials);
+            client.ClearHandlers();
 
-            portfolioModule = new PortfolioModule(client);
-            securityModule = new SecurityModule(client);
+            client.AddHandler("application/json", OrionJsonSerializer.Default);
+            client.AddHandler("text/json", OrionJsonSerializer.Default);
+            client.AddHandler("text/x-json", OrionJsonSerializer.Default);
+            client.AddHandler("text/javascript", OrionJsonSerializer.Default);
+            client.AddHandler("*+json", OrionJsonSerializer.Default);
+
+            // ICompositionFactory is the only singleton, by design.
+            factory = new CompositionFactory(client);
         }
 
-        public IPortfolioModule Portfolio {
+        public IPortfolioFactory Portfolio {
             get {
-                return portfolioModule;
+                return factory.Portfolio;
             }
         }
 
-        public ISecurityModule Security {
+        public ISecurityFactory Security {
             get {
-                return securityModule;
+                return factory.Security;
             }
         }
     }

@@ -1,37 +1,33 @@
-﻿using FTJFundChoice.OrionClient.Helpers;
+﻿using FTJFundChoice.OrionClient.Compositions;
+using FTJFundChoice.OrionClient.Helpers;
 using FTJFundChoice.OrionClient.Interfaces;
 using FTJFundChoice.OrionClient.Models;
 using RestSharp;
-using System;
 using System.Threading.Tasks;
 
-namespace FTJFundChoice.OrionClient.Compositions {
+namespace FTJFundChoice.OrionClient.Factories {
 
-    public class SecurityModule : ISecurityModule {
+    public class SecurityFactory : ISecurityFactory {
         private IRestClient client;
-        private IUserModule userModule;
-        private IProfileModule profileModule;
 
-        public SecurityModule(IRestClient client) {
+        public SecurityFactory(IRestClient client) {
             this.client = client;
-            userModule = new UserModule(client);
-            profileModule = new ProfileModule(client);
-        }
-
-        public IUserModule Users {
-            get {
-                return userModule;
-            }
         }
 
         public IProfileModule Profiles {
             get {
-                return profileModule;
+                return new ProfileModule(client);
+            }
+        }
+
+        public IUserModule Users {
+            get {
+                return new UserModule(client);
             }
         }
 
         public async Task<IResult<Token>> GetImpersonationToken(string entity, string entityId) {
-            var request = new RestRequest(AuthenticationHelpers.ImpersonationPath, Method.GET);
+            var request = new OrionRequest(AuthenticationHelpers.ImpersonationPath, Method.GET);
             request.AddHeader("entity", entity);
             request.AddHeader("entityId", entityId);
 
@@ -40,7 +36,7 @@ namespace FTJFundChoice.OrionClient.Compositions {
         }
 
         public async Task<IResult<Token>> GetToken(string username, string password) {
-            var request = new RestRequest(AuthenticationHelpers.AuthenticationPath, Method.GET);
+            var request = new OrionRequest(AuthenticationHelpers.AuthenticationPath, Method.GET);
 
             AuthenticationHelpers.ApplyBasicAuthentication(request, new Credentials {
                 Username = username,

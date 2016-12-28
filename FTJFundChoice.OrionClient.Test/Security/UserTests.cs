@@ -1,8 +1,8 @@
-﻿using FTJFundChoice.OrionModels;
+﻿using FTJFundChoice.OrionModels.Enums;
+using FTJFundChoice.OrionModels.Security;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
-using System.Net;
 using System.Threading.Tasks;
 
 namespace FTJFundChoice.OrionClient.Test.Security {
@@ -28,7 +28,7 @@ namespace FTJFundChoice.OrionClient.Test.Security {
 
         [TestMethod]
         public async Task Create() {
-            var user = new User {
+            var user = new UserInfoDetails {
                 EntityName = "ORION_CLIENT_TEST",
                 UserId = Guid.NewGuid().ToString(),
                 Email = "ORION_CLIENT@TEST.123",
@@ -37,7 +37,8 @@ namespace FTJFundChoice.OrionClient.Test.Security {
             };
 
             user.Profiles.Add(new Profile {
-                LoginEntityId = LoginEntityId.Rep,
+                LoginEntityId = LoginEntityId.Represenetative,
+                Entity = Entity.Representative,
                 EntityId = 6723,
                 IsUserDefault = true,
                 IsInCurrentDb = true,
@@ -64,6 +65,13 @@ namespace FTJFundChoice.OrionClient.Test.Security {
 
             Assert.IsTrue(result.Success);
             Assert.IsNotNull(result.Data);
+        }
+
+        [TestMethod]
+        public async Task DeleteManual() {
+            //var userId = 1;
+            //var result = await Client.Security.Users.Delete(userId);
+            //Assert.IsTrue(result.Success);
         }
     }
 }

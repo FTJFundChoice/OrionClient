@@ -5,7 +5,7 @@ namespace FTJFundChoice.OrionClient.Interfaces {
 
     public interface ICommonRead<T> {
 
-        Task<IResult<List<T>>> GetAll(int top = 1000, int skip = 0, bool? IsActive = null);
+        Task<IResult<List<T>>> GetAll();
 
         Task<IResult<T>> Get(long id);
     }

@@ -1,4 +1,5 @@
 ﻿using FTJFundChoice.OrionModels;
+using FTJFundChoice.OrionModels.Portfolio;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Linq;

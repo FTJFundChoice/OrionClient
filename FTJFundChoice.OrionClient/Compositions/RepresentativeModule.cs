@@ -1,6 +1,7 @@
-﻿using FTJFundChoice.OrionClient.Helpers;
+﻿using FTJFundChoice.OrionClient.Extensions;
 using FTJFundChoice.OrionClient.Interfaces;
 using FTJFundChoice.OrionModels;
+using FTJFundChoice.OrionModels.Portfolio;
 using Newtonsoft.Json;
 using RestSharp;
 using System;
@@ -22,7 +23,7 @@ namespace FTJFundChoice.OrionClient.Compositions {
         /// <param name="representative"></param>
         /// <returns>Returns Result object with verbose Representative. (no collections)</returns>
         public async Task<IResult<Representative>> Create(Representative representative) {
-            var request = new RestSharp.Newtonsoft.Json.RestRequest("Portfolio/Representatives/Verbose", Method.POST);
+            var request = new OrionRequest("Portfolio/Representatives/Verbose", Method.POST);
             request.AddParameter("application/json", JsonConvert.SerializeObject(representative), ParameterType.RequestBody);
 
             var result = await client.ExecuteTaskAsync<Representative>(request);
@@ -34,25 +35,27 @@ namespace FTJFundChoice.OrionClient.Compositions {
         }
 
         public async Task<IResult<Representative>> Get(long id, bool includePorfolio = true, bool includeUserDefinedFields = false) {
-            var request = new RestRequest("Portfolio/Representatives/Verbose/{id}", Method.GET);
+            var request = new OrionRequest("Portfolio/Representatives/Verbose/{id}", Method.GET);
             request.AddUrlSegment("id", Convert.ToString(id));
-            QueryHelpers.AddExpandQueryParameters(request, includePorfolio, includeUserDefinedFields);
+            request.AddExpandQueryParameters(includePorfolio, includeUserDefinedFields);
 
             var result = await client.ExecuteTaskAsync<Representative>(request);
             return new Result<Representative>(result);
         }
 
-        public async Task<IResult<List<Representative>>> GetAll(int top = 1000, int skip = 0, bool? IsActive = null) {
+        public async Task<IResult<List<Representative>>> GetAll() {
+            return await GetAll(5000, 0, null, true, false);
+        }
+
+        public async Task<IResult<List<Representative>>> GetAll(int top = 1000, int skip = 0, bool? isActive = null) {
             return await GetAll(top, skip, null, true, false);
         }
 
-        public async Task<IResult<List<Representative>>> GetAll(int top = 100, int skip = 0, bool? IsActive = null, bool includePorfolio = true, bool includeUserDefinedFields = false) {
-            var request = new RestRequest("Portfolio/Representatives/Verbose", Method.GET);
-            if (IsActive.HasValue)
-                request.AddQueryParameter("isActive", IsActive.Value ? "1" : "0");
-
-            QueryHelpers.AddExpandQueryParameters(request, includePorfolio, includeUserDefinedFields);
-            QueryHelpers.AddTopSkipQueryParameters(request, top, skip);
+        public async Task<IResult<List<Representative>>> GetAll(int top = 1000, int skip = 0, bool? isActive = null, bool includePorfolio = true, bool includeUserDefinedFields = false) {
+            var request = new OrionRequest("Portfolio/Representatives/Verbose", Method.GET);
+            request.AddExpandQueryParameters(includePorfolio, includeUserDefinedFields);
+            request.AddTopSkipQueryParameters(top, skip);
+            request.AddActiveQueryParameters(isActive);
 
             var result = await client.ExecuteTaskAsync<List<Representative>>(request);
             return new Result<List<Representative>>(result);
@@ -64,7 +67,7 @@ namespace FTJFundChoice.OrionClient.Compositions {
         /// <param name="representative"></param>
         /// <returns>Returns Result object with verbose Representative. (no collections)</returns>
         public async Task<IResult<Representative>> Update(Representative representative) {
-            var request = new RestSharp.Newtonsoft.Json.RestRequest("Portfolio/Representatives/Verbose/{id}", Method.PUT);
+            var request = new OrionRequest("Portfolio/Representatives/Verbose/{id}", Method.PUT);
 
             request.AddUrlSegment("id", representative.Id.ToString());
 

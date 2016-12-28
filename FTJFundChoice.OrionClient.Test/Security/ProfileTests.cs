@@ -12,12 +12,13 @@ namespace FTJFundChoice.OrionClient.Test.Security {
             var result = await Client.Security.Profiles.GetAll();
 
             Assert.IsTrue(result.Success);
+            Assert.IsNotNull(result.Data);
             Assert.IsTrue(result.Data.Count > 0);
         }
 
         [TestMethod]
         public async Task Search() {
-            var result = await Client.Security.Profiles.Search("testrep@");
+            var result = await Client.Security.Profiles.Search("a&ifinancial"); // testrep@
 
             Assert.IsTrue(result.Success);
             Assert.IsTrue(result.Data.Count > 0);
