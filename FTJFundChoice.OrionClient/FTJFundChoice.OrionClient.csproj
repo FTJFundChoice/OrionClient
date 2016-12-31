@@ -31,7 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="FTJFundChoice.OrionModels, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\Solution\packages\FTJFundChoice.OrionModels.0.2.3-beta\lib\net461\FTJFundChoice.OrionModels.dll</HintPath>
+      <HintPath>..\Solution\packages\FTJFundChoice.OrionModels.0.2.6-beta\lib\net461\FTJFundChoice.OrionModels.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">

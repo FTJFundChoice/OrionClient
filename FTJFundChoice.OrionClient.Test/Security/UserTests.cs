@@ -37,7 +37,7 @@ namespace FTJFundChoice.OrionClient.Test.Security {
             };
 
             user.Profiles.Add(new Profile {
-                LoginEntityId = LoginEntityId.Represenetative,
+                LoginEntityId = LoginEntityId.Representative,
                 Entity = Entity.Representative,
                 EntityId = 6723,
                 IsUserDefault = true,
