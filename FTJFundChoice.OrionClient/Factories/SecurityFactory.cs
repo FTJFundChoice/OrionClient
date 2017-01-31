@@ -1,50 +1,48 @@
 ﻿using FTJFundChoice.OrionClient.Compositions;
+using FTJFundChoice.OrionClient.Enums;
 using FTJFundChoice.OrionClient.Helpers;
 using FTJFundChoice.OrionClient.Interfaces;
 using FTJFundChoice.OrionClient.Models;
-using RestSharp;
 using System.Threading.Tasks;
 
 namespace FTJFundChoice.OrionClient.Factories {
 
     public class SecurityFactory : ISecurityFactory {
-        private IRestClient client;
+        private readonly Client client;
 
-        public SecurityFactory(IRestClient client) {
+        public SecurityFactory(Client client) {
             this.client = client;
         }
 
-        public IProfileModule Profiles {
+        public IProfilesModule Profiles {
             get {
-                return new ProfileModule(client);
+                return new ProfilesModule(client);
             }
         }
 
-        public IUserModule Users {
+        public IUsersModule Users {
             get {
-                return new UserModule(client);
+                return new UsersModule(client);
             }
         }
 
         public async Task<IResult<Token>> GetImpersonationToken(string entity, string entityId) {
-            var request = new OrionRequest(AuthenticationHelpers.ImpersonationPath, Method.GET);
+            var request = new Request(Method.GET, AuthenticationHelpers.ImpersonationPath);
             request.AddHeader("entity", entity);
             request.AddHeader("entityId", entityId);
 
-            var result = await client.ExecuteGetTaskAsync<Token>(request);
-            return new Result<Token>(result);
+            return await client.ExecuteTaskAsync<Token>(request);
         }
 
         public async Task<IResult<Token>> GetToken(string username, string password) {
-            var request = new OrionRequest(AuthenticationHelpers.AuthenticationPath, Method.GET);
+            var request = new Request(Method.GET, AuthenticationHelpers.AuthenticationPath);
 
             AuthenticationHelpers.ApplyBasicAuthentication(request, new Credentials {
                 Username = username,
                 Password = password
             });
 
-            var result = await client.ExecuteGetTaskAsync<Token>(request);
-            return new Result<Token>(result);
+            return await client.ExecuteTaskAsync<Token>(request);
         }
     }
 }

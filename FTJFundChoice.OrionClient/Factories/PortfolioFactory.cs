@@ -1,31 +1,30 @@
 ﻿using FTJFundChoice.OrionClient.Compositions;
 using FTJFundChoice.OrionClient.Interfaces;
-using RestSharp;
 
 namespace FTJFundChoice.OrionClient.Factories {
 
     public class PortfolioFactory : IPortfolioFactory {
-        private IRestClient client;
+        private readonly Client client;
 
-        public PortfolioFactory(IRestClient client) {
+        public PortfolioFactory(Client client) {
             this.client = client;
         }
 
-        public IBrokerDealerModule BrokerDealers {
+        public IBrokerDealersModule BrokerDealers {
             get {
-                return new BrokerDealerModule(client);
+                return new BrokerDealersModule(client);
             }
         }
 
-        public IRepresentativeModule Representatives {
+        public IRepresentativesModule Representatives {
             get {
-                return new RepresentativeModule(client);
+                return new RepresentativesModule(client);
             }
         }
 
-        public IWholesalerModule Wholesalers {
+        public IWholesalersModule Wholesalers {
             get {
-                return new WholesalerModule(client);
+                return new WholesalersModule(client);
             }
         }
     }

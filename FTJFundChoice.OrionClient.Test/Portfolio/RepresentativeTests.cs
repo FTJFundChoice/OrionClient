@@ -1,4 +1,5 @@
-﻿using FTJFundChoice.OrionModels;
+﻿using FTJFundChoice.OrionClient.Enums;
+using FTJFundChoice.OrionModels;
 using FTJFundChoice.OrionModels.Portfolio;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
@@ -15,7 +16,7 @@ namespace FTJFundChoice.OrionClient.Test.Portfolio {
         public async Task GetAll() {
             var result = await Client.Portfolio.Representatives.GetAll();
 
-            Assert.AreEqual(result.StatusCode, HttpStatusCode.OK);
+            Assert.AreEqual(result.StatusCode, StatusCode.OK);
             Assert.IsTrue(result.Data.Count > 0);
             Assert.IsNotNull(result.Data[0].Portfolio.Number);
         }
@@ -24,20 +25,20 @@ namespace FTJFundChoice.OrionClient.Test.Portfolio {
         public async Task Get() {
             var result = await Client.Portfolio.Representatives.Get(349);
 
-            Assert.AreEqual(result.StatusCode, HttpStatusCode.OK);
+            Assert.AreEqual(result.StatusCode, StatusCode.OK);
             Assert.IsNotNull(result.Data.Portfolio.Number);
         }
 
         [TestMethod]
         public async Task GetWithUserDefinedFields() {
             var result = await Client.Portfolio.Representatives.Get(349, false, true);
-            Assert.AreEqual(result.StatusCode, HttpStatusCode.OK);
+            Assert.AreEqual(result.StatusCode, StatusCode.OK);
             Assert.IsNotNull(result.Data.UserDefinedFields);
         }
 
         [TestMethod]
         public async Task Create() {
-            var rep = new Representative {
+            var rep = new RepresentativeVerbose {
                 Name = "Orion Test",
                 Portfolio = new RepresentativePortfolio {
                     Address1 = "TEST ADDRESS",
@@ -56,7 +57,7 @@ namespace FTJFundChoice.OrionClient.Test.Portfolio {
             };
             var result = await Client.Portfolio.Representatives.Create(rep);
 
-            Assert.AreEqual(result.StatusCode, HttpStatusCode.OK);
+            Assert.AreEqual(result.StatusCode, StatusCode.OK);
             Assert.IsNotNull(result.Data);
         }
 
@@ -69,7 +70,7 @@ namespace FTJFundChoice.OrionClient.Test.Portfolio {
 
             result = await Client.Portfolio.Representatives.Update(rep);
 
-            Assert.AreEqual(result.StatusCode, HttpStatusCode.OK);
+            Assert.AreEqual(result.StatusCode, StatusCode.OK);
             Assert.IsNotNull(result.Data);
         }
 
@@ -85,7 +86,7 @@ namespace FTJFundChoice.OrionClient.Test.Portfolio {
 
             result = await Client.Portfolio.Representatives.Update(rep);
 
-            Assert.AreEqual(result.StatusCode, HttpStatusCode.OK);
+            Assert.AreEqual(result.StatusCode, StatusCode.OK);
             Assert.IsNotNull(result.Data);
         }
     }

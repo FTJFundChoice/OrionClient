@@ -30,16 +30,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="FTJFundChoice.OrionModels, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\Solution\packages\FTJFundChoice.OrionModels.0.2.6-beta\lib\net461\FTJFundChoice.OrionModels.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\Solution\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="RestSharp, Version=100.0.0.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
-      <HintPath>..\Solution\packages\RestSharpSigned.105.2.3\lib\net46\RestSharp.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -53,37 +45,48 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Compositions\BrokerDealers\BrokerDealersModule.cs" />
+    <Compile Include="Compositions\BrokerDealers\BrokerDealersSimpleModule.cs" />
+    <Compile Include="Compositions\BrokerDealers\BrokerDealersVerboseModule.cs" />
+    <Compile Include="Enums\Method.cs" />
+    <Compile Include="Enums\StatusCode.cs" />
     <Compile Include="Factories\CompositionFactory.cs" />
     <Compile Include="Extensions\RequestExtensions.cs" />
     <Compile Include="Factories\PortfolioFactory.cs" />
     <Compile Include="Factories\SecurityFactory.cs" />
     <Compile Include="Helpers\AuthenticationHelpers.cs" />
+    <Compile Include="Interfaces\BrokerDealers\IBrokerDealersModule.cs" />
+    <Compile Include="Interfaces\Common\IModifyModule.cs" />
+    <Compile Include="Interfaces\Common\IQueryModule.cs" />
+    <Compile Include="Interfaces\Common\ISearchModule.cs" />
     <Compile Include="Interfaces\ICompositionFactory.cs" />
-    <Compile Include="IOrionClient.cs" />
+    <Compile Include="IClient.cs" />
     <Compile Include="Models\Token.cs" />
-    <Compile Include="OrionClient.cs" />
-    <Compile Include="Compositions\BrokerDealerModule.cs" />
-    <Compile Include="Compositions\ProfileModule.cs" />
-    <Compile Include="Compositions\RepresentativeModule.cs" />
-    <Compile Include="Compositions\UserModule.cs" />
-    <Compile Include="Compositions\WholesalerModule.cs" />
+    <Compile Include="Client.cs" />
+    <Compile Include="Compositions\ProfilesModule.cs" />
+    <Compile Include="Compositions\RepresentativesModule.cs" />
+    <Compile Include="Compositions\UsersModule.cs" />
+    <Compile Include="Compositions\WholesalersModule.cs" />
     <Compile Include="Credentials.cs" />
-    <Compile Include="Interfaces\IProfileModule.cs" />
-    <Compile Include="Interfaces\IUserModule.cs" />
+    <Compile Include="Interfaces\IProfilesModule.cs" />
+    <Compile Include="Interfaces\IUsersModule.cs" />
     <Compile Include="OrionException.cs" />
-    <Compile Include="Interfaces\IBrokerDealerModule.cs" />
-    <Compile Include="Interfaces\IRepresentativeModule.cs" />
-    <Compile Include="Interfaces\IWholesalerModule.cs" />
-    <Compile Include="Interfaces\ICommon.cs" />
-    <Compile Include="OrionAuthenticator.cs" />
-    <Compile Include="OrionJsonSerializer.cs" />
-    <Compile Include="OrionRequest.cs" />
+    <Compile Include="Interfaces\IRepresentativesModule.cs" />
+    <Compile Include="Interfaces\IWholesalersModule.cs" />
+    <Compile Include="Authenticator.cs" />
+    <Compile Include="Request.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Result.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\OrionModels\FTJFundChoice.OrionModels\FTJFundChoice.OrionModels.csproj">
+      <Project>{c36fb9fd-e014-4536-a823-e0079828fc59}</Project>
+      <Name>FTJFundChoice.OrionModels</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

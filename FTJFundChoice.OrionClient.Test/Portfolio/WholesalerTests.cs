@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using FTJFundChoice.OrionClient.Enums;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Net;
 using System.Threading.Tasks;
 
@@ -11,7 +12,7 @@ namespace FTJFundChoice.OrionClient.Test {
         public async Task GetAll() {
             var result = await Client.Portfolio.Wholesalers.GetAll();
 
-            Assert.AreEqual(result.StatusCode, HttpStatusCode.OK);
+            Assert.AreEqual(result.StatusCode, StatusCode.OK);
             Assert.IsNotNull(result.Data);
         }
 
@@ -19,7 +20,7 @@ namespace FTJFundChoice.OrionClient.Test {
         public async Task Get() {
             var result = await Client.Portfolio.Wholesalers.Get(13);
 
-            Assert.AreEqual(result.StatusCode, HttpStatusCode.OK);
+            Assert.AreEqual(result.StatusCode, StatusCode.OK);
             Assert.IsNotNull(result.Data);
         }
     }

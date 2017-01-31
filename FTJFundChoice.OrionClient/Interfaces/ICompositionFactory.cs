@@ -9,14 +9,14 @@ namespace FTJFundChoice.OrionClient.Interfaces {
     }
 
     public interface IPortfolioFactory {
-        IBrokerDealerModule BrokerDealers { get; }
-        IRepresentativeModule Representatives { get; }
-        IWholesalerModule Wholesalers { get; }
+        IBrokerDealersModule BrokerDealers { get; }
+        IRepresentativesModule Representatives { get; }
+        IWholesalersModule Wholesalers { get; }
     }
 
     public interface ISecurityFactory {
-        IProfileModule Profiles { get; }
-        IUserModule Users { get; }
+        IProfilesModule Profiles { get; }
+        IUsersModule Users { get; }
 
         Task<IResult<Token>> GetImpersonationToken(string entity, string entityId);
 

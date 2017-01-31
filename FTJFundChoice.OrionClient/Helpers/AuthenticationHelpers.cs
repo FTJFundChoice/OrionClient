@@ -1,54 +1,55 @@
-﻿using FTJFundChoice.OrionClient.Models;
-using RestSharp;
+﻿using FTJFundChoice.OrionClient.Enums;
+using FTJFundChoice.OrionClient.Models;
 using System;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace FTJFundChoice.OrionClient.Helpers {
 
-    public static class AuthenticationHelpers {
-        public static string AuthenticationPath = "Security/Token";
-        public static string ImpersonationPath = "Security/Token/Impersonate";
+    internal static class AuthenticationHelpers {
+        internal static string AuthenticationPath = "Security/Token";
+        internal static string ImpersonationPath = "Security/Token/Impersonate";
 
-        public static bool IsAuthenticated(Token authToken) {
+        internal static bool IsAuthenticated(Token authToken) {
             if (authToken == null || authToken.ExpirationDate < DateTime.Now) {
                 return false;
             }
             return true;
         }
 
-        public static Token HandleBasicAuthentication(IRestClient client, IRestRequest request, Credentials credentials) {
-            var authRequest = new RestRequest(AuthenticationPath, Method.GET);
+        internal static async Task<Token> HandleBasicAuthenticationAsync(Client client, Request request, Credentials credentials) {
+            var authRequest = new Request(Method.GET, AuthenticationPath);
             ApplyBasicAuthentication(authRequest, credentials);
 
-            var response = client.Execute<Token>(authRequest);
-            if (response.StatusCode != System.Net.HttpStatusCode.OK) {
+            var response = await client.ExecuteTaskAsync<Token>(authRequest);
+            if (response.StatusCode != StatusCode.OK) {
                 throw new Exception("Unable to obtain Orion API token.");
             }
             return response.Data;
         }
 
-        public static void HandleImpersonation(IRestRequest request, Credentials credentials) {
-            if (request.Resource == ImpersonationPath) {
+        internal static void HandleImpersonation(Request request, Credentials credentials) {
+            if (request.RequestUri.ToString() == ImpersonationPath) {
                 ApplyBasicAuthentication(request, credentials);
                 // reroute to /Security/Token
-                request.Resource = AuthenticationPath;
+                request.RequestUri = new Uri(AuthenticationPath, UriKind.Relative);
             }
         }
 
-        public static void ApplyBasicAuthentication(IRestRequest request, Credentials credentials) {
+        internal static void ApplyBasicAuthentication(Request request, Credentials credentials) {
             string authToken = Convert.ToBase64String(Encoding.ASCII.GetBytes(string.Format("{0}:{1}",
                 credentials.Username,
                 credentials.Password
             )));
             var authHeader = string.Format("Basic {0}", authToken);
-            request.AddParameter("Authorization", authHeader, ParameterType.HttpHeader);
+            request.Headers.Add("Authorization", authHeader);
         }
 
-        public static void ApplyTokenAuthentication(IRestRequest request, Token authToken) {
-            if (!request.Parameters.Any(p => p.Name.Equals("Authorization", StringComparison.OrdinalIgnoreCase))) {
+        internal static void ApplyTokenAuthentication(Request request, Token authToken) {
+            if (!request.Headers.Any(p => p.Key.Equals("Authorization", StringComparison.OrdinalIgnoreCase))) {
                 var authHeader = string.Format("Session {0}", authToken.AccessToken);
-                request.AddParameter("Authorization", authHeader, ParameterType.HttpHeader);
+                request.Headers.Add("Authorization", authHeader);
             }
         }
     }

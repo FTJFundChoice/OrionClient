@@ -1,4 +1,5 @@
-﻿using FTJFundChoice.OrionModels;
+﻿using FTJFundChoice.OrionClient.Enums;
+using FTJFundChoice.OrionModels;
 using FTJFundChoice.OrionModels.Portfolio;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
@@ -14,7 +15,7 @@ namespace FTJFundChoice.OrionClient.Test.Portfolio {
         public async Task GetAll() {
             var result = await Client.Portfolio.BrokerDealers.GetAll();
 
-            Assert.AreEqual(result.StatusCode, HttpStatusCode.OK);
+            Assert.AreEqual(result.StatusCode, StatusCode.OK);
             Assert.IsTrue(result.Data.Count > 0);
             Assert.IsNotNull(result.Data[0].Portfolio.OldBDCode);
         }
@@ -23,13 +24,13 @@ namespace FTJFundChoice.OrionClient.Test.Portfolio {
         public async Task Get() {
             var result = await Client.Portfolio.BrokerDealers.Get(3);
 
-            Assert.AreEqual(result.StatusCode, HttpStatusCode.OK);
+            Assert.AreEqual(result.StatusCode, StatusCode.OK);
             Assert.IsNotNull(result.Data.Portfolio.OldBDCode);
         }
 
         [TestMethod]
         public async Task Create() {
-            var dealer = new BrokerDealer {
+            var dealer = new BrokerDealerVerbose {
                 Name = "Orion Test",
                 Portfolio = new BrokerDealerPortfolio {
                     Address1 = "TEST ADDRESS",
@@ -44,7 +45,7 @@ namespace FTJFundChoice.OrionClient.Test.Portfolio {
             };
             var result = await Client.Portfolio.BrokerDealers.Create(dealer);
 
-            Assert.AreEqual(result.StatusCode, HttpStatusCode.OK);
+            Assert.AreEqual(result.StatusCode, StatusCode.OK);
             Assert.IsNotNull(result.Data);
         }
 
@@ -57,7 +58,7 @@ namespace FTJFundChoice.OrionClient.Test.Portfolio {
 
             result = await Client.Portfolio.BrokerDealers.Update(dealer);
 
-            Assert.AreEqual(result.StatusCode, HttpStatusCode.OK);
+            Assert.AreEqual(result.StatusCode, StatusCode.OK);
             Assert.IsNotNull(result.Data);
         }
     }

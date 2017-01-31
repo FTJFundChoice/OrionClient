@@ -1,12 +1,11 @@
 ﻿using FTJFundChoice.OrionClient.Interfaces;
-using RestSharp;
 
 namespace FTJFundChoice.OrionClient.Factories {
 
     public class CompositionFactory : ICompositionFactory {
-        private IRestClient client;
+        private readonly Client client;
 
-        public CompositionFactory(IRestClient client) {
+        public CompositionFactory(Client client) {
             this.client = client;
         }
 

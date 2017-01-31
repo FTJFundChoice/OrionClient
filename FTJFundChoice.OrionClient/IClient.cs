@@ -2,7 +2,7 @@
 
 namespace FTJFundChoice.OrionClient {
 
-    public interface IOrionClient {
+    public interface IClient {
         IPortfolioFactory Portfolio { get; }
         ISecurityFactory Security { get; }
     }

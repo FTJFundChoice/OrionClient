@@ -68,7 +68,7 @@ namespace FTJFundChoice.OrionClient.Test.Security {
         }
 
         [TestMethod]
-        public async Task DeleteManual() {
+        public void DeleteManual() {
             //var userId = 1;
             //var result = await Client.Security.Users.Delete(userId);
             //Assert.IsTrue(result.Success);

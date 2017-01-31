@@ -1,38 +1,38 @@
-﻿using System.Collections.Generic;
-using System.Runtime.Serialization;
+﻿using Newtonsoft.Json;
+using System.Collections.Generic;
 
 namespace FTJFundChoice.OrionClient {
 
-    [DataContract()]
     public class OrionException {
 
-        [DataMember(Name = "correlationId")]
+        [JsonProperty("message")]
+        public string Message { get; set; }
+
+        [JsonProperty("correlationId")]
         public string CorrelationId { get; set; }
 
-        [DataMember(Name = "developerException")]
+        [JsonProperty("developerException")]
         public string DeveloperException { get; set; }
 
-        [DataMember(Name = "userException")]
+        [JsonProperty("userException")]
         public UserException UserException { get; set; }
     }
 
-    [DataContract()]
     public class UserException {
 
-        [DataMember(Name = "type")]
+        [JsonProperty("type")]
         public string Type { get; set; }
 
-        [DataMember(Name = "detail")]
+        [JsonProperty("detail")]
         public List<OrionKeyValue> Detail { get; set; }
     }
 
-    [DataContract()]
     public class OrionKeyValue {
 
-        [DataMember(Name = "key")]
+        [JsonProperty("key")]
         public string Key { get; set; }
 
-        [DataMember(Name = "value")]
+        [JsonProperty("value")]
         public string Value { get; set; }
     }
 }

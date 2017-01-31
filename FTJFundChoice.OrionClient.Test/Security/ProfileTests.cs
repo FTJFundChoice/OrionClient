@@ -18,7 +18,7 @@ namespace FTJFundChoice.OrionClient.Test.Security {
 
         [TestMethod]
         public async Task Search() {
-            var result = await Client.Security.Profiles.Search("a&ifinancial"); // testrep@
+            var result = await Client.Security.Profiles.Search("testrep@");
 
             Assert.IsTrue(result.Success);
             Assert.IsTrue(result.Data.Count > 0);

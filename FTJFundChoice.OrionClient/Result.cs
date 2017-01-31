@@ -1,19 +1,18 @@
-﻿using Newtonsoft.Json;
-using RestSharp;
+﻿using FTJFundChoice.OrionClient.Enums;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using System;
 using System.Net;
+using System.Net.Http;
 
 namespace FTJFundChoice.OrionClient {
 
     public interface IResult {
-        string Content { get; set; }
-        Exception ErrorException { get; set; }
-        string ErrorMessage { get; set; }
-        ResponseStatus ResponseStatus { get; set; }
-        HttpStatusCode StatusCode { get; set; }
-        string StatusDescription { get; set; }
-
+        string Content { get; }
         OrionException OrionException { get; }
+        string ReasonPhrase { get; }
+        StatusCode StatusCode { get; }
+        string StatusDescription { get; }
         bool Success { get; }
     }
 
@@ -22,42 +21,68 @@ namespace FTJFundChoice.OrionClient {
     }
 
     public class Result : IResult {
-        public string Content { get; set; }
-        public Exception ErrorException { get; set; }
-        public string ErrorMessage { get; set; }
-        public ResponseStatus ResponseStatus { get; set; }
-        public HttpStatusCode StatusCode { get; set; }
-        public string StatusDescription { get; set; }
 
-        public bool Success {
-            get {
-                return StatusCode == HttpStatusCode.OK;
+        public Result(HttpResponseMessage response) {
+            Success = response.IsSuccessStatusCode;
+            ReasonPhrase = response.ReasonPhrase;
+            StatusCode = ConvertStatusCode(response.StatusCode);
+            StatusDescription = GetStatusCodeValue(StatusCode);
+            Content = response.Content.ReadAsStringAsync().Result;
+
+            if (StatusCode != StatusCode.OK)
+                OrionException = ConvertContentToException();
+        }
+
+        public string Content { get; private set; }
+        public OrionException OrionException { get; private set; }
+        public string ReasonPhrase { get; private set; }
+        public StatusCode StatusCode { get; private set; }
+        public string StatusDescription { get; private set; }
+        public bool Success { get; private set; }
+
+        internal OrionException ConvertContentToException() {
+            var exception = JsonConvert.DeserializeObject<OrionException>(Content);
+            return exception;
+        }
+
+        internal StatusCode ConvertStatusCode(HttpStatusCode status) {
+            switch (status) {
+                case HttpStatusCode.Accepted:
+                    return StatusCode.Accepted;
+
+                case HttpStatusCode.BadRequest:
+                    return StatusCode.BadRequest;
+
+                case HttpStatusCode.Forbidden:
+                    return StatusCode.Forbidden;
+
+                case HttpStatusCode.NotFound:
+                    return StatusCode.NotFound;
+
+                case HttpStatusCode.OK:
+                    return StatusCode.OK;
+
+                case HttpStatusCode.Unauthorized:
+                    return StatusCode.Unauthorized;
+
+                case HttpStatusCode.Found:
+                    return StatusCode.Found;
+
+                default:
+                    throw new NotSupportedException(string.Format("Unsuppored method type {0}", status.ToString()));
             }
         }
 
-        public OrionException OrionException {
-            get {
-                if (StatusCode == HttpStatusCode.OK || string.IsNullOrEmpty(Content)) {
-                    return null;
-                }
-                return JsonConvert.DeserializeObject<OrionException>(Content);
-            }
-        }
-
-        public Result(IRestResponse response) {
-            ErrorException = response.ErrorException;
-            ErrorMessage = response.ErrorMessage;
-            ResponseStatus = response.ResponseStatus;
-            StatusCode = response.StatusCode;
-            StatusDescription = response.StatusDescription;
-            Content = response.Content;
+        internal string GetStatusCodeValue(StatusCode code) {
+            return Enum.GetName(typeof(StatusCode), code);
         }
     }
 
     public class Result<T> : Result, IResult<T> {
 
-        public Result(IRestResponse<T> response) : base(response) {
-            Data = response.Data;
+        public Result(HttpResponseMessage message) : base(message) {
+            if (message.IsSuccessStatusCode)
+                Data = JsonConvert.DeserializeObject<T>(Content, new StringEnumConverter());
         }
 
         public T Data { get; set; }
