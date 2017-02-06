@@ -1,15 +1,27 @@
-﻿using System;
+﻿using FTJFundChoice.OrionClient.Enums;
+using FTJFundChoice.OrionClient.Interfaces.BrokerDealers;
+using FTJFundChoice.OrionModels.Portfolio;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using FTJFundChoice.OrionClient.Interfaces.Common;
-using FTJFundChoice.OrionModels.Portfolio;
 
 namespace FTJFundChoice.OrionClient.Compositions.BrokerDealers {
 
-    public class BrokerDealersSimpleModule : ISearchModule<BrokerDealerSimple> {
+    public class BrokerDealersSimpleModule : IBrokerDealersSimpleModule {
+        private Client client = null;
 
-        public Task<IResult<List<BrokerDealerSimple>>> Search(string search) {
-            throw new NotImplementedException();
+        public BrokerDealersSimpleModule(Client client) {
+            this.client = client;
+        }
+
+        public async Task<IResult<List<BrokerDealerSimple>>> Search(string search) {
+            var request = new Request("Portfolio/BrokerDealers/Simple/{search}", Method.GET);
+            request.AddUrlSegment("search", search.ToString());
+            return await client.ExecuteTaskAsync<List<BrokerDealerSimple>>(request);
+        }
+
+        public async Task<IResult<List<BrokerDealer>>> GetAll(int top = 1000, int skip = 0, bool? isActive = true) {
+            var request = new Request("Portfolio/BrokerDealers", Method.GET);
+            return await client.ExecuteTaskAsync<List<BrokerDealer>>(request);
         }
     }
 }

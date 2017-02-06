@@ -1,5 +1,6 @@
 ﻿using FTJFundChoice.OrionClient.Compositions;
 using FTJFundChoice.OrionClient.Interfaces;
+using FTJFundChoice.OrionClient.Interfaces.BrokerDealers;
 
 namespace FTJFundChoice.OrionClient.Factories {
 

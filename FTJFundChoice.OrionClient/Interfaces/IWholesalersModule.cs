@@ -2,5 +2,5 @@
 
 namespace FTJFundChoice.OrionClient.Interfaces {
 
-    public interface IWholesalersModule : ICommonRead<Wholesaler> { }
+    public interface IWholesalersModule { }
 }

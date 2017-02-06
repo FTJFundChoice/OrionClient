@@ -73,13 +73,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\OrionModels\FTJFundChoice.OrionModels\FTJFundChoice.OrionModels.csproj">
-      <Project>{c36fb9fd-e014-4536-a823-e0079828fc59}</Project>
-      <Name>FTJFundChoice.OrionModels</Name>
-    </ProjectReference>
     <ProjectReference Include="..\FTJFundChoice.OrionClient\FTJFundChoice.OrionClient.csproj">
       <Project>{e2be932b-32d5-4e67-8507-b35cdb454d3f}</Project>
       <Name>FTJFundChoice.OrionClient</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Solution\FTJFundChoice.OrionModels\FTJFundChoice.OrionModels.csproj">
+      <Project>{c1bfaf24-e846-47ca-832c-85466d4782c2}</Project>
+      <Name>FTJFundChoice.OrionModels</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

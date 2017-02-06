@@ -56,6 +56,8 @@
     <Compile Include="Factories\SecurityFactory.cs" />
     <Compile Include="Helpers\AuthenticationHelpers.cs" />
     <Compile Include="Interfaces\BrokerDealers\IBrokerDealersModule.cs" />
+    <Compile Include="Interfaces\BrokerDealers\IBrokerDealersSimpleModule.cs" />
+    <Compile Include="Interfaces\BrokerDealers\IBrokerDealersVerboseModule.cs" />
     <Compile Include="Interfaces\Common\IModifyModule.cs" />
     <Compile Include="Interfaces\Common\IQueryModule.cs" />
     <Compile Include="Interfaces\Common\ISearchModule.cs" />
@@ -83,8 +85,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\OrionModels\FTJFundChoice.OrionModels\FTJFundChoice.OrionModels.csproj">
-      <Project>{c36fb9fd-e014-4536-a823-e0079828fc59}</Project>
+    <ProjectReference Include="..\Solution\FTJFundChoice.OrionModels\FTJFundChoice.OrionModels.csproj">
+      <Project>{c1bfaf24-e846-47ca-832c-85466d4782c2}</Project>
       <Name>FTJFundChoice.OrionModels</Name>
     </ProjectReference>
   </ItemGroup>

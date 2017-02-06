@@ -1,6 +1,10 @@
-﻿using FTJFundChoice.OrionModels.Portfolio;
+﻿using FTJFundChoice.OrionClient.Interfaces.Common;
+using FTJFundChoice.OrionModels.Portfolio;
 
 namespace FTJFundChoice.OrionClient.Interfaces.BrokerDealers {
 
-    public interface IBrokerDealersModule : ICommonModify<BrokerDealerVerbose>, ICommonRead<BrokerDealerVerbose> { }
+    public interface IBrokerDealersModule : IQueryModule<BrokerDealer> {
+        IBrokerDealersVerboseModule Verbose { get; }
+        IBrokerDealersSimpleModule Simple { get; }
+    }
 }

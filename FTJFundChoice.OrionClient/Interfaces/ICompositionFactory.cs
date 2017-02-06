@@ -1,4 +1,5 @@
-﻿using FTJFundChoice.OrionClient.Models;
+﻿using FTJFundChoice.OrionClient.Interfaces.BrokerDealers;
+using FTJFundChoice.OrionClient.Models;
 using System.Threading.Tasks;
 
 namespace FTJFundChoice.OrionClient.Interfaces {

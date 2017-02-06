@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace FTJFundChoice.OrionClient.Interfaces {
 
-    public interface IUsersModule : ICommonRead<UserInfoDetails>, ICommonModify<UserInfoDetails> {
+    public interface IUsersModule {
 
         Task<IResult<List<long>>> Activate(bool isActive, List<long> ids);
 
