@@ -28,8 +28,8 @@ namespace FTJFundChoice.OrionClient.Factories {
 
         public async Task<IResult<Token>> GetImpersonationToken(string entity, string entityId) {
             var request = new Request(Method.GET, AuthenticationHelpers.ImpersonationPath);
-            request.AddHeader("entity", entity);
-            request.AddHeader("entityId", entityId);
+            request.AddHeader("Entity", entity);
+            request.AddHeader("EntityId", entityId);
 
             return await client.ExecuteTaskAsync<Token>(request);
         }

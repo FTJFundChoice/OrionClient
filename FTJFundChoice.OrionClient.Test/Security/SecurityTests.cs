@@ -1,6 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Configuration;
-using System.Net;
 using System.Threading.Tasks;
 
 namespace FTJFundChoice.OrionClient.Test.Security {

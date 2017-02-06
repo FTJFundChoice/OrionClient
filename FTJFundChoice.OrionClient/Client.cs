@@ -19,14 +19,14 @@ namespace FTJFundChoice.OrionClient {
 
         #region Contructor
 
-        public Client(string baseUrl, Credentials credentials) {
+        public Client(string baseUrl, Credentials apiCredentials, Credentials serviceCredentials) {
             var handler = new HttpClientHandler() { };
             client = new HttpClient(handler);
             client.BaseAddress = new Uri(baseUrl);
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-            authenticator = new Authenticator(credentials);
+            authenticator = new Authenticator(apiCredentials, serviceCredentials);
 
             // ICompositionFactory is the only singleton, by design.
             factory = new CompositionFactory(this);

@@ -29,12 +29,17 @@ namespace FTJFundChoice.OrionClient.Helpers {
             return response.Data;
         }
 
-        internal static void HandleImpersonation(Request request, Credentials credentials) {
+        internal static void HandleImpersonation(Request request, Token token) {
             if (request.RequestUri.ToString() == ImpersonationPath) {
-                ApplyBasicAuthentication(request, credentials);
+                ApplyImpersonationAuthentication(request, token);
                 // reroute to /Security/Token
                 request.RequestUri = new Uri(AuthenticationPath, UriKind.Relative);
             }
+        }
+
+        internal static void ApplyImpersonationAuthentication(Request request, Token token) {
+            var authHeader = string.Format("Impersonate {0}", token.AccessToken);
+            request.Headers.Add("Authorization", authHeader);
         }
 
         internal static void ApplyBasicAuthentication(Request request, Credentials credentials) {

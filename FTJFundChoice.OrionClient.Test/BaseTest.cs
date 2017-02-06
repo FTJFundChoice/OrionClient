@@ -15,7 +15,12 @@ namespace FTJFundChoice.OrionClient.Test {
                 Password = ConfigurationManager.AppSettings["api_password"]
             };
 
-            Client = new OrionClient.Client(baseUrl, apiCreds);
+            var svcCreds = new Credentials {
+                Username = ConfigurationManager.AppSettings["svc_username"],
+                Password = ConfigurationManager.AppSettings["svc_password"]
+            };
+
+            Client = new OrionClient.Client(baseUrl, apiCreds, svcCreds);
 
             AlClientId = Convert.ToInt32(ConfigurationManager.AppSettings["alClientId"]);
         }
