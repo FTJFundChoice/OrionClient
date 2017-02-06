@@ -1,8 +1,8 @@
 ﻿using FTJFundChoice.OrionClient.Enums;
 using FTJFundChoice.OrionClient.Extensions;
 using FTJFundChoice.OrionClient.Interfaces;
-using FTJFundChoice.OrionModels;
-using FTJFundChoice.OrionModels.Portfolio;
+using FTJFundChoice.OrionClient;
+using FTJFundChoice.OrionClient.Portfolio;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;

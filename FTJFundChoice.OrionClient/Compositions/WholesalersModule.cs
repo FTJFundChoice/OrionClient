@@ -1,6 +1,6 @@
 ﻿using FTJFundChoice.OrionClient.Enums;
 using FTJFundChoice.OrionClient.Interfaces;
-using FTJFundChoice.OrionModels;
+using FTJFundChoice.OrionClient;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 

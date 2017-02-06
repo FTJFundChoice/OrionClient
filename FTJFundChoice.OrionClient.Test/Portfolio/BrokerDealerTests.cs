@@ -1,6 +1,6 @@
 ﻿using FTJFundChoice.OrionClient.Enums;
-using FTJFundChoice.OrionModels;
-using FTJFundChoice.OrionModels.Portfolio;
+using FTJFundChoice.OrionClient.Models;
+using FTJFundChoice.OrionClient.Portfolio;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Net;

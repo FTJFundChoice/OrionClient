@@ -1,7 +1,7 @@
 ﻿using FTJFundChoice.OrionClient.Enums;
 using FTJFundChoice.OrionClient.Extensions;
 using FTJFundChoice.OrionClient.Interfaces;
-using FTJFundChoice.OrionModels.Security;
+using FTJFundChoice.OrionClient.Security;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Threading.Tasks;

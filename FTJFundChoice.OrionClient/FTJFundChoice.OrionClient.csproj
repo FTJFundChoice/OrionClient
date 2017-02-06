@@ -63,6 +63,40 @@
     <Compile Include="Interfaces\Common\ISearchModule.cs" />
     <Compile Include="Interfaces\ICompositionFactory.cs" />
     <Compile Include="IClient.cs" />
+    <Compile Include="Models\Billing\BillRepresentativePlatform.cs" />
+    <Compile Include="Models\Enums\BrokerDealerStatus.cs" />
+    <Compile Include="Models\Enums\ClearingFirm.cs" />
+    <Compile Include="Models\Enums\Entity.cs" />
+    <Compile Include="Models\Enums\HowIsAdvRegistered.cs" />
+    <Compile Include="Models\Enums\UserDefineControlMask.cs" />
+    <Compile Include="Models\Extensions\EntityExtensions.cs" />
+    <Compile Include="Models\Portfolio\BrokerDealer.cs" />
+    <Compile Include="Models\Portfolio\BrokerDealerAdditionalContact.cs" />
+    <Compile Include="Models\Portfolio\BrokerDealerPortfolio.cs" />
+    <Compile Include="Models\Portfolio\BrokerDealerReportImage.cs" />
+    <Compile Include="Models\Portfolio\BrokerDealerSimple.cs" />
+    <Compile Include="Models\Portfolio\BrokerDealerVerbose.cs" />
+    <Compile Include="Models\Portfolio\Document.cs" />
+    <Compile Include="Models\Portfolio\Note.cs" />
+    <Compile Include="Models\Portfolio\PlanSponsorSimple.cs" />
+    <Compile Include="Models\Portfolio\Representative.cs" />
+    <Compile Include="Models\Portfolio\RepresentativePortfolio.cs" />
+    <Compile Include="Models\Portfolio\RepresentativeReportImage.cs" />
+    <Compile Include="Models\Portfolio\RepresentativeSimple.cs" />
+    <Compile Include="Models\Portfolio\RepresentativeVerbose.cs" />
+    <Compile Include="Models\Portfolio\SubAdvisor.cs" />
+    <Compile Include="Models\Portfolio\SubAdvisorEntity.cs" />
+    <Compile Include="Models\Portfolio\SubAdvisorLogo.cs" />
+    <Compile Include="Models\Portfolio\SubAdvisorPortfolio.cs" />
+    <Compile Include="Models\Portfolio\SubAdvisorSimple.cs" />
+    <Compile Include="Models\Portfolio\SubAdvisorVerbose.cs" />
+    <Compile Include="Models\Portfolio\ThirdPartyAdministratorSimple.cs" />
+    <Compile Include="Models\Portfolio\Wholesaler.cs" />
+    <Compile Include="Models\Security\LoginEntityId.cs" />
+    <Compile Include="Models\Security\Profile.cs" />
+    <Compile Include="Models\Security\UserDetail.cs" />
+    <Compile Include="Models\Security\UserInfoDetails.cs" />
+    <Compile Include="Models\Settings\EntityOption.cs" />
     <Compile Include="Models\Token.cs" />
     <Compile Include="Client.cs" />
     <Compile Include="Compositions\ProfilesModule.cs" />
@@ -83,12 +117,6 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Solution\FTJFundChoice.OrionModels\FTJFundChoice.OrionModels.csproj">
-      <Project>{c1bfaf24-e846-47ca-832c-85466d4782c2}</Project>
-      <Name>FTJFundChoice.OrionModels</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

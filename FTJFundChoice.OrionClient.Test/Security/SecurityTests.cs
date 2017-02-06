@@ -20,8 +20,8 @@ namespace FTJFundChoice.OrionClient.Test.Security {
 
         [TestMethod]
         public async Task GetToken() {
-            var username = ConfigurationManager.AppSettings["username"];
-            var password = ConfigurationManager.AppSettings["password"];
+            var username = ConfigurationManager.AppSettings["api_username"];
+            var password = ConfigurationManager.AppSettings["api_password"];
 
             var result = await Client.Security.GetToken(username, password);
 

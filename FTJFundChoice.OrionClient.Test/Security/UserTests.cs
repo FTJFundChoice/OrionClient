@@ -1,5 +1,6 @@
-﻿using FTJFundChoice.OrionModels.Enums;
-using FTJFundChoice.OrionModels.Security;
+﻿using FTJFundChoice.OrionClient.Enums;
+using FTJFundChoice.OrionClient.Models.Enums;
+using FTJFundChoice.OrionClient.Security;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;

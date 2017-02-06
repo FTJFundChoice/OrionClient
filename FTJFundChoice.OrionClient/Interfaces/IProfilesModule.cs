@@ -1,4 +1,4 @@
-﻿using FTJFundChoice.OrionModels.Security;
+﻿using FTJFundChoice.OrionClient.Security;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 

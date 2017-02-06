@@ -1,5 +1,5 @@
 ﻿using FTJFundChoice.OrionClient.Interfaces.Common;
-using FTJFundChoice.OrionModels.Portfolio;
+using FTJFundChoice.OrionClient.Portfolio;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 

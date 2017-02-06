@@ -2,7 +2,7 @@
 using FTJFundChoice.OrionClient.Enums;
 using FTJFundChoice.OrionClient.Extensions;
 using FTJFundChoice.OrionClient.Interfaces.BrokerDealers;
-using FTJFundChoice.OrionModels.Portfolio;
+using FTJFundChoice.OrionClient.Portfolio;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
