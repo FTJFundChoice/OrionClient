@@ -12,7 +12,8 @@ namespace FTJFundChoice.OrionClient.Test.Security {
 
         [TestMethod]
         public async Task GetAll() {
-            var result = await Client.Security.Users.GetAll();
+            var users = new Compositions.UsersModule(Client);
+            var result = await users.GetAll();
             Assert.IsTrue(result.Success);
             Assert.IsTrue(result.Data.Count > 0);
             Assert.IsNotNull(result.Data[0].EntityName);
@@ -20,7 +21,8 @@ namespace FTJFundChoice.OrionClient.Test.Security {
 
         [TestMethod]
         public async Task Get() {
-            var result = await Client.Security.Users.Get(65258);
+            var users = new Compositions.UsersModule(Client);
+            var result = await users.Get(65258);
 
             Assert.IsTrue(result.Success);
             Assert.IsNotNull(result.Data.EntityName);
@@ -57,11 +59,12 @@ namespace FTJFundChoice.OrionClient.Test.Security {
 
         [TestMethod]
         public async Task Update() {
-            var result = await Client.Security.Users.Get(69949);
+            var users = new Compositions.UsersModule(Client);
+            var result = await users.Get(69949);
             var user = result.Data;
             user.FirstName = "ORION_TEST";
 
-            result = await Client.Security.Users.Update(user);
+            result = await users.Update(user);
 
             Assert.IsTrue(result.Success);
             Assert.IsNotNull(result.Data);
