@@ -12,8 +12,7 @@ namespace FTJFundChoice.OrionClient.Test.Security {
 
         [TestMethod]
         public async Task GetAll() {
-            var users = new Compositions.UsersModule(Client);
-            var result = await users.GetAll();
+            var result = await Client.Security.Users.GetAll(20, 0, true);
             Assert.IsTrue(result.Success);
             Assert.IsTrue(result.Data.Count > 0);
             Assert.IsNotNull(result.Data[0].EntityName);

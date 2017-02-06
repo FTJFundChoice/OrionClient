@@ -13,8 +13,7 @@ namespace FTJFundChoice.OrionClient.Test.Portfolio {
 
         [TestMethod]
         public async Task GetAll() {
-            var dealers = new Compositions.BrokerDealers.BrokerDealersVerboseModule(Client);
-            var result = await dealers.GetAll();
+            var result = await Client.Portfolio.BrokerDealers.Verbose.GetAll();
 
             Assert.AreEqual(result.StatusCode, StatusCode.OK);
             Assert.IsTrue(result.Data.Count > 0);
@@ -23,8 +22,7 @@ namespace FTJFundChoice.OrionClient.Test.Portfolio {
 
         [TestMethod]
         public async Task Get() {
-            var dealers = new Compositions.BrokerDealers.BrokerDealersVerboseModule(Client);
-            var result = await dealers.Get(3);
+            var result = await Client.Portfolio.BrokerDealers.Verbose.Get(3);
 
             Assert.AreEqual(result.StatusCode, StatusCode.OK);
             Assert.IsNotNull(result.Data.Portfolio.OldBDCode);
@@ -46,7 +44,7 @@ namespace FTJFundChoice.OrionClient.Test.Portfolio {
                     Name = "Orion Test"
                 }
             };
-            var result = await dealers.Create(dealer);
+            var result = await Client.Portfolio.BrokerDealers.Verbose.Create(dealer);
 
             Assert.AreEqual(result.StatusCode, StatusCode.OK);
             Assert.IsNotNull(result.Data);
@@ -54,13 +52,12 @@ namespace FTJFundChoice.OrionClient.Test.Portfolio {
 
         [TestMethod]
         public async Task Update() {
-            var dealers = new Compositions.BrokerDealers.BrokerDealersVerboseModule(Client);
-            var result = await dealers.Get(337);
+            var result = await Client.Portfolio.BrokerDealers.Verbose.Get(337);
 
             var dealer = result.Data;
             dealer.Portfolio.Address1 = "TEST ADDRESS 2";
 
-            result = await dealers.Update(dealer);
+            result = await Client.Portfolio.BrokerDealers.Verbose.Update(dealer);
 
             Assert.AreEqual(result.StatusCode, StatusCode.OK);
             Assert.IsNotNull(result.Data);

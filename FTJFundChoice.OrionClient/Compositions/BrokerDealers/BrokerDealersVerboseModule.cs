@@ -53,13 +53,16 @@ namespace FTJFundChoice.OrionClient.Compositions.BrokerDealers {
 
         public async Task<IResult<List<BrokerDealerVerbose>>> GetAll(int top = 1000, int skip = 0, bool? isActive = true) {
             var request = new Request("Portfolio/BrokerDealers/Verbose", Method.GET);
+            request.AddTopSkipQueryParameters(top, skip);
+            request.AddActiveQueryParameters(isActive);
             return await client.ExecuteTaskAsync<List<BrokerDealerVerbose>>(request);
         }
 
-        public async Task<IResult<List<BrokerDealerVerbose>>> GetAll(int top = 1000, int skip = 0, bool? IsActive = false, bool includePorfolio = true, bool includeUserDefinedFields = false) {
+        public async Task<IResult<List<BrokerDealerVerbose>>> GetAll(int top = 1000, int skip = 0, bool? isActive = false, bool includePorfolio = true, bool includeUserDefinedFields = false) {
             var request = new Request("Portfolio/BrokerDealers/Verbose/", Method.GET);
             request.AddExpandQueryParameters(includePorfolio, includeUserDefinedFields);
-
+            request.AddTopSkipQueryParameters(top, skip);
+            request.AddActiveQueryParameters(isActive);
             return await client.ExecuteTaskAsync<List<BrokerDealerVerbose>>(request);
         }
 

@@ -5,6 +5,7 @@ using FTJFundChoice.OrionModels.Security;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using System;
 
 namespace FTJFundChoice.OrionClient.Compositions {
 
@@ -33,6 +34,10 @@ namespace FTJFundChoice.OrionClient.Compositions {
             return await client.ExecuteTaskAsync<UserInfoDetails>(request);
         }
 
+        public Task<IResult> Delete(long[] id) {
+            throw new NotImplementedException();
+        }
+
         public async Task<IResult> Delete(long userId) {
             var request = new Request("Security/Users/{id}", Method.DELETE);
             request.AddUrlSegment("id", userId.ToString());
@@ -50,13 +55,18 @@ namespace FTJFundChoice.OrionClient.Compositions {
         }
 
         public async Task<IResult<List<UserInfoDetails>>> GetAll() {
-            return await GetAll(1000, 0, false, null);
+            return await GetAll(1000, 0, true, null);
+        }
+
+        public async Task<IResult<List<UserInfoDetails>>> GetAll(int top = 100, int skip = 0, bool? isActive = null) {
+            return await GetAll(top, skip, isActive, null);
         }
 
         public async Task<IResult<List<UserInfoDetails>>> GetAll(int top = 100, int skip = 0, bool? isActive = null, string loginUserId = null) {
             var request = new Request("Security/Users", Method.GET);
             request.AddTopSkipQueryParameters(top, skip);
-            request.AddActiveQueryParameters(isActive);
+            // Not Supported on API
+            //request.AddActiveQueryParameters(isActive);
 
             if (!string.IsNullOrEmpty(loginUserId))
                 request.AddQueryParameter("loginUserId", loginUserId);
