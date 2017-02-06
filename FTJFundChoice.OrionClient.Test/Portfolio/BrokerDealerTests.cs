@@ -30,6 +30,7 @@ namespace FTJFundChoice.OrionClient.Test.Portfolio {
 
         [TestMethod]
         public async Task Create() {
+            var dealers = new Compositions.BrokerDealers.BrokerDealersVerboseModule(Client);
             var dealer = new BrokerDealerVerbose {
                 Name = "Orion Test",
                 Portfolio = new BrokerDealerPortfolio {

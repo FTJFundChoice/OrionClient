@@ -55,7 +55,8 @@ namespace FTJFundChoice.OrionClient.Test.Portfolio {
                     WholesalerId = 3
                 }
             };
-            var result = await Client.Portfolio.Representatives.Create(rep);
+            var reps = new Compositions.RepresentativesModule(Client);
+            var result = await reps.Create(rep);
 
             Assert.AreEqual(result.StatusCode, StatusCode.OK);
             Assert.IsNotNull(result.Data);
@@ -63,12 +64,13 @@ namespace FTJFundChoice.OrionClient.Test.Portfolio {
 
         [TestMethod]
         public async Task Update() {
-            var result = await Client.Portfolio.Representatives.Get(1);
+            var reps = new Compositions.RepresentativesModule(Client);
+            var result = await reps.Get(1);
 
             var rep = result.Data;
             rep.Portfolio.Address1 = "TEST ADDRESS 2";
 
-            result = await Client.Portfolio.Representatives.Update(rep);
+            result = await reps.Update(rep);
 
             Assert.AreEqual(result.StatusCode, StatusCode.OK);
             Assert.IsNotNull(result.Data);
@@ -76,7 +78,8 @@ namespace FTJFundChoice.OrionClient.Test.Portfolio {
 
         [TestMethod]
         public async Task UpdateWithUserDefinedFields() {
-            var result = await Client.Portfolio.Representatives.Get(1, true, true);
+            var reps = new Compositions.RepresentativesModule(Client);
+            var result = await reps.Get(1, true, true);
             var rep = result.Data;
 
             rep.Portfolio.Address1 = "TEST ADDRESS 2";
@@ -84,7 +87,7 @@ namespace FTJFundChoice.OrionClient.Test.Portfolio {
             var udf = rep.UserDefinedFields.FirstOrDefault(x => x.UserDefineDefinitionId == 491); // CRD2
             udf.Value = "INTEGRATION_TEST";
 
-            result = await Client.Portfolio.Representatives.Update(rep);
+            result = await reps.Update(rep);
 
             Assert.AreEqual(result.StatusCode, StatusCode.OK);
             Assert.IsNotNull(result.Data);
