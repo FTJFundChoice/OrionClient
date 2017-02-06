@@ -29,6 +29,14 @@ namespace FTJFundChoice.OrionClient.Compositions {
             return await client.ExecuteTaskAsync<RepresentativeVerbose>(request);
         }
 
+        public Task<IResult> Delete(long[] id) {
+            throw new NotImplementedException();
+        }
+
+        public Task<IResult> Delete(long id) {
+            throw new NotImplementedException();
+        }
+
         public async Task<IResult<RepresentativeVerbose>> Get(long id) {
             return await Get(id, true, false);
         }

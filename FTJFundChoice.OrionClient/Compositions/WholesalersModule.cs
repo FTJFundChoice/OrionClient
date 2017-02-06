@@ -19,7 +19,7 @@ namespace FTJFundChoice.OrionClient.Compositions {
             return await client.ExecuteTaskAsync<Wholesaler>(request);
         }
 
-        public async Task<IResult<List<Wholesaler>>> GetAll() {
+        public async Task<IResult<List<Wholesaler>>> GetAll(int top = 1000, int skip = 0, bool? isActive = true) {
             var request = new Request("Portfolio/Wholesalers", Method.GET);
             return await client.ExecuteTaskAsync<List<Wholesaler>>(request);
         }
