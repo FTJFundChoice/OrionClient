@@ -18,11 +18,11 @@ namespace FTJFundChoice.OrionClient.Helpers {
             return true;
         }
 
-        internal static async Task<Token> HandleBasicAuthenticationAsync(Client client, Request request, Credentials credentials) {
+        internal static async Task<Token> HandleBasicAuthenticationAsync(OrionApiClient OrionClient, Request request, Credentials credentials) {
             var authRequest = new Request(Method.GET, AuthenticationPath);
             ApplyBasicAuthentication(authRequest, credentials);
 
-            var response = await client.ExecuteTaskAsync<Token>(authRequest);
+            var response = await OrionClient.ExecuteTaskAsync<Token>(authRequest);
             if (response.StatusCode != StatusCode.OK) {
                 throw new Exception("Unable to obtain Orion API token.");
             }

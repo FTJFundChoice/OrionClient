@@ -1,12 +1,12 @@
 ﻿using FTJFundChoice.OrionClient.Enums;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Threading.Tasks;
+using Xunit;
 
 namespace FTJFundChoice.OrionClient.Test.Client {
 
-    [TestClass]
+    [Collection("Client Tests")]
     public class ClientTests : BaseTest {
-        //[TestMethod]
+        //[Fact]
         //public async Task RequestTest() {
         //    var request = new Request(Method.GET, "Security/Rights");
         //    var result = await Client.ExecuteTaskAsync<dynamic>(request);

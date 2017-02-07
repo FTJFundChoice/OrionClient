@@ -1,7 +1,8 @@
-﻿using Newtonsoft.Json;
+﻿using FTJFundChoice.OrionClient.Models.Portfolio;
+using Newtonsoft.Json;
 using System.Collections.Generic;
 
-namespace FTJFundChoice.OrionClient.Portfolio {
+namespace FTJFundChoice.OrionClient.Models.ModelsPortfolio {
 
     public class SubAdvisorVerbose {
 

@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("FTJ FundChoice OrionClient")]
-[assembly: AssemblyDescription("Unofficial C# Client for Orion API")]
+[assembly: AssemblyDescription("Unofficial C# OrionClient for Orion API")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("FTJ FundChoice")]
 [assembly: AssemblyProduct("FTJFundChoice.OrionClient")]

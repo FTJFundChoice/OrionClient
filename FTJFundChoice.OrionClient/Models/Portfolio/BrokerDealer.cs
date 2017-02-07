@@ -2,7 +2,7 @@
 using Newtonsoft.Json;
 using System;
 
-namespace FTJFundChoice.OrionClient.Portfolio {
+namespace FTJFundChoice.OrionClient.Models.Portfolio {
 
     public class BrokerDealer {
 

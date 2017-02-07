@@ -1,4 +1,4 @@
-﻿namespace FTJFundChoice.OrionClient.Security {
+﻿namespace FTJFundChoice.OrionClient.Models.Security {
 
     /// <summary>
     /// These are not documented by Orion.

@@ -1,4 +1,5 @@
-﻿using FTJFundChoice.OrionClient.Factories;
+﻿using FTJFundChoice.OrionClient;
+using FTJFundChoice.OrionClient.Factories;
 using FTJFundChoice.OrionClient.Interfaces;
 using System;
 using System.Net.Http;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace FTJFundChoice.OrionClient {
 
-    public class Client : IClient {
+    public class OrionApiClient : IOrionApiClient {
 
         #region Privates
 
@@ -19,12 +20,13 @@ namespace FTJFundChoice.OrionClient {
 
         #region Contructor
 
-        public Client(string baseUrl, Credentials apiCredentials, Credentials serviceCredentials) {
+        public OrionApiClient(string baseUrl, Credentials apiCredentials, Credentials serviceCredentials) {
             var handler = new HttpClientHandler() { };
             client = new HttpClient(handler);
             client.BaseAddress = new Uri(baseUrl);
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("text/plain"));
 
             authenticator = new Authenticator(apiCredentials, serviceCredentials);
 

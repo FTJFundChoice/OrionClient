@@ -1,7 +1,7 @@
 ﻿using FTJFundChoice.OrionClient.Models.Enums;
 using Newtonsoft.Json;
 
-namespace FTJFundChoice.OrionClient.Security {
+namespace FTJFundChoice.OrionClient.Models.Security {
 
     public class UserDetail {
 

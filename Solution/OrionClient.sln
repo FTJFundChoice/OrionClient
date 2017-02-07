@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FTJFundChoice.OrionClient", "..\FTJFundChoice.OrionClient\FTJFundChoice.OrionClient.csproj", "{E2BE932B-32D5-4E67-8507-B35CDB454D3F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FTJFundChoice.OrionClient.Test", "..\FTJFundChoice.OrionClient.Test\FTJFundChoice.OrionClient.Test.csproj", "{30DB7D0A-EAD2-4C77-BBF1-D9876CA055D4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FTJFundChoice.OrionClient.Test", "..\FTJFundChoice.OrionClient.Test\FTJFundChoice.OrionClient.Test.csproj", "{58B58597-2D63-486D-84B3-30D6B15D562A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{E2BE932B-32D5-4E67-8507-B35CDB454D3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E2BE932B-32D5-4E67-8507-B35CDB454D3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E2BE932B-32D5-4E67-8507-B35CDB454D3F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{30DB7D0A-EAD2-4C77-BBF1-D9876CA055D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{30DB7D0A-EAD2-4C77-BBF1-D9876CA055D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{30DB7D0A-EAD2-4C77-BBF1-D9876CA055D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{30DB7D0A-EAD2-4C77-BBF1-D9876CA055D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58B58597-2D63-486D-84B3-30D6B15D562A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58B58597-2D63-486D-84B3-30D6B15D562A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58B58597-2D63-486D-84B3-30D6B15D562A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58B58597-2D63-486D-84B3-30D6B15D562A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

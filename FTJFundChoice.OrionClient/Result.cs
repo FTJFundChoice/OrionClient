@@ -68,6 +68,9 @@ namespace FTJFundChoice.OrionClient {
                 case HttpStatusCode.Found:
                     return StatusCode.Found;
 
+                case HttpStatusCode.MethodNotAllowed:
+                    return StatusCode.MethodNotAllowed;
+
                 default:
                     throw new NotSupportedException(string.Format("Unsuppored method type {0}", status.ToString()));
             }

@@ -1,27 +1,26 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Net;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using Xunit;
 
 namespace FTJFundChoice.OrionClient.Test.Security {
 
-    [TestClass]
+    [Collection("Profile Tests")]
     public class ProfileTests : BaseTest {
 
-        [TestMethod]
+        [Fact]
         public async Task GetAll() {
             var result = await Client.Security.Profiles.GetAll();
 
-            Assert.IsTrue(result.Success);
-            Assert.IsNotNull(result.Data);
-            Assert.IsTrue(result.Data.Count > 0);
+            Assert.True(result.Success);
+            Assert.NotNull(result.Data);
+            Assert.True(result.Data.Count > 0);
         }
 
-        [TestMethod]
+        [Fact]
         public async Task Search() {
             var result = await Client.Security.Profiles.Search("testrep@");
 
-            Assert.IsTrue(result.Success);
-            Assert.IsTrue(result.Data.Count > 0);
+            Assert.True(result.Success);
+            Assert.True(result.Data.Count > 0);
         }
     }
 }

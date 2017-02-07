@@ -48,6 +48,8 @@
     <Compile Include="Compositions\BrokerDealers\BrokerDealersModule.cs" />
     <Compile Include="Compositions\BrokerDealers\BrokerDealersSimpleModule.cs" />
     <Compile Include="Compositions\BrokerDealers\BrokerDealersVerboseModule.cs" />
+    <Compile Include="Compositions\Client\ClientsSimpleModule.cs" />
+    <Compile Include="Compositions\Client\ClientsModule.cs" />
     <Compile Include="Enums\Method.cs" />
     <Compile Include="Enums\StatusCode.cs" />
     <Compile Include="Factories\CompositionFactory.cs" />
@@ -58,11 +60,13 @@
     <Compile Include="Interfaces\BrokerDealers\IBrokerDealersModule.cs" />
     <Compile Include="Interfaces\BrokerDealers\IBrokerDealersSimpleModule.cs" />
     <Compile Include="Interfaces\BrokerDealers\IBrokerDealersVerboseModule.cs" />
+    <Compile Include="Interfaces\Client\IClientsModule.cs" />
+    <Compile Include="Interfaces\Client\IClientsSimpleModule.cs" />
     <Compile Include="Interfaces\Common\IModifyModule.cs" />
     <Compile Include="Interfaces\Common\IQueryModule.cs" />
     <Compile Include="Interfaces\Common\ISearchModule.cs" />
     <Compile Include="Interfaces\ICompositionFactory.cs" />
-    <Compile Include="IClient.cs" />
+    <Compile Include="IOrionApiClient.cs" />
     <Compile Include="Models\Billing\BillRepresentativePlatform.cs" />
     <Compile Include="Models\Enums\BrokerDealerStatus.cs" />
     <Compile Include="Models\Enums\ClearingFirm.cs" />
@@ -76,6 +80,7 @@
     <Compile Include="Models\Portfolio\BrokerDealerReportImage.cs" />
     <Compile Include="Models\Portfolio\BrokerDealerSimple.cs" />
     <Compile Include="Models\Portfolio\BrokerDealerVerbose.cs" />
+    <Compile Include="Models\Portfolio\ClientSimple.cs" />
     <Compile Include="Models\Portfolio\Document.cs" />
     <Compile Include="Models\Portfolio\Note.cs" />
     <Compile Include="Models\Portfolio\PlanSponsorSimple.cs" />
@@ -94,11 +99,12 @@
     <Compile Include="Models\Portfolio\Wholesaler.cs" />
     <Compile Include="Models\Security\LoginEntityId.cs" />
     <Compile Include="Models\Security\Profile.cs" />
+    <Compile Include="Models\Security\SetPassword.cs" />
     <Compile Include="Models\Security\UserDetail.cs" />
     <Compile Include="Models\Security\UserInfoDetails.cs" />
     <Compile Include="Models\Settings\EntityOption.cs" />
     <Compile Include="Models\Token.cs" />
-    <Compile Include="Client.cs" />
+    <Compile Include="OrionApiClient.cs" />
     <Compile Include="Compositions\ProfilesModule.cs" />
     <Compile Include="Compositions\RepresentativesModule.cs" />
     <Compile Include="Compositions\UsersModule.cs" />
@@ -118,6 +124,7 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -3,9 +3,9 @@
 namespace FTJFundChoice.OrionClient.Factories {
 
     public class CompositionFactory : ICompositionFactory {
-        private readonly Client client;
+        private readonly OrionApiClient client;
 
-        public CompositionFactory(Client client) {
+        public CompositionFactory(OrionApiClient client) {
             this.client = client;
         }
 

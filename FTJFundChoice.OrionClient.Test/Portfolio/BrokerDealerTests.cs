@@ -1,34 +1,32 @@
 ﻿using FTJFundChoice.OrionClient.Enums;
-using FTJFundChoice.OrionClient.Models;
-using FTJFundChoice.OrionClient.Portfolio;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using FTJFundChoice.OrionClient.Models.Portfolio;
 using System;
-using System.Net;
 using System.Threading.Tasks;
+using Xunit;
 
 namespace FTJFundChoice.OrionClient.Test.Portfolio {
 
-    [TestClass]
+    [Collection(@"Broker\Dealer Tests")]
     public class BrokerDealerTests : BaseTest {
 
-        [TestMethod]
+        [Fact]
         public async Task GetAll() {
             var result = await Client.Portfolio.BrokerDealers.Verbose.GetAll();
 
-            Assert.AreEqual(result.StatusCode, StatusCode.OK);
-            Assert.IsTrue(result.Data.Count > 0);
-            Assert.IsNotNull(result.Data[0].Portfolio.OldBDCode);
+            Assert.Equal(result.StatusCode, StatusCode.OK);
+            Assert.True(result.Data.Count > 0);
+            Assert.NotNull(result.Data[0].Portfolio.OldBDCode);
         }
 
-        [TestMethod]
+        [Fact]
         public async Task Get() {
             var result = await Client.Portfolio.BrokerDealers.Verbose.Get(3);
 
-            Assert.AreEqual(result.StatusCode, StatusCode.OK);
-            Assert.IsNotNull(result.Data.Portfolio.OldBDCode);
+            Assert.Equal(result.StatusCode, StatusCode.OK);
+            Assert.NotNull(result.Data.Portfolio.OldBDCode);
         }
 
-        [TestMethod]
+        [Fact]
         public async Task Create() {
             var dealers = new Compositions.BrokerDealers.BrokerDealersVerboseModule(Client);
             var dealer = new BrokerDealerVerbose {
@@ -46,11 +44,11 @@ namespace FTJFundChoice.OrionClient.Test.Portfolio {
             };
             var result = await Client.Portfolio.BrokerDealers.Verbose.Create(dealer);
 
-            Assert.AreEqual(result.StatusCode, StatusCode.OK);
-            Assert.IsNotNull(result.Data);
+            Assert.Equal(result.StatusCode, StatusCode.OK);
+            Assert.NotNull(result.Data);
         }
 
-        [TestMethod]
+        [Fact]
         public async Task Update() {
             var result = await Client.Portfolio.BrokerDealers.Verbose.Get(337);
 
@@ -59,8 +57,8 @@ namespace FTJFundChoice.OrionClient.Test.Portfolio {
 
             result = await Client.Portfolio.BrokerDealers.Verbose.Update(dealer);
 
-            Assert.AreEqual(result.StatusCode, StatusCode.OK);
-            Assert.IsNotNull(result.Data);
+            Assert.Equal(result.StatusCode, StatusCode.OK);
+            Assert.NotNull(result.Data);
         }
     }
 }

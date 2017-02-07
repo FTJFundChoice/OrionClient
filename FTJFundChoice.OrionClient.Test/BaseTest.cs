@@ -4,7 +4,7 @@ using System.Configuration;
 namespace FTJFundChoice.OrionClient.Test {
 
     public abstract class BaseTest {
-        public OrionClient.Client Client { get; private set; }
+        public OrionApiClient Client { get; private set; }
         public int AlClientId { get; private set; }
 
         public BaseTest() {
@@ -20,7 +20,7 @@ namespace FTJFundChoice.OrionClient.Test {
                 Password = ConfigurationManager.AppSettings["svc_password"]
             };
 
-            Client = new OrionClient.Client(baseUrl, apiCreds, svcCreds);
+            Client = new OrionApiClient(baseUrl, apiCreds, svcCreds);
 
             AlClientId = Convert.ToInt32(ConfigurationManager.AppSettings["alClientId"]);
         }

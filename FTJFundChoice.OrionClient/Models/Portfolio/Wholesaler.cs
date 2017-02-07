@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace FTJFundChoice.OrionClient {
+namespace FTJFundChoice.OrionClient.Models.Portfolio {
 
     // Wholesaler and Wholesaler (Simple) return the same structure
     public class Wholesaler {

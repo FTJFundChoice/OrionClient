@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace FTJFundChoice.OrionClient.Billing {
+namespace FTJFundChoice.OrionClient.Models.Billing {
 
     public class BillRepresentativePlatform {
 

@@ -5,9 +5,9 @@ using FTJFundChoice.OrionClient.Interfaces.BrokerDealers;
 namespace FTJFundChoice.OrionClient.Factories {
 
     public class PortfolioFactory : IPortfolioFactory {
-        private readonly Client client;
+        private readonly OrionApiClient client;
 
-        public PortfolioFactory(Client client) {
+        public PortfolioFactory(OrionApiClient client) {
             this.client = client;
         }
 

@@ -4,9 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FTJFundChoice.OrionModels.Test
-{
-    public class Class1
-    {
+namespace FTJFundChoice.OrionClient.Test.Portfolio {
+    class ClientTests {
     }
 }

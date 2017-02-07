@@ -1,16 +1,16 @@
 ﻿using FTJFundChoice.OrionClient.Enums;
 using FTJFundChoice.OrionClient.Extensions;
 using FTJFundChoice.OrionClient.Interfaces.BrokerDealers;
-using FTJFundChoice.OrionClient.Portfolio;
+using FTJFundChoice.OrionClient.Models.Portfolio;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace FTJFundChoice.OrionClient.Compositions.BrokerDealers {
 
     public class BrokerDealersSimpleModule : IBrokerDealersSimpleModule {
-        private Client client = null;
+        private OrionApiClient client = null;
 
-        public BrokerDealersSimpleModule(Client client) {
+        public BrokerDealersSimpleModule(OrionApiClient client) {
             this.client = client;
         }
 

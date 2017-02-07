@@ -18,7 +18,7 @@ namespace FTJFundChoice.OrionClient {
             this.serviceCredentials = serviceCredentials;
         }
 
-        public async Task AuthenticateAsync(Client client, Request request) {
+        public async Task AuthenticateAsync(OrionApiClient client, Request request) {
             if (!AuthenticationHelpers.IsAuthenticated(authToken))
                 if (request.RequestUri.ToString() != AuthenticationHelpers.AuthenticationPath &&
                     request.RequestUri.ToString() != AuthenticationHelpers.ImpersonationPath)

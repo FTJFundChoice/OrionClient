@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FTJFundChoice.OrionClient.Portfolio {
+namespace FTJFundChoice.OrionClient.Models.Portfolio {
 
     public class Representative {
 

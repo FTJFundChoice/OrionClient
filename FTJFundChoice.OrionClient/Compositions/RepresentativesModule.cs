@@ -1,8 +1,7 @@
 ﻿using FTJFundChoice.OrionClient.Enums;
 using FTJFundChoice.OrionClient.Extensions;
 using FTJFundChoice.OrionClient.Interfaces;
-using FTJFundChoice.OrionClient;
-using FTJFundChoice.OrionClient.Portfolio;
+using FTJFundChoice.OrionClient.Models.Portfolio;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -11,9 +10,9 @@ using System.Threading.Tasks;
 namespace FTJFundChoice.OrionClient.Compositions {
 
     public class RepresentativesModule : IRepresentativesModule {
-        private Client client = null;
+        private OrionApiClient client = null;
 
-        public RepresentativesModule(Client client) {
+        public RepresentativesModule(OrionApiClient client) {
             this.client = client;
         }
 

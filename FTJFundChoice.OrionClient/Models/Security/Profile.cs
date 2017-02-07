@@ -1,7 +1,7 @@
 ﻿using FTJFundChoice.OrionClient.Models.Enums;
 using Newtonsoft.Json;
 
-namespace FTJFundChoice.OrionClient.Security {
+namespace FTJFundChoice.OrionClient.Models.Security {
 
     public class Profile {
 
@@ -29,7 +29,7 @@ namespace FTJFundChoice.OrionClient.Security {
         [JsonProperty("isUserDefault")]
         public bool IsUserDefault { get; set; }
 
-        [JsonProperty("alClientId")]
+        [JsonProperty("alOrionClientId")]
         public long AlClientId { get; set; }
 
         [JsonProperty("roleName")]

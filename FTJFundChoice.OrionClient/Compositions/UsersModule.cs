@@ -1,7 +1,7 @@
 ﻿using FTJFundChoice.OrionClient.Enums;
 using FTJFundChoice.OrionClient.Extensions;
 using FTJFundChoice.OrionClient.Interfaces;
-using FTJFundChoice.OrionClient.Security;
+using FTJFundChoice.OrionClient.Models.Security;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -10,14 +10,14 @@ using System;
 namespace FTJFundChoice.OrionClient.Compositions {
 
     public class UsersModule : IUsersModule {
-        private Client client = null;
+        private OrionApiClient client = null;
 
-        public UsersModule(Client client) {
+        public UsersModule(OrionApiClient client) {
             this.client = client;
         }
 
         public async Task<IResult<List<long>>> Activate(bool isActive, List<long> ids) {
-            var request = new Request("/Security/Users/Action/Activate", Method.PUT);
+            var request = new Request("Security/Users/Action/Activate", Method.PUT);
             request.AddQueryParameter("activate", isActive.ToString());
             request.AddParameter("application/json", JsonConvert.SerializeObject(ids));
             return await client.ExecuteTaskAsync<List<long>>(request);
@@ -79,7 +79,7 @@ namespace FTJFundChoice.OrionClient.Compositions {
         }
 
         public async Task<IResult<UserInfoDetails>> ResetPassword(long userId, string password, bool sendEmail = false, bool newUser = false) {
-            var request = new Request("/Security/Users/{id}/Action/Password/Reset", Method.PUT);
+            var request = new Request("Security/Users/{id}/Action/Password/Reset", Method.PUT);
             request.AddUrlSegment("id", userId.ToString());
             request.AddQueryParameter("sendEmail", sendEmail.ToString());
             request.AddQueryParameter("newUser", newUser.ToString());
@@ -91,17 +91,16 @@ namespace FTJFundChoice.OrionClient.Compositions {
         }
 
         public async Task<IResult<UserInfoDetails>> SetPassword(long userId, string password) {
-            var request = new Request("/Security/Users/{id}/Action/Password/Set", Method.PUT);
+            var request = new Request("Security/Users/{id}/Action/Password/Set", Method.PUT);
             request.AddUrlSegment("id", userId.ToString());
 
             // Not documented by Orion
-            dynamic setPasswordBody = new {
-                newPassword = password,
-                isReset = false
+            var body = new SetPassword {
+                NewPassword = password,
+                IsReset = false
             };
 
-            request.AddParameter("application/json", JsonConvert.SerializeObject(setPasswordBody));
-
+            request.AddParameter("application/json", JsonConvert.SerializeObject(body));
             return await client.ExecuteTaskAsync<UserInfoDetails>(request);
         }
 

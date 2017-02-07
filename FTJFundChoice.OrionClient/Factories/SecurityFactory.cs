@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 namespace FTJFundChoice.OrionClient.Factories {
 
     public class SecurityFactory : ISecurityFactory {
-        private readonly Client client;
+        private readonly OrionApiClient client;
 
-        public SecurityFactory(Client client) {
+        public SecurityFactory(OrionApiClient client) {
             this.client = client;
         }
 

@@ -2,18 +2,18 @@
 using FTJFundChoice.OrionClient.Enums;
 using FTJFundChoice.OrionClient.Extensions;
 using FTJFundChoice.OrionClient.Interfaces.BrokerDealers;
-using FTJFundChoice.OrionClient.Portfolio;
+using FTJFundChoice.OrionClient.Models.Portfolio;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace FTJFundChoice.OrionClient.Compositions {
 
     public class BrokerDealersModule : IBrokerDealersModule {
-        private Client client = null;
+        private OrionApiClient client = null;
         private IBrokerDealersVerboseModule verboseModule = null;
         private IBrokerDealersSimpleModule simpleModule = null;
 
-        public BrokerDealersModule(Client client) {
+        public BrokerDealersModule(OrionApiClient client) {
             this.client = client;
             verboseModule = new BrokerDealersVerboseModule(client);
             simpleModule = new BrokerDealersSimpleModule(client);

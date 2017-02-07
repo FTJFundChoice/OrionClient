@@ -1,9 +1,9 @@
-﻿using FTJFundChoice.OrionClient.Billing;
+﻿using FTJFundChoice.OrionClient.Models.Billing;
 using FTJFundChoice.OrionClient.Settings;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 
-namespace FTJFundChoice.OrionClient.Portfolio {
+namespace FTJFundChoice.OrionClient.Models.Portfolio {
 
     public class RepresentativeVerbose {
 

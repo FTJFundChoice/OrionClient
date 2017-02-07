@@ -9,6 +9,7 @@
         Forbidden,
         Unauthorized,
         BadRequest,
-        ServerError
+        ServerError,
+        MethodNotAllowed
     }
 }

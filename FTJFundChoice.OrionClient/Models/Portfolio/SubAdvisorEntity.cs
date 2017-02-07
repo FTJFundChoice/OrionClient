@@ -1,7 +1,7 @@
 ﻿using FTJFundChoice.OrionClient.Models.Enums;
 using Newtonsoft.Json;
 
-namespace FTJFundChoice.OrionClient.Portfolio {
+namespace FTJFundChoice.OrionClient.Models.Portfolio {
 
     public class SubAdvisorEntity {
 

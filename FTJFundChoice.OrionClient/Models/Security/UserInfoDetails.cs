@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace FTJFundChoice.OrionClient.Security {
+namespace FTJFundChoice.OrionClient.Models.Security {
 
     public class UserInfoDetails {
 

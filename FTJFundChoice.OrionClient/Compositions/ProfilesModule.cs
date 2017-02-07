@@ -1,15 +1,15 @@
 ﻿using FTJFundChoice.OrionClient.Enums;
 using FTJFundChoice.OrionClient.Interfaces;
-using FTJFundChoice.OrionClient.Security;
+using FTJFundChoice.OrionClient.Models.Security;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace FTJFundChoice.OrionClient.Compositions {
 
     public class ProfilesModule : IProfilesModule {
-        private Client client = null;
+        private OrionApiClient client = null;
 
-        public ProfilesModule(Client client) {
+        public ProfilesModule(OrionApiClient client) {
             this.client = client;
         }
 

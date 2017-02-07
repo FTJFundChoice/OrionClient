@@ -50,7 +50,7 @@ namespace FTJFundChoice.OrionClient.Models.Enums {
         BillInstance = 25,
         BillMasterPayout = 26,
         Model = 27,
-        NewAccountClient = 28,
+        NewAccountOrionClient = 28,
         NewAccountReg = 29,
         DownloadExclusion = 30,
         Price = 31,
@@ -66,7 +66,7 @@ namespace FTJFundChoice.OrionClient.Models.Enums {
         [EnumMember(Value = "Administrator")]
         Administrator = 50,
 
-        OutsideClient = 51,
+        OutsideOrionClient = 51,
 
         [EnumMember(Value = "Sub-advisor")]
         SubAdvisor = 52,

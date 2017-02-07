@@ -1,34 +1,35 @@
-﻿using FTJFundChoice.OrionClient.Enums;
+﻿using FTJFundChoice.OrionClient.Compositions;
 using FTJFundChoice.OrionClient.Models.Enums;
-using FTJFundChoice.OrionClient.Security;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using FTJFundChoice.OrionClient.Models.Security;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Threading.Tasks;
+using Xunit;
 
 namespace FTJFundChoice.OrionClient.Test.Security {
 
-    [TestClass]
+    [Collection("User Tests")]
     public class UserTests : BaseTest {
 
-        [TestMethod]
+        [Fact]
         public async Task GetAll() {
             var result = await Client.Security.Users.GetAll(20, 0, true);
-            Assert.IsTrue(result.Success);
-            Assert.IsTrue(result.Data.Count > 0);
-            Assert.IsNotNull(result.Data[0].EntityName);
+            Assert.True(result.Success);
+            Assert.True(result.Data.Count > 0);
+            Assert.NotNull(result.Data[0].EntityName);
         }
 
-        [TestMethod]
+        [Fact]
         public async Task Get() {
             var users = new Compositions.UsersModule(Client);
             var result = await users.Get(65258);
 
-            Assert.IsTrue(result.Success);
-            Assert.IsNotNull(result.Data.EntityName);
+            Assert.True(result.Success);
+            Assert.NotNull(result.Data.EntityName);
         }
 
-        [TestMethod]
+        [Fact]
         public async Task Create() {
             var user = new UserInfoDetails {
                 EntityName = "ORION_CLIENT_TEST",
@@ -53,28 +54,40 @@ namespace FTJFundChoice.OrionClient.Test.Security {
 
             var result = await Client.Security.Users.Create(user);
 
-            Assert.IsTrue(result.Success);
-            Assert.IsNotNull(result.Data);
+            Assert.True(result.Success);
+            Assert.NotNull(result.Data);
         }
 
-        [TestMethod]
+        [Fact]
         public async Task Update() {
-            var users = new Compositions.UsersModule(Client);
+            var users = new UsersModule(Client);
             var result = await users.Get(69949);
             var user = result.Data;
             user.FirstName = "ORION_TEST";
 
             result = await users.Update(user);
 
-            Assert.IsTrue(result.Success);
-            Assert.IsNotNull(result.Data);
+            Assert.True(result.Success);
+            Assert.NotNull(result.Data);
         }
 
-        [TestMethod]
+        [Fact]
         public void DeleteManual() {
             //var userId = 1;
             //var result = await Client.Security.Users.Delete(userId);
             //Assert.IsTrue(result.Success);
+        }
+
+        [Fact]
+        public async Task SetPassword() {
+            var users = new UsersModule(Client);
+            long userId = Convert.ToInt64(ConfigurationManager.AppSettings["set_password_userId"]);
+            string password = ConfigurationManager.AppSettings["set_password_password"];
+
+            var result = await users.SetPassword(userId, password);
+
+            Assert.True(result.Success);
+            Assert.NotNull(result.Data);
         }
     }
 }

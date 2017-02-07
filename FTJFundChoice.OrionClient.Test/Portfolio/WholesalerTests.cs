@@ -1,29 +1,29 @@
 ﻿using FTJFundChoice.OrionClient.Enums;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Net;
 using System.Threading.Tasks;
+using Xunit;
 
 namespace FTJFundChoice.OrionClient.Test {
 
-    [TestClass]
+    [Collection("Wholesaler Tests")]
     public class WholesalerTests : BaseTest {
 
-        [TestMethod]
+        [Fact]
         public async Task GetAll() {
             var wholeSaler = new Compositions.WholesalersModule(Client);
             var result = await wholeSaler.GetAll();
 
-            Assert.AreEqual(result.StatusCode, StatusCode.OK);
-            Assert.IsNotNull(result.Data);
+            Assert.Equal(result.StatusCode, StatusCode.OK);
+            Assert.NotNull(result.Data);
         }
 
-        [TestMethod]
+        [Fact]
         public async Task Get() {
             var wholeSaler = new Compositions.WholesalersModule(Client);
             var result = await wholeSaler.Get(13);
 
-            Assert.AreEqual(result.StatusCode, StatusCode.OK);
-            Assert.IsNotNull(result.Data);
+            Assert.Equal(result.StatusCode, StatusCode.OK);
+            Assert.NotNull(result.Data);
         }
     }
 }

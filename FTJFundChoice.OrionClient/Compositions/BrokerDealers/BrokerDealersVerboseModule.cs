@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using FTJFundChoice.OrionClient.Interfaces.BrokerDealers;
-using FTJFundChoice.OrionClient.Portfolio;
+using FTJFundChoice.OrionClient.Models.Portfolio;
 using FTJFundChoice.OrionClient.Enums;
 using Newtonsoft.Json;
 using FTJFundChoice.OrionClient.Extensions;
@@ -10,9 +10,9 @@ using FTJFundChoice.OrionClient.Extensions;
 namespace FTJFundChoice.OrionClient.Compositions.BrokerDealers {
 
     public class BrokerDealersVerboseModule : IBrokerDealersVerboseModule {
-        private Client client = null;
+        private OrionApiClient client = null;
 
-        public BrokerDealersVerboseModule(Client client) {
+        public BrokerDealersVerboseModule(OrionApiClient client) {
             this.client = client;
         }
 
