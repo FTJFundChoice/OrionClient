@@ -1,4 +1,7 @@
 ﻿using FTJFundChoice.OrionClient.Interfaces.BrokerDealers;
+using FTJFundChoice.OrionClient.Interfaces.Clients;
+using FTJFundChoice.OrionClient.Interfaces.Representatives;
+using FTJFundChoice.OrionClient.Interfaces.SubAdvisors;
 using FTJFundChoice.OrionClient.Models;
 using System.Threading.Tasks;
 
@@ -13,6 +16,10 @@ namespace FTJFundChoice.OrionClient.Interfaces {
         IBrokerDealersModule BrokerDealers { get; }
         IRepresentativesModule Representatives { get; }
         IWholesalersModule Wholesalers { get; }
+        IClientsModule Clients { get; }
+        IPlanSponsorsModule PlanSponsors { get; }
+        IThirdPartyAdministratorsModule ThirdPartyAdministrators { get; }
+        ISubAdvisorsModule SubAdvisors { get; }
     }
 
     public interface ISecurityFactory {

@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System;
+using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 
@@ -41,8 +42,22 @@ namespace FTJFundChoice.OrionClient {
         public bool Success { get; private set; }
 
         internal OrionException ConvertContentToException() {
-            var exception = JsonConvert.DeserializeObject<OrionException>(Content);
-            return exception;
+            try {
+                var exception = JsonConvert.DeserializeObject<OrionException>(Content);
+                return exception;
+            }
+            catch (Exception) {
+                // Manually convert the object.
+                // We need to do this when the UserException.UserDetail is a string and not a collection.
+                var dynOrionException = JsonConvert.DeserializeObject<dynamic>(Content);
+                var oEx = new OrionException();
+                oEx.CorrelationId = dynOrionException.correlationId.ToString();
+                oEx.UserException = new UserException();
+                oEx.UserException.Detail = new List<OrionKeyValue>();
+                oEx.UserException.Detail.Add(new OrionKeyValue { Key = "", Value = dynOrionException.userException.detail });
+                oEx.UserException.Type = dynOrionException.userException.type;
+                return oEx;
+            }
         }
 
         internal StatusCode ConvertStatusCode(HttpStatusCode status) {
@@ -70,6 +85,9 @@ namespace FTJFundChoice.OrionClient {
 
                 case HttpStatusCode.MethodNotAllowed:
                     return StatusCode.MethodNotAllowed;
+
+                case HttpStatusCode.InternalServerError:
+                    return StatusCode.InternalServerError;
 
                 default:
                     throw new NotSupportedException(string.Format("Unsuppored method type {0}", status.ToString()));

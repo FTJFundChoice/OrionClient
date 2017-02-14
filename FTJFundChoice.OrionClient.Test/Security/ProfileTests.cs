@@ -8,7 +8,7 @@ namespace FTJFundChoice.OrionClient.Test.Security {
 
         [Fact]
         public async Task GetAll() {
-            var result = await Client.Security.Profiles.GetAll();
+            var result = await Client.Security.Profiles.GetAllAsync();
 
             Assert.True(result.Success);
             Assert.NotNull(result.Data);
@@ -17,7 +17,7 @@ namespace FTJFundChoice.OrionClient.Test.Security {
 
         [Fact]
         public async Task Search() {
-            var result = await Client.Security.Profiles.Search("testrep@");
+            var result = await Client.Security.Profiles.SearchAsync("testrep@");
 
             Assert.True(result.Success);
             Assert.True(result.Data.Count > 0);

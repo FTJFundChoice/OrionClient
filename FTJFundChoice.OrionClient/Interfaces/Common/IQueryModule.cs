@@ -5,8 +5,8 @@ namespace FTJFundChoice.OrionClient.Interfaces.Common {
 
     public interface IQueryModule<T> {
 
-        Task<IResult<List<T>>> GetAll(int top = 1000, int skip = 0, bool? isActive = true);
+        Task<IResult<List<T>>> GetAllAsync(int top = 10000, int skip = 0, bool? isActive = true);
 
-        Task<IResult<T>> Get(long id);
+        Task<IResult<T>> GetAsync(long id);
     }
 }

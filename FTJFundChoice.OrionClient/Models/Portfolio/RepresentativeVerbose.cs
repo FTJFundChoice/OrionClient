@@ -1,5 +1,5 @@
 ﻿using FTJFundChoice.OrionClient.Models.Billing;
-using FTJFundChoice.OrionClient.Settings;
+using FTJFundChoice.OrionClient.Models.Settings;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 

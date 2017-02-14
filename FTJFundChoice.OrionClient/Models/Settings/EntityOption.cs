@@ -1,7 +1,7 @@
 ﻿using FTJFundChoice.OrionClient.Models.Enums;
 using Newtonsoft.Json;
 
-namespace FTJFundChoice.OrionClient.Settings {
+namespace FTJFundChoice.OrionClient.Models.Settings {
 
     public class EntityOption {
 

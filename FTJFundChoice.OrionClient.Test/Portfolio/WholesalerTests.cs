@@ -11,7 +11,7 @@ namespace FTJFundChoice.OrionClient.Test {
         [Fact]
         public async Task GetAll() {
             var wholeSaler = new Compositions.WholesalersModule(Client);
-            var result = await wholeSaler.GetAll();
+            var result = await wholeSaler.GetAllAsync();
 
             Assert.Equal(result.StatusCode, StatusCode.OK);
             Assert.NotNull(result.Data);
@@ -20,7 +20,7 @@ namespace FTJFundChoice.OrionClient.Test {
         [Fact]
         public async Task Get() {
             var wholeSaler = new Compositions.WholesalersModule(Client);
-            var result = await wholeSaler.Get(13);
+            var result = await wholeSaler.GetAsync(13);
 
             Assert.Equal(result.StatusCode, StatusCode.OK);
             Assert.NotNull(result.Data);

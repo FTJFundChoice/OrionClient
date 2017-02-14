@@ -1,6 +1,5 @@
-﻿using FTJFundChoice.OrionClient.Settings;
+﻿using FTJFundChoice.OrionClient.Models.Settings;
 using Newtonsoft.Json;
-using System;
 using System.Collections.Generic;
 
 namespace FTJFundChoice.OrionClient.Models.Portfolio {

@@ -12,7 +12,7 @@ namespace FTJFundChoice.OrionClient.Test.Portfolio {
 
         [Fact]
         public async Task GetAll() {
-            var result = await Client.Portfolio.Representatives.GetAll();
+            var result = await Client.Portfolio.Representatives.Verbose.GetAllAsync();
 
             Assert.Equal(result.StatusCode, StatusCode.OK);
             Assert.True(result.Data.Count > 0);
@@ -21,7 +21,7 @@ namespace FTJFundChoice.OrionClient.Test.Portfolio {
 
         [Fact]
         public async Task Get() {
-            var result = await Client.Portfolio.Representatives.Get(349);
+            var result = await Client.Portfolio.Representatives.Verbose.GetAsync(349);
 
             Assert.Equal(result.StatusCode, StatusCode.OK);
             Assert.NotNull(result.Data.Portfolio.Number);
@@ -29,7 +29,7 @@ namespace FTJFundChoice.OrionClient.Test.Portfolio {
 
         [Fact]
         public async Task GetWithUserDefinedFields() {
-            var result = await Client.Portfolio.Representatives.Get(349, false, true);
+            var result = await Client.Portfolio.Representatives.Verbose.GetAsync(349, false, true);
             Assert.Equal(result.StatusCode, StatusCode.OK);
             Assert.NotNull(result.Data.UserDefinedFields);
         }
@@ -53,8 +53,8 @@ namespace FTJFundChoice.OrionClient.Test.Portfolio {
                     WholesalerId = 3
                 }
             };
-            var reps = new Compositions.RepresentativesModule(Client);
-            var result = await reps.Create(rep);
+            var reps = new Compositions.Representatives.RepresentativesVerboseModule(Client);
+            var result = await reps.CreateAsync(rep);
 
             Assert.Equal(result.StatusCode, StatusCode.OK);
             Assert.NotNull(result.Data);
@@ -62,13 +62,13 @@ namespace FTJFundChoice.OrionClient.Test.Portfolio {
 
         [Fact]
         public async Task Update() {
-            var reps = new Compositions.RepresentativesModule(Client);
-            var result = await reps.Get(1);
+            var reps = new Compositions.Representatives.RepresentativesVerboseModule(Client);
+            var result = await reps.GetAsync(1);
 
             var rep = result.Data;
             rep.Portfolio.Address1 = "TEST ADDRESS 2";
 
-            result = await reps.Update(rep);
+            result = await reps.UpdateAsync(rep);
 
             Assert.Equal(result.StatusCode, StatusCode.OK);
             Assert.NotNull(result.Data);
@@ -76,8 +76,8 @@ namespace FTJFundChoice.OrionClient.Test.Portfolio {
 
         [Fact]
         public async Task UpdateWithUserDefinedFields() {
-            var reps = new Compositions.RepresentativesModule(Client);
-            var result = await reps.Get(1, true, true);
+            var reps = new Compositions.Representatives.RepresentativesVerboseModule(Client);
+            var result = await reps.GetAsync(1, true, true);
             var rep = result.Data;
 
             rep.Portfolio.Address1 = "TEST ADDRESS 2";
@@ -85,7 +85,7 @@ namespace FTJFundChoice.OrionClient.Test.Portfolio {
             var udf = rep.UserDefinedFields.FirstOrDefault(x => x.UserDefineDefinitionId == 491); // CRD2
             udf.Value = "INTEGRATION_TEST";
 
-            result = await reps.Update(rep);
+            result = await reps.UpdateAsync(rep);
 
             Assert.Equal(result.StatusCode, StatusCode.OK);
             Assert.NotNull(result.Data);

@@ -24,12 +24,12 @@ namespace FTJFundChoice.OrionClient.Models.Security {
         public string EntityName { get; set; }
 
         [JsonProperty("roleId")]
-        public long RoleId { get; set; }
+        public long? RoleId { get; set; }
 
         [JsonProperty("isUserDefault")]
         public bool IsUserDefault { get; set; }
 
-        [JsonProperty("alOrionClientId")]
+        [JsonProperty("alClientId")]
         public long AlClientId { get; set; }
 
         [JsonProperty("roleName")]

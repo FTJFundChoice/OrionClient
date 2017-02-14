@@ -1,8 +1,6 @@
-﻿using System;
-using FTJFundChoice.OrionClient.Interfaces.OrionClient;
-using FTJFundChoice.OrionClient.Compositions.OrionClient;
+﻿using FTJFundChoice.OrionClient.Interfaces.Clients;
 
-namespace FTJFundChoice.OrionClient.Compositions.OrionClient {
+namespace FTJFundChoice.OrionClient.Compositions.Clients {
 
     public class ClientsModule : IClientsModule {
         private OrionApiClient client = null;
@@ -15,7 +13,7 @@ namespace FTJFundChoice.OrionClient.Compositions.OrionClient {
 
         public IClientsSimpleModule Simple {
             get {
-                throw new NotImplementedException();
+                return simpleModule;
             }
         }
     }

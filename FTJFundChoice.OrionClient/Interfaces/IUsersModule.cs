@@ -7,18 +7,18 @@ namespace FTJFundChoice.OrionClient.Interfaces {
 
     public interface IUsersModule : IModifyModule<UserInfoDetails>, IQueryModule<UserInfoDetails> {
 
-        Task<IResult<List<long>>> Activate(bool isActive, List<long> ids);
+        Task<IResult<List<long>>> ActivateAsync(bool isActive, List<long> ids);
 
-        Task<IResult<UserInfoDetails>> Create(UserInfoDetails user, bool sendEmail = false);
+        Task<IResult<UserInfoDetails>> CreateAsync(UserInfoDetails user, bool sendEmail = false);
 
-        Task<IResult<List<UserInfoDetails>>> GetAll(int top = 1000, int skip = 0, bool? isActive = null, string loginUserId = null);
+        Task<IResult<List<UserInfoDetails>>> GetAllAsync(int top = 1000, int skip = 0, bool? isActive = null, string loginUserId = null);
 
-        Task<IResult<UserInfoDetails>> ResetPassword(long userId, string password, bool sendEmail = false, bool newUser = false);
+        Task<IResult<UserInfoDetails>> ResetPasswordAsync(long userId, string password, bool sendEmail = false, bool newUser = false);
 
-        Task<IResult<UserInfoDetails>> ResetPassword(UserInfoDetails user, bool sendEmail = false, bool newUser = false);
+        Task<IResult<UserInfoDetails>> ResetPasswordAsync(UserInfoDetails user, bool sendEmail = false, bool newUser = false);
 
-        Task<IResult<UserInfoDetails>> SetPassword(long userId, string password);
+        Task<IResult<UserInfoDetails>> SetPasswordAsync(long userId, string password);
 
-        Task<IResult<UserInfoDetails>> SetPassword(UserInfoDetails user);
+        Task<IResult<UserInfoDetails>> SetPasswordAsync(UserInfoDetails user);
     }
 }

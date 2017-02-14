@@ -1,18 +1,18 @@
 ﻿using FTJFundChoice.OrionClient.Enums;
 using FTJFundChoice.OrionClient.Extensions;
-using FTJFundChoice.OrionClient.Interfaces;
+using FTJFundChoice.OrionClient.Interfaces.Representatives;
 using FTJFundChoice.OrionClient.Models.Portfolio;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace FTJFundChoice.OrionClient.Compositions {
+namespace FTJFundChoice.OrionClient.Compositions.Representatives {
 
-    public class RepresentativesModule : IRepresentativesModule {
+    public class RepresentativesVerboseModule : IRepresentativesVerboseModule {
         private OrionApiClient client = null;
 
-        public RepresentativesModule(OrionApiClient client) {
+        public RepresentativesVerboseModule(OrionApiClient client) {
             this.client = client;
         }
 
@@ -21,26 +21,26 @@ namespace FTJFundChoice.OrionClient.Compositions {
         /// </summary>
         /// <param name="representative"></param>
         /// <returns>Returns Result object with verbose Representative. (no collections)</returns>
-        public async Task<IResult<RepresentativeVerbose>> Create(RepresentativeVerbose representative) {
+        public async Task<IResult<RepresentativeVerbose>> CreateAsync(RepresentativeVerbose representative) {
             var request = new Request("Portfolio/Representatives/Verbose", Method.POST);
             request.AddParameter("application/json", JsonConvert.SerializeObject(representative));
 
             return await client.ExecuteTaskAsync<RepresentativeVerbose>(request);
         }
 
-        public Task<IResult> Delete(long[] id) {
+        public Task<IResult> DeleteAsync(long[] id) {
             throw new NotImplementedException();
         }
 
-        public Task<IResult> Delete(long id) {
+        public Task<IResult> DeleteAsync(long id) {
             throw new NotImplementedException();
         }
 
-        public async Task<IResult<RepresentativeVerbose>> Get(long id) {
-            return await Get(id, true, false);
+        public async Task<IResult<RepresentativeVerbose>> GetAsync(long id) {
+            return await GetAsync(id, true, false);
         }
 
-        public async Task<IResult<RepresentativeVerbose>> Get(long id, bool includePorfolio = true, bool includeUserDefinedFields = false) {
+        public async Task<IResult<RepresentativeVerbose>> GetAsync(long id, bool includePorfolio = true, bool includeUserDefinedFields = false) {
             var request = new Request("Portfolio/Representatives/Verbose/{id}", Method.GET);
             request.AddUrlSegment("id", Convert.ToString(id));
             request.AddExpandQueryParameters(includePorfolio, includeUserDefinedFields);
@@ -49,14 +49,14 @@ namespace FTJFundChoice.OrionClient.Compositions {
         }
 
         public async Task<IResult<List<RepresentativeVerbose>>> GetAll() {
-            return await GetAll(5000, 0, null, true, false);
+            return await GetAllAsync(10000, 0, null, true, false);
         }
 
-        public async Task<IResult<List<RepresentativeVerbose>>> GetAll(int top = 1000, int skip = 0, bool? isActive = null) {
-            return await GetAll(top, skip, null, true, false);
+        public async Task<IResult<List<RepresentativeVerbose>>> GetAllAsync(int top = 10000, int skip = 0, bool? isActive = null) {
+            return await GetAllAsync(top, skip, null, true, false);
         }
 
-        public async Task<IResult<List<RepresentativeVerbose>>> GetAll(int top = 1000, int skip = 0, bool? isActive = null, bool includePorfolio = true, bool includeUserDefinedFields = false) {
+        public async Task<IResult<List<RepresentativeVerbose>>> GetAllAsync(int top = 10000, int skip = 0, bool? isActive = null, bool includePorfolio = true, bool includeUserDefinedFields = false) {
             var request = new Request("Portfolio/Representatives/Verbose", Method.GET);
             request.AddExpandQueryParameters(includePorfolio, includeUserDefinedFields);
             request.AddTopSkipQueryParameters(top, skip);
@@ -70,7 +70,7 @@ namespace FTJFundChoice.OrionClient.Compositions {
         /// </summary>
         /// <param name="representative"></param>
         /// <returns>Returns Result object with verbose Representative. (no collections)</returns>
-        public async Task<IResult<RepresentativeVerbose>> Update(RepresentativeVerbose representative) {
+        public async Task<IResult<RepresentativeVerbose>> UpdateAsync(RepresentativeVerbose representative) {
             var request = new Request("Portfolio/Representatives/Verbose/{id}", Method.PUT);
 
             request.AddUrlSegment("id", representative.Id.ToString());

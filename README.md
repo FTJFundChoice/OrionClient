@@ -1,11 +1,39 @@
-# Unofficial C# Client for Orion API
+# Orion RESTful API C# Client
 
-### TODO
-  - Cleanup
-    - Review public\internal accessors
-    - Convert OrionClient to interface
-  - List Features
-  - Examples
-  - Testing
-  - Roadmap
-  - Documentation
+
+This is an unofficial C# client for accessing the Orion RESTful API. 
+
+### WIP, use with caution!!
+
+## Features
+ - Asynchronous interfaces
+ - Supports authentication and impersonation tokens
+ - Identical design and naming convention as the API endpoints.
+ - Complete model converage on supported endpoints.
+ - Gracefully handles API errors using the OrionException object
+ - Attempts to support route query optimisations like $top, $skip, isActive where possible
+
+## Usage
+
+``` 
+	string url = [BASE_API_URL];
+    
+	Credentials apiCredentials = new Credentials {
+    Username = [API_USERNAME],
+    Password = [API_PASSWORD]
+  };
+    
+  Credentials svcCredentials = new Credentials {
+    Username = [SVC_USERNAME],
+    Password = [SVC_USERNAME]
+  };
+    
+  var client = new OrionApiClient(url, apiCredentials, svcCredentials);
+    
+  var result = client.Security.Users.GetAll()  // Route /Security/Users   
+    
+  if (result.Success) {
+    var users = result.Data;
+  }
+    
+```

@@ -11,7 +11,7 @@ namespace FTJFundChoice.OrionClient.Test.Portfolio {
 
         [Fact]
         public async Task GetAll() {
-            var result = await Client.Portfolio.BrokerDealers.Verbose.GetAll();
+            var result = await Client.Portfolio.BrokerDealers.Verbose.GetAllAsync();
 
             Assert.Equal(result.StatusCode, StatusCode.OK);
             Assert.True(result.Data.Count > 0);
@@ -20,7 +20,7 @@ namespace FTJFundChoice.OrionClient.Test.Portfolio {
 
         [Fact]
         public async Task Get() {
-            var result = await Client.Portfolio.BrokerDealers.Verbose.Get(3);
+            var result = await Client.Portfolio.BrokerDealers.Verbose.GetAsync(3);
 
             Assert.Equal(result.StatusCode, StatusCode.OK);
             Assert.NotNull(result.Data.Portfolio.OldBDCode);
@@ -42,7 +42,7 @@ namespace FTJFundChoice.OrionClient.Test.Portfolio {
                     Name = "Orion Test"
                 }
             };
-            var result = await Client.Portfolio.BrokerDealers.Verbose.Create(dealer);
+            var result = await Client.Portfolio.BrokerDealers.Verbose.CreateAsync(dealer);
 
             Assert.Equal(result.StatusCode, StatusCode.OK);
             Assert.NotNull(result.Data);
@@ -50,12 +50,12 @@ namespace FTJFundChoice.OrionClient.Test.Portfolio {
 
         [Fact]
         public async Task Update() {
-            var result = await Client.Portfolio.BrokerDealers.Verbose.Get(337);
+            var result = await Client.Portfolio.BrokerDealers.Verbose.GetAsync(337);
 
             var dealer = result.Data;
             dealer.Portfolio.Address1 = "TEST ADDRESS 2";
 
-            result = await Client.Portfolio.BrokerDealers.Verbose.Update(dealer);
+            result = await Client.Portfolio.BrokerDealers.Verbose.UpdateAsync(dealer);
 
             Assert.Equal(result.StatusCode, StatusCode.OK);
             Assert.NotNull(result.Data);

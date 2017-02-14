@@ -13,13 +13,13 @@ namespace FTJFundChoice.OrionClient.Compositions {
             this.client = client;
         }
 
-        public async Task<IResult<Wholesaler>> Get(long id) {
+        public async Task<IResult<Wholesaler>> GetAsync(long id) {
             var request = new Request("Portfolio/Wholesalers/{id}", Method.GET);
             request.AddUrlSegment("id", id.ToString());
             return await client.ExecuteTaskAsync<Wholesaler>(request);
         }
 
-        public async Task<IResult<List<Wholesaler>>> GetAll(int top = 1000, int skip = 0, bool? isActive = true) {
+        public async Task<IResult<List<Wholesaler>>> GetAllAsync(int top = 10000, int skip = 0, bool? isActive = true) {
             var request = new Request("Portfolio/Wholesalers", Method.GET);
             return await client.ExecuteTaskAsync<List<Wholesaler>>(request);
         }

@@ -15,15 +15,17 @@ namespace FTJFundChoice.OrionClient {
         private ICompositionFactory factory = null;
         private readonly HttpClient client = null;
         private readonly Authenticator authenticator = null;
+        private TimeSpan defaultTimeout = TimeSpan.FromMinutes(5);
 
         #endregion Privates
 
         #region Contructor
 
-        public OrionApiClient(string baseUrl, Credentials apiCredentials, Credentials serviceCredentials) {
+        public OrionApiClient(string baseUrl, Credentials apiCredentials, Credentials serviceCredentials, TimeSpan? requestTimeout = null) {
             var handler = new HttpClientHandler() { };
             client = new HttpClient(handler);
             client.BaseAddress = new Uri(baseUrl);
+            client.Timeout = (requestTimeout.HasValue) ? requestTimeout.Value : defaultTimeout;
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("text/plain"));

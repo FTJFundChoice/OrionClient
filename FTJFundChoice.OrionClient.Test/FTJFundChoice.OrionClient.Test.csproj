@@ -69,7 +69,10 @@
     <Compile Include="Models\EntityConversionTest.cs" />
     <Compile Include="Portfolio\BrokerDealerTests.cs" />
     <Compile Include="Portfolio\ClientTests.cs" />
+    <Compile Include="Portfolio\PlanSponsorTests.cs" />
     <Compile Include="Portfolio\RepresentativeTests.cs" />
+    <Compile Include="Portfolio\SubAdvisorTests.cs" />
+    <Compile Include="Portfolio\ThirdPartyAdminstratorTests.cs" />
     <Compile Include="Portfolio\WholesalerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Security\ProfileTests.cs" />

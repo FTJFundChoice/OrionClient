@@ -1,16 +1,20 @@
 ﻿namespace FTJFundChoice.OrionClient.Models.Security {
 
-    /// <summary>
-    /// These are not documented by Orion.
-    /// Most of these were discovered via trial and error. =(
-    /// </summary>
     public enum LoginEntityId {
         BrokerDealer = 1,
+        Wholesaler = 2,
         Representative = 3,
         Household = 4,
         Advisor = 5,
+        Administrator = 6,
         SubAdvisor = 7,
         ThirdPartyAdministrator = 13,
-        PlanSponsor = 16
+        Custodian = 14,
+        PlanSponsor = 16,
+        ThirdParty = 17,
+        ServiceAccount = 18,
+        Participant = 19,
+        RepAccountManager = 20,
+        Payee = 23
     }
 }

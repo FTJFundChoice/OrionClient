@@ -13,7 +13,7 @@ namespace FTJFundChoice.OrionClient.Compositions {
             this.client = client;
         }
 
-        public async Task<IResult<List<UserDetail>>> GetAll(string entity = null, bool? isActive = null, bool? populateEntityName = null, long? entityId = null) {
+        public async Task<IResult<List<UserDetail>>> GetAllAsync(string entity = null, bool? isActive = null, bool? populateEntityName = null, long? entityId = null) {
             var request = new Request("Security/Profiles", Method.GET);
 
             if (!string.IsNullOrEmpty(entity)) request.AddQueryParameter("entity", entity);
@@ -24,7 +24,7 @@ namespace FTJFundChoice.OrionClient.Compositions {
             return await client.ExecuteTaskAsync<List<UserDetail>>(request);
         }
 
-        public async Task<IResult<List<UserDetail>>> Search(string search, string entity = null, bool? isActive = default(bool?)) {
+        public async Task<IResult<List<UserDetail>>> SearchAsync(string search, string entity = null, bool? isActive = default(bool?)) {
             var request = new Request("Security/Profiles/Search/{search}", Method.GET);
             request.AddUrlSegment("search", search);
 

@@ -10,6 +10,7 @@
         Unauthorized,
         BadRequest,
         ServerError,
-        MethodNotAllowed
+        MethodNotAllowed,
+        InternalServerError
     }
 }

@@ -14,7 +14,7 @@ namespace FTJFundChoice.OrionClient.Test.Security {
 
         [Fact]
         public async Task GetAll() {
-            var result = await Client.Security.Users.GetAll(20, 0, true);
+            var result = await Client.Security.Users.GetAllAsync(20, 0, true);
             Assert.True(result.Success);
             Assert.True(result.Data.Count > 0);
             Assert.NotNull(result.Data[0].EntityName);
@@ -22,8 +22,7 @@ namespace FTJFundChoice.OrionClient.Test.Security {
 
         [Fact]
         public async Task Get() {
-            var users = new Compositions.UsersModule(Client);
-            var result = await users.Get(65258);
+            var result = await Client.Security.Users.GetAsync(434130); // 65258);
 
             Assert.True(result.Success);
             Assert.NotNull(result.Data.EntityName);
@@ -52,7 +51,7 @@ namespace FTJFundChoice.OrionClient.Test.Security {
                 RoleName = "Representative"
             });
 
-            var result = await Client.Security.Users.Create(user);
+            var result = await Client.Security.Users.CreateAsync(user);
 
             Assert.True(result.Success);
             Assert.NotNull(result.Data);
@@ -61,11 +60,11 @@ namespace FTJFundChoice.OrionClient.Test.Security {
         [Fact]
         public async Task Update() {
             var users = new UsersModule(Client);
-            var result = await users.Get(69949);
+            var result = await users.GetAsync(69949);
             var user = result.Data;
             user.FirstName = "ORION_TEST";
 
-            result = await users.Update(user);
+            result = await users.UpdateAsync(user);
 
             Assert.True(result.Success);
             Assert.NotNull(result.Data);
@@ -84,7 +83,7 @@ namespace FTJFundChoice.OrionClient.Test.Security {
             long userId = Convert.ToInt64(ConfigurationManager.AppSettings["set_password_userId"]);
             string password = ConfigurationManager.AppSettings["set_password_password"];
 
-            var result = await users.SetPassword(userId, password);
+            var result = await users.SetPasswordAsync(userId, password);
 
             Assert.True(result.Success);
             Assert.NotNull(result.Data);
