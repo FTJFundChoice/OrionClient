@@ -7,7 +7,7 @@ namespace FTJFundChoice.OrionClient.Models.Security {
         [JsonProperty("newPassword")]
         public string NewPassword { get; set; }
 
-        [JsonProperty("isReset")]
-        public bool IsReset { get; set; }
+        [JsonProperty("resetUser")]
+        public bool ResetUser { get; set; }
     }
 }

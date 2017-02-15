@@ -97,7 +97,7 @@ namespace FTJFundChoice.OrionClient.Compositions {
             // Not documented by Orion
             var body = new SetPassword {
                 NewPassword = password,
-                IsReset = false
+                ResetUser = false
             };
 
             request.AddParameter("application/json", JsonConvert.SerializeObject(body));
