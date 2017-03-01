@@ -25,7 +25,7 @@ Credentials apiCredentials = new Credentials {
 
 Credentials svcCredentials = new Credentials {
 	Username = [SVC_USERNAME],
-	Password = [SVC_USERNAME]
+	Password = [SVC_PASSWORD]
 };
     
 var client = new OrionApiClient(url, apiCredentials, svcCredentials);
