@@ -52,6 +52,14 @@ namespace FTJFundChoice.OrionClient {
             }
         }
 
+        public ITradingFactory Trading
+        {
+            get
+            {
+                return factory.Trading;
+            }
+        }
+
         #endregion Factories
 
         #region Internals

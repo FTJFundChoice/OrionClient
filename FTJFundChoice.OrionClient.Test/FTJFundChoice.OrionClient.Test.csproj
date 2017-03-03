@@ -78,6 +78,7 @@
     <Compile Include="Security\ProfileTests.cs" />
     <Compile Include="Security\SecurityTests.cs" />
     <Compile Include="Security\UserTests.cs" />
+    <Compile Include="Trading\SleeveStrategyTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

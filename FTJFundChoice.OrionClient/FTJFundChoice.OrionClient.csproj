@@ -55,12 +55,14 @@
     <Compile Include="Compositions\SubAdvisors\SubAdvisorsModule.cs" />
     <Compile Include="Compositions\SubAdvisors\SubAdvisorsSimpleModule.cs" />
     <Compile Include="Compositions\ThirdPartyAdministratorsModule.cs" />
+    <Compile Include="Compositions\Trading\SleeveStrategyModule.cs" />
     <Compile Include="Enums\Method.cs" />
     <Compile Include="Enums\StatusCode.cs" />
     <Compile Include="Factories\CompositionFactory.cs" />
     <Compile Include="Extensions\RequestExtensions.cs" />
     <Compile Include="Factories\PortfolioFactory.cs" />
     <Compile Include="Factories\SecurityFactory.cs" />
+    <Compile Include="Factories\TradingFactory.cs" />
     <Compile Include="Helpers\AuthenticationHelpers.cs" />
     <Compile Include="Interfaces\BrokerDealers\IBrokerDealersModule.cs" />
     <Compile Include="Interfaces\BrokerDealers\IBrokerDealersSimpleModule.cs" />
@@ -76,6 +78,7 @@
     <Compile Include="Interfaces\Representatives\IRepresentativesModule.cs" />
     <Compile Include="Interfaces\SubAdvisors\ISubAdvisorsSimpleModule.cs" />
     <Compile Include="Interfaces\SubAdvisors\ISubAdvisorsModule.cs" />
+    <Compile Include="Interfaces\Trading\ISleeveStrategyModule.cs" />
     <Compile Include="IOrionApiClient.cs" />
     <Compile Include="Models\Billing\BillRepresentativePlatform.cs" />
     <Compile Include="Models\Enums\BrokerDealerStatus.cs" />
@@ -98,6 +101,7 @@
     <Compile Include="Models\Portfolio\Document.cs" />
     <Compile Include="Models\Portfolio\Note.cs" />
     <Compile Include="Models\Portfolio\PlanSponsorSimple.cs" />
+    <Compile Include="Models\Portfolio\RegistrationVerbose.cs" />
     <Compile Include="Models\Portfolio\Representative.cs" />
     <Compile Include="Models\Portfolio\RepresentativePortfolio.cs" />
     <Compile Include="Models\Portfolio\RepresentativeReportImage.cs" />
@@ -118,6 +122,9 @@
     <Compile Include="Models\Security\UserInfoDetails.cs" />
     <Compile Include="Models\Settings\EntityOption.cs" />
     <Compile Include="Models\Token.cs" />
+    <Compile Include="Models\Trading\SleeveStrategy.cs" />
+    <Compile Include="Models\Trading\SleeveStrategyCore.cs" />
+    <Compile Include="Models\Trading\SleeveStrategyVerbose.cs" />
     <Compile Include="OrionApiClient.cs" />
     <Compile Include="Compositions\ProfilesModule.cs" />
     <Compile Include="Compositions\Representatives\RepresentativesModule.cs" />

@@ -2,6 +2,7 @@
 using FTJFundChoice.OrionClient.Interfaces.Clients;
 using FTJFundChoice.OrionClient.Interfaces.Representatives;
 using FTJFundChoice.OrionClient.Interfaces.SubAdvisors;
+using FTJFundChoice.OrionClient.Interfaces.Trading;
 using FTJFundChoice.OrionClient.Models;
 using System.Threading.Tasks;
 
@@ -10,6 +11,7 @@ namespace FTJFundChoice.OrionClient.Interfaces {
     public interface ICompositionFactory {
         IPortfolioFactory Portfolio { get; }
         ISecurityFactory Security { get; }
+        ITradingFactory Trading { get; }
     }
 
     public interface IPortfolioFactory {
@@ -29,5 +31,11 @@ namespace FTJFundChoice.OrionClient.Interfaces {
         Task<IResult<Token>> GetImpersonationToken(string entity, string entityId);
 
         Task<IResult<Token>> GetToken(string username, string password);
+    }
+
+    public interface ITradingFactory
+    {
+        ISleeveStrategyModule SleeveStrategies { get; }
+
     }
 }
