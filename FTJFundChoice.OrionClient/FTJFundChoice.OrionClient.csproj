@@ -122,8 +122,12 @@
     <Compile Include="Models\Security\UserInfoDetails.cs" />
     <Compile Include="Models\Settings\EntityOption.cs" />
     <Compile Include="Models\Token.cs" />
+    <Compile Include="Models\Trading\Mandate.cs" />
+    <Compile Include="Models\Trading\RiskType.cs" />
+    <Compile Include="Models\Trading\RisTypeAllocation.cs" />
     <Compile Include="Models\Trading\SleeveStrategy.cs" />
     <Compile Include="Models\Trading\SleeveStrategyCore.cs" />
+    <Compile Include="Models\Trading\SleeveStrategyDetail.cs" />
     <Compile Include="Models\Trading\SleeveStrategyVerbose.cs" />
     <Compile Include="OrionApiClient.cs" />
     <Compile Include="Compositions\ProfilesModule.cs" />

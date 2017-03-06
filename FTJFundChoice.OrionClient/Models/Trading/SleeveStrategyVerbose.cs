@@ -13,12 +13,12 @@ namespace FTJFundChoice.OrionClient.Models.Trading
         [JsonProperty("id")]
         public int Id { get; set; }
         [JsonProperty("core")]
-        public string Core { get; set; }
+        public SleeveStrategyCore Core { get; set; }
         [JsonProperty("mandates")]
-        public string Mandates { get; set; }
+        public List<Mandate> Mandates { get; set; }
         [JsonProperty("riskType")]
-        public string RiskType { get; set; }
+        public RiskType RiskTypes { get; set; }
         [JsonProperty("details")]
-        public List<SleeveStrategyCore> Details { get; set; }
+        public List<SleeveStrategyDetail> Details { get; set; }
     }
 }

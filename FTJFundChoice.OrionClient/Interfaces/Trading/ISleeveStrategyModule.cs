@@ -10,5 +10,6 @@ namespace FTJFundChoice.OrionClient.Interfaces.Trading
     public interface ISleeveStrategyModule
     {
         Task<IResult<List<SleeveStrategyVerbose>>> GetSleeveStrategyVerboseByRepIdAsync(int RepId);
+        Task<IResult<List<SleeveStrategyVerbose>>> GetSleeveStrategyExpandedVerboseByRepIdAsync(int RepId);
     }
 }

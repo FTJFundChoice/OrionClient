@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace FTJFundChoice.OrionClient.Models.Trading
 {
-    public class SleeveStrategy: SleeveStrategyCore
+    public class SleeveStrategy: SleeveStrategyDetail
     {
         [JsonProperty("name")]
         public string Name { get; set; }

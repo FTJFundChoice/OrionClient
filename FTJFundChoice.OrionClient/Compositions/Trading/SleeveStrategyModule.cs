@@ -25,5 +25,12 @@ namespace FTJFundChoice.OrionClient.Compositions.Trading
             request.AddUrlSegment("id", Convert.ToString(RepId));
             return await client.ExecuteTaskAsync<List<SleeveStrategyVerbose>>(request);
         }
+
+        public async Task<IResult<List<SleeveStrategyVerbose>>> GetSleeveStrategyExpandedVerboseByRepIdAsync(int RepId)
+        {
+            var request = new Request("Trading/SleeveStrategy/Verbose?expand=All&RepId={id}", Method.GET);
+            request.AddUrlSegment("id", Convert.ToString(RepId));
+            return await client.ExecuteTaskAsync<List<SleeveStrategyVerbose>>(request);
+        }
     }
 }
