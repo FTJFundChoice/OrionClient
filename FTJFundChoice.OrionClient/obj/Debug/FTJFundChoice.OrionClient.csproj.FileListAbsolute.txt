@@ -1,0 +1,8 @@
+C:\GitHub\FTJ\OrionClient\FTJFundChoice.OrionClient\bin\Debug\FTJFundChoice.OrionClient.dll.config
+C:\GitHub\FTJ\OrionClient\FTJFundChoice.OrionClient\bin\Debug\FTJFundChoice.OrionClient.dll
+C:\GitHub\FTJ\OrionClient\FTJFundChoice.OrionClient\bin\Debug\FTJFundChoice.OrionClient.pdb
+C:\GitHub\FTJ\OrionClient\FTJFundChoice.OrionClient\bin\Debug\Newtonsoft.Json.dll
+C:\GitHub\FTJ\OrionClient\FTJFundChoice.OrionClient\bin\Debug\Newtonsoft.Json.xml
+C:\GitHub\FTJ\OrionClient\FTJFundChoice.OrionClient\obj\Debug\FTJFundChoice.OrionClient.csprojResolveAssemblyReference.cache
+C:\GitHub\FTJ\OrionClient\FTJFundChoice.OrionClient\obj\Debug\FTJFundChoice.OrionClient.dll
+C:\GitHub\FTJ\OrionClient\FTJFundChoice.OrionClient\obj\Debug\FTJFundChoice.OrionClient.pdb
