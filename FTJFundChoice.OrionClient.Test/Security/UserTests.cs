@@ -22,7 +22,7 @@ namespace FTJFundChoice.OrionClient.Test.Security {
 
         [Fact]
         public async Task Get() {
-            var result = await Client.Security.Users.GetAsync(434130); // 65258);
+            var result = await Client.Security.Users.GetAsync(288171); // 65258);
 
             Assert.True(result.Success);
             Assert.NotNull(result.Data.EntityName);
@@ -68,13 +68,6 @@ namespace FTJFundChoice.OrionClient.Test.Security {
 
             Assert.True(result.Success);
             Assert.NotNull(result.Data);
-        }
-
-        [Fact]
-        public void DeleteManual() {
-            //var userId = 1;
-            //var result = await Client.Security.Users.Delete(userId);
-            //Assert.IsTrue(result.Success);
         }
 
         [Fact]
