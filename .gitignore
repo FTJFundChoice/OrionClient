@@ -1,12 +1,10 @@
-bin\*
-obj\*
+**/bin/*
+**/obj/*
 .vs\*
 App.config
 packages\*
+**/packages/*
 *.cache
 *.cache
 /.vs/OrionClient/v15/.suo
 *.suo
-bin\Release
-bin\Debug
-obj\Release
