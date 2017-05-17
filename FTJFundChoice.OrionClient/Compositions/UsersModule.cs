@@ -23,7 +23,8 @@ namespace FTJFundChoice.OrionClient.Compositions {
             return await client.ExecuteTaskAsync<List<long>>(request);
         }
 
-        public async Task<IResult<UserInfoDetails>> CreateAsync(UserInfoDetails user) {
+        public async Task<IResult<UserInfoDetails>> CreateAsync(UserInfoDetails user)
+        {
             return await CreateAsync(user, false);
         }
 
@@ -31,7 +32,17 @@ namespace FTJFundChoice.OrionClient.Compositions {
             var request = new Request("Security/Users", Method.POST);
             request.AddParameter("application/json", JsonConvert.SerializeObject(user));
             request.AddQueryParameter("sendEmail", sendEmail.ToString());
-            return await client.ExecuteTaskAsync<UserInfoDetails>(request);
+            IResult<UserInfoDetails> result;
+            try
+            {
+                result = await client.ExecuteTaskAsync<UserInfoDetails>(request);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                throw;
+            }
+            return result;
         }
 
         public Task<IResult> DeleteAsync(long[] id) {

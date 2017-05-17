@@ -7,3 +7,6 @@ packages\*
 *.cache
 /.vs/OrionClient/v15/.suo
 *.suo
+bin\Release
+bin\Debug
+obj\Release
