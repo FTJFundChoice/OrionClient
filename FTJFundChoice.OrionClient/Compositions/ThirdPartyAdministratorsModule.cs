@@ -19,11 +19,11 @@ namespace FTJFundChoice.OrionClient.Compositions {
             throw new NotImplementedException();
         }
 
-        public async Task<IResult<List<ThirdPartyAdministratorSimple>>> GetAllAsync(int top = 10000, int skip = 0, bool? isActive = true) {
+        public async Task<IResult<IEnumerable<ThirdPartyAdministratorSimple>>> GetAllAsync(int top = 10000, int skip = 0, bool? isActive = true) {
             var request = new Request("Portfolio/ThirdPartyAdministrators/Simple", Method.GET);
 
             request.AddTopSkipQueryParameters(top, skip);
-            return await client.ExecuteTaskAsync<List<ThirdPartyAdministratorSimple>>(request);
+            return await client.ExecuteTaskAsync<IEnumerable<ThirdPartyAdministratorSimple>>(request);
         }
     }
 }

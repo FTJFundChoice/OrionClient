@@ -19,11 +19,11 @@ namespace FTJFundChoice.OrionClient.Compositions {
             throw new NotImplementedException();
         }
 
-        public async Task<IResult<List<PlanSponsorSimple>>> GetAllAsync(int top = 10000, int skip = 0, bool? isActive = true) {
+        public async Task<IResult<IEnumerable<PlanSponsorSimple>>> GetAllAsync(int top = 10000, int skip = 0, bool? isActive = true) {
             var request = new Request("Portfolio/PlanSponsors/Simple", Method.GET);
 
             request.AddTopSkipQueryParameters(top, skip);
-            return await client.ExecuteTaskAsync<List<PlanSponsorSimple>>(request);
+            return await client.ExecuteTaskAsync<IEnumerable<PlanSponsorSimple>>(request);
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using FTJFundChoice.OrionClient.Enums;
+using System.Linq;
 using System.Threading.Tasks;
 using Xunit;
 
@@ -12,8 +13,8 @@ namespace FTJFundChoice.OrionClient.Test.Portfolio {
             var result = await Client.Portfolio.SubAdvisors.GetAllAsync();
 
             Assert.Equal(result.StatusCode, StatusCode.OK);
-            Assert.True(result.Data.Count > 0);
-            Assert.NotNull(result.Data[0]);
+            Assert.True(result.Data.Count() > 0);
+            Assert.NotNull(result.Data.ToList()[0]);
         }
 
         [Fact]
@@ -21,8 +22,8 @@ namespace FTJFundChoice.OrionClient.Test.Portfolio {
             var result = await Client.Portfolio.SubAdvisors.Simple.GetAllAsync();
 
             Assert.Equal(result.StatusCode, StatusCode.OK);
-            Assert.True(result.Data.Count > 0);
-            Assert.NotNull(result.Data[0]);
+            Assert.True(result.Data.Count() > 0);
+            Assert.NotNull(result.Data.ToList()[0]);
         }
     }
 }

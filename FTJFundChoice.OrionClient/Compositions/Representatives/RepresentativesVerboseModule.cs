@@ -48,21 +48,21 @@ namespace FTJFundChoice.OrionClient.Compositions.Representatives {
             return await client.ExecuteTaskAsync<RepresentativeVerbose>(request);
         }
 
-        public async Task<IResult<List<RepresentativeVerbose>>> GetAll() {
+        public async Task<IResult<IEnumerable<RepresentativeVerbose>>> GetAll() {
             return await GetAllAsync(10000, 0, null, true, false);
         }
 
-        public async Task<IResult<List<RepresentativeVerbose>>> GetAllAsync(int top = 10000, int skip = 0, bool? isActive = null) {
+        public async Task<IResult<IEnumerable<RepresentativeVerbose>>> GetAllAsync(int top = 10000, int skip = 0, bool? isActive = null) {
             return await GetAllAsync(top, skip, null, true, false);
         }
 
-        public async Task<IResult<List<RepresentativeVerbose>>> GetAllAsync(int top = 10000, int skip = 0, bool? isActive = null, bool includePorfolio = true, bool includeUserDefinedFields = false) {
+        public async Task<IResult<IEnumerable<RepresentativeVerbose>>> GetAllAsync(int top = 10000, int skip = 0, bool? isActive = null, bool includePorfolio = true, bool includeUserDefinedFields = false) {
             var request = new Request("Portfolio/Representatives/Verbose", Method.GET);
             request.AddExpandQueryParameters(includePorfolio, includeUserDefinedFields);
             request.AddTopSkipQueryParameters(top, skip);
             request.AddActiveQueryParameters(isActive);
 
-            return await client.ExecuteTaskAsync<List<RepresentativeVerbose>>(request);
+            return await client.ExecuteTaskAsync<IEnumerable<RepresentativeVerbose>>(request);
         }
 
         /// <summary>

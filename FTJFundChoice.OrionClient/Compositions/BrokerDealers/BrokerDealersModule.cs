@@ -37,15 +37,15 @@ namespace FTJFundChoice.OrionClient.Compositions.BrokerDealers {
             return await client.ExecuteTaskAsync<BrokerDealer>(request);
         }
 
-        public async Task<IResult<List<BrokerDealer>>> GetAllAsync() {
+        public async Task<IResult<IEnumerable<BrokerDealer>>> GetAllAsync() {
             return await GetAllAsync(10000, 0, true);
         }
 
-        public async Task<IResult<List<BrokerDealer>>> GetAllAsync(int top = 10000, int skip = 0, bool? isActive = true) {
+        public async Task<IResult<IEnumerable<BrokerDealer>>> GetAllAsync(int top = 10000, int skip = 0, bool? isActive = true) {
             var request = new Request("Portfolio/BrokerDealers", Method.GET);
             request.AddTopSkipQueryParameters(top, skip);
             request.AddActiveQueryParameters(isActive);
-            return await client.ExecuteTaskAsync<List<BrokerDealer>>(request);
+            return await client.ExecuteTaskAsync<IEnumerable<BrokerDealer>>(request);
         }
     }
 }

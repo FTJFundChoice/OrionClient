@@ -86,7 +86,7 @@
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Portal\branches\Portal-Branch-Portfolio-Target\Portal\Solutions\FTJFundChoice.OrionClient\FTJFundChoice.OrionClient.csproj">
+    <ProjectReference Include="..\FTJFundChoice.OrionClient\FTJFundChoice.OrionClient.csproj">
       <Project>{e2be932b-32d5-4e67-8507-b35cdb454d3f}</Project>
       <Name>FTJFundChoice.OrionClient</Name>
     </ProjectReference>

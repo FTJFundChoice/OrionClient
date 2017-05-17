@@ -47,23 +47,23 @@ namespace FTJFundChoice.OrionClient.Compositions.BrokerDealers {
             return await client.ExecuteTaskAsync<BrokerDealerVerbose>(request);
         }
 
-        public async Task<IResult<List<BrokerDealerVerbose>>> GetAll() {
+        public async Task<IResult<IEnumerable<BrokerDealerVerbose>>> GetAll() {
             return await GetAllAsync(10000, 0, true);
         }
 
-        public async Task<IResult<List<BrokerDealerVerbose>>> GetAllAsync(int top = 10000, int skip = 0, bool? isActive = true) {
+        public async Task<IResult<IEnumerable<BrokerDealerVerbose>>> GetAllAsync(int top = 10000, int skip = 0, bool? isActive = true) {
             var request = new Request("Portfolio/BrokerDealers/Verbose", Method.GET);
             request.AddTopSkipQueryParameters(top, skip);
             request.AddActiveQueryParameters(isActive);
-            return await client.ExecuteTaskAsync<List<BrokerDealerVerbose>>(request);
+            return await client.ExecuteTaskAsync<IEnumerable<BrokerDealerVerbose>>(request);
         }
 
-        public async Task<IResult<List<BrokerDealerVerbose>>> GetAllAsync(int top = 10000, int skip = 0, bool? isActive = false, bool includePorfolio = true, bool includeUserDefinedFields = false) {
+        public async Task<IResult<IEnumerable<BrokerDealerVerbose>>> GetAllAsync(int top = 10000, int skip = 0, bool? isActive = false, bool includePorfolio = true, bool includeUserDefinedFields = false) {
             var request = new Request("Portfolio/BrokerDealers/Verbose/", Method.GET);
             request.AddExpandQueryParameters(includePorfolio, includeUserDefinedFields);
             request.AddTopSkipQueryParameters(top, skip);
             request.AddActiveQueryParameters(isActive);
-            return await client.ExecuteTaskAsync<List<BrokerDealerVerbose>>(request);
+            return await client.ExecuteTaskAsync<IEnumerable<BrokerDealerVerbose>>(request);
         }
 
         public async Task<IResult<BrokerDealerVerbose>> GetAsync(long id, bool includePorfolio = true, bool includeUserDefinedFields = false) {

@@ -2,6 +2,7 @@
 using FTJFundChoice.OrionClient.Factories;
 using FTJFundChoice.OrionClient.Interfaces;
 using System;
+using System.Collections;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
@@ -67,7 +68,7 @@ namespace FTJFundChoice.OrionClient {
         internal async Task<IResult<T>> ExecuteTaskAsync<T>(Request request) {
             await authenticator.AuthenticateAsync(this, request);
             var result = await client.SendAsync(request);
-            return new Result<T>(result);
+			return new Result<T>(result);
         }
 
         #endregion Internals

@@ -7,11 +7,11 @@ namespace FTJFundChoice.OrionClient.Interfaces {
 
     public interface IUsersModule : IModifyModule<UserInfoDetails>, IQueryModule<UserInfoDetails> {
 
-        Task<IResult<List<long>>> ActivateAsync(bool isActive, List<long> ids);
+        Task<IResult<IEnumerable<long>>> ActivateAsync(bool isActive, IEnumerable<long> ids);
 
         Task<IResult<UserInfoDetails>> CreateAsync(UserInfoDetails user, bool sendEmail = false);
 
-        Task<IResult<List<UserInfoDetails>>> GetAllAsync(int top = 1000, int skip = 0, bool? isActive = null, string loginUserId = null);
+        Task<IResult<IEnumerable<UserInfoDetails>>> GetAllAsync(int top = 1000, int skip = 0, bool? isActive = null, string loginUserId = null);
 
         Task<IResult<UserInfoDetails>> ResetPasswordAsync(long userId, string password, bool sendEmail = false, bool newUser = false);
 

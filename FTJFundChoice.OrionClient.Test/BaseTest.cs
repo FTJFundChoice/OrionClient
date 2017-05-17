@@ -20,7 +20,7 @@ namespace FTJFundChoice.OrionClient.Test {
                 Password = ConfigurationManager.AppSettings["svc_password"]
             };
 
-            Client = new OrionApiClient(baseUrl, apiCreds, svcCreds);
+            Client = new OrionApiClient(baseUrl, apiCreds, svcCreds, TimeSpan.FromMinutes(5));
 
             AlClientId = Convert.ToInt32(ConfigurationManager.AppSettings["alClientId"]);
         }

@@ -5,6 +5,6 @@ namespace FTJFundChoice.OrionClient.Interfaces.Common {
 
     public interface ISearchModule<T> {
 
-        Task<IResult<List<T>>> SearchAsync(string search);
+        Task<IResult<IEnumerable<T>>> SearchAsync(string search);
     }
 }

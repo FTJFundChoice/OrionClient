@@ -20,17 +20,17 @@ namespace FTJFundChoice.OrionClient.Compositions.Clients {
             return await client.ExecuteTaskAsync<ClientSimple>(request);
         }
 
-        public async Task<IResult<List<ClientSimple>>> GetAllAsync(int top = 10000, int skip = 0, bool? isActive = true) {
+        public async Task<IResult<IEnumerable<ClientSimple>>> GetAllAsync(int top = 10000, int skip = 0, bool? isActive = true) {
             var request = new Request("Portfolio/Clients/Simple", Method.GET);
             request.AddTopSkipQueryParameters(top, skip);
             request.AddActiveQueryParameters(isActive);
-            return await client.ExecuteTaskAsync<List<ClientSimple>>(request);
+            return await client.ExecuteTaskAsync<IEnumerable<ClientSimple>>(request);
         }
 
-        public async Task<IResult<List<ClientSimple>>> SearchAsync(string search) {
+        public async Task<IResult<IEnumerable<ClientSimple>>> SearchAsync(string search) {
             var request = new Request("Portfolio/Clients/Simple/Search/{search}", Method.GET);
             request.AddUrlSegment("search", search.ToString());
-            return await client.ExecuteTaskAsync<List<ClientSimple>>(request);
+            return await client.ExecuteTaskAsync<IEnumerable<ClientSimple>>(request);
         }
     }
 }

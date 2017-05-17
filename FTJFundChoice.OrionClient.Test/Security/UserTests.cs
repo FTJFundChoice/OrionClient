@@ -4,6 +4,7 @@ using FTJFundChoice.OrionClient.Models.Security;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Linq;
 using System.Threading.Tasks;
 using Xunit;
 
@@ -16,8 +17,8 @@ namespace FTJFundChoice.OrionClient.Test.Security {
         public async Task GetAll() {
             var result = await Client.Security.Users.GetAllAsync(20, 0, true);
             Assert.True(result.Success);
-            Assert.True(result.Data.Count > 0);
-            Assert.NotNull(result.Data[0].EntityName);
+            Assert.True(result.Data.Count() > 0);
+            Assert.NotNull(result.Data.ToArray()[0].EntityName);
         }
 
         [Fact]

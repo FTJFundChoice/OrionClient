@@ -16,11 +16,11 @@ namespace FTJFundChoice.OrionClient.Compositions {
             this.client = client;
         }
 
-        public async Task<IResult<List<long>>> ActivateAsync(bool isActive, List<long> ids) {
+        public async Task<IResult<IEnumerable<long>>> ActivateAsync(bool isActive, IEnumerable<long> ids) {
             var request = new Request("Security/Users/Action/Activate", Method.PUT);
             request.AddQueryParameter("activate", isActive.ToString());
             request.AddParameter("application/json", JsonConvert.SerializeObject(ids));
-            return await client.ExecuteTaskAsync<List<long>>(request);
+            return await client.ExecuteTaskAsync<IEnumerable<long>>(request);
         }
 
         public async Task<IResult<UserInfoDetails>> CreateAsync(UserInfoDetails user)
@@ -65,15 +65,15 @@ namespace FTJFundChoice.OrionClient.Compositions {
             return await client.ExecuteTaskAsync<UserInfoDetails>(request);
         }
 
-        public async Task<IResult<List<UserInfoDetails>>> GetAll() {
+        public async Task<IResult<IEnumerable<UserInfoDetails>>> GetAll() {
             return await GetAllAsync(10000, 0, true, null);
         }
 
-        public async Task<IResult<List<UserInfoDetails>>> GetAllAsync(int top = 10000, int skip = 0, bool? isActive = null) {
+        public async Task<IResult<IEnumerable<UserInfoDetails>>> GetAllAsync(int top = 10000, int skip = 0, bool? isActive = null) {
             return await GetAllAsync(top, skip, isActive, null);
         }
 
-        public async Task<IResult<List<UserInfoDetails>>> GetAllAsync(int top = 10000, int skip = 0, bool? isActive = null, string loginUserId = null) {
+        public async Task<IResult<IEnumerable<UserInfoDetails>>> GetAllAsync(int top = 10000, int skip = 0, bool? isActive = null, string loginUserId = null) {
             var request = new Request("Security/Users", Method.GET);
             request.AddTopSkipQueryParameters(top, skip);
             // Not Supported on API
@@ -82,7 +82,7 @@ namespace FTJFundChoice.OrionClient.Compositions {
             if (!string.IsNullOrEmpty(loginUserId))
                 request.AddQueryParameter("loginUserId", loginUserId);
 
-            return await client.ExecuteTaskAsync<List<UserInfoDetails>>(request);
+            return await client.ExecuteTaskAsync<IEnumerable<UserInfoDetails>>(request);
         }
 
         public async Task<IResult<UserInfoDetails>> ResetPasswordAsync(UserInfoDetails user, bool sendEmail = false, bool newUser = false) {

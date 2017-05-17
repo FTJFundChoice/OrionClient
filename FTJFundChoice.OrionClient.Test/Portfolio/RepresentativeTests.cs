@@ -15,8 +15,8 @@ namespace FTJFundChoice.OrionClient.Test.Portfolio {
             var result = await Client.Portfolio.Representatives.Verbose.GetAllAsync();
 
             Assert.Equal(result.StatusCode, StatusCode.OK);
-            Assert.True(result.Data.Count > 0);
-            Assert.NotNull(result.Data[0].Portfolio.Number);
+            Assert.True(result.Data.Count() > 0);
+            Assert.NotNull(result.Data.ToList()[0].Portfolio.Number);
         }
 
         [Fact]

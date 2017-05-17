@@ -19,12 +19,12 @@ namespace FTJFundChoice.OrionClient.Compositions.SubAdvisors {
             throw new NotImplementedException();
         }
 
-        public async Task<IResult<List<SubAdvisorSimple>>> GetAllAsync(int top = 10000, int skip = 0, bool? isActive = true) {
+        public async Task<IResult<IEnumerable<SubAdvisorSimple>>> GetAllAsync(int top = 10000, int skip = 0, bool? isActive = true) {
             var request = new Request("Portfolio/SubAdvisors/Simple", Method.GET);
             request.AddTopSkipQueryParameters(top, skip);
             request.AddActiveQueryParameters(isActive);
 
-            return await client.ExecuteTaskAsync<List<SubAdvisorSimple>>(request);
+            return await client.ExecuteTaskAsync<IEnumerable<SubAdvisorSimple>>(request);
         }
     }
 }
