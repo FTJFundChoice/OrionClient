@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Compositions\AccountsModule.cs" />
     <Compile Include="Compositions\BrokerDealers\BrokerDealersModule.cs" />
     <Compile Include="Compositions\BrokerDealers\BrokerDealersSimpleModule.cs" />
     <Compile Include="Compositions\BrokerDealers\BrokerDealersVerboseModule.cs" />
@@ -67,6 +68,7 @@
     <Compile Include="Factories\SecurityFactory.cs" />
     <Compile Include="Factories\TradingFactory.cs" />
     <Compile Include="Helpers\AuthenticationHelpers.cs" />
+    <Compile Include="Interfaces\Accounts\IAccountsModule.cs" />
     <Compile Include="Interfaces\BrokerDealers\IBrokerDealersModule.cs" />
     <Compile Include="Interfaces\BrokerDealers\IBrokerDealersSimpleModule.cs" />
     <Compile Include="Interfaces\BrokerDealers\IBrokerDealersVerboseModule.cs" />
@@ -91,6 +93,7 @@
     <Compile Include="Models\Enums\UserDefineControlMask.cs" />
     <Compile Include="Models\Enums\VideoStatementMethod.cs" />
     <Compile Include="Models\Extensions\EntityExtensions.cs" />
+    <Compile Include="Models\Portfolio\Account.cs" />
     <Compile Include="Models\Portfolio\AdditionalColumnDefinition.cs" />
     <Compile Include="Models\Enums\AdditionalColumnType.cs" />
     <Compile Include="Models\Portfolio\BrokerDealer.cs" />

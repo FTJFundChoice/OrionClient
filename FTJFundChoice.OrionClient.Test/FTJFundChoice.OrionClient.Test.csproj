@@ -63,6 +63,7 @@
     <Compile Include="BaseTest.cs" />
     <Compile Include="Client\ClientTests.cs" />
     <Compile Include="Models\EntityConversionTest.cs" />
+    <Compile Include="Portfolio\AccountsTests.cs" />
     <Compile Include="Portfolio\BrokerDealerTests.cs" />
     <Compile Include="Portfolio\ClientTests.cs" />
     <Compile Include="Portfolio\PlanSponsorTests.cs" />

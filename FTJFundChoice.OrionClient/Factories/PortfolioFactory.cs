@@ -4,6 +4,7 @@ using FTJFundChoice.OrionClient.Compositions.Clients;
 using FTJFundChoice.OrionClient.Compositions.Representatives;
 using FTJFundChoice.OrionClient.Compositions.SubAdvisors;
 using FTJFundChoice.OrionClient.Interfaces;
+using FTJFundChoice.OrionClient.Interfaces.Accounts;
 using FTJFundChoice.OrionClient.Interfaces.BrokerDealers;
 using FTJFundChoice.OrionClient.Interfaces.Clients;
 using FTJFundChoice.OrionClient.Interfaces.Representatives;
@@ -17,6 +18,14 @@ namespace FTJFundChoice.OrionClient.Factories {
         public PortfolioFactory(OrionApiClient client) {
             this.client = client;
         }
+
+		public IAccountsModule Accounts
+		{
+			get
+			{
+				return new AccountsModule(client);
+			}
+		}
 
         public IBrokerDealersModule BrokerDealers {
             get {

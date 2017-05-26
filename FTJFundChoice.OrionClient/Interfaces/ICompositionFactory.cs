@@ -1,4 +1,5 @@
-﻿using FTJFundChoice.OrionClient.Interfaces.BrokerDealers;
+﻿using FTJFundChoice.OrionClient.Interfaces.Accounts;
+using FTJFundChoice.OrionClient.Interfaces.BrokerDealers;
 using FTJFundChoice.OrionClient.Interfaces.Clients;
 using FTJFundChoice.OrionClient.Interfaces.Representatives;
 using FTJFundChoice.OrionClient.Interfaces.SubAdvisors;
@@ -15,6 +16,7 @@ namespace FTJFundChoice.OrionClient.Interfaces {
     }
 
     public interface IPortfolioFactory {
+		IAccountsModule Accounts { get; }
         IBrokerDealersModule BrokerDealers { get; }
         IRepresentativesModule Representatives { get; }
         IWholesalersModule Wholesalers { get; }
