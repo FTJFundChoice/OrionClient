@@ -9,7 +9,7 @@ This is an unofficial C# client for accessing the Orion RESTful API.
  - Asynchronous interfaces
  - Supports authentication and impersonation tokens
  - Identical design and naming convention as the API endpoints.
- - Complete model converage on supported endpoints.
+ - Complete model coverage on supported endpoints.
  - Gracefully handles API errors using the OrionException object
  - Attempts to support route query optimisations like $top, $skip, isActive where possible
 
