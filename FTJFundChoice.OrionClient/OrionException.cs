@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 
 namespace FTJFundChoice.OrionClient {
@@ -11,28 +12,63 @@ namespace FTJFundChoice.OrionClient {
         [JsonProperty("correlationId")]
         public string CorrelationId { get; set; }
 
-        [JsonProperty("developerException")]
-        public string DeveloperException { get; set; }
-
         [JsonProperty("userException")]
-        public UserException UserException { get; set; }
+        public UserException Exception { get; set; }
+
+		/*
+		 * Most efficient? Dynamic feels dirty and expensive. 
+		*/
+		public OrionException(dynamic ex)
+		{
+			if (ex != null)
+			{
+				Message = ex.message?.ToString();
+				CorrelationId = ex.correlationId?.ToString();
+				if (ex.userException != null) {
+					Exception = new UserException(ex);
+				}
+			}
+		}
     }
 
-    public class UserException {
+	public class UserException
+	{
+		[JsonProperty("type")]
+		public string Type { get; set; }
 
-        [JsonProperty("type")]
-        public string Type { get; set; }
+		[JsonProperty("detail")]
+		public string Detail { get; set; }
 
-        [JsonProperty("detail")]
-        public List<OrionKeyValue> Detail { get; set; }
-    }
+		/*
+		 * Most efficient? Dynamic feels dirty and expensive. 
+		*/
+		public UserException(dynamic ex)
+		{
+			if (ex != null)
+			{
+				Type = ex.userException.type.ToString();
 
-    public class OrionKeyValue {
+				if (Type.Equals("SimpleException", System.StringComparison.OrdinalIgnoreCase))
+					Detail = ex.userException.detail.ToString();
 
-        [JsonProperty("key")]
-        public string Key { get; set; }
+				if (Type.Equals("DetailedException", System.StringComparison.OrdinalIgnoreCase))
+				{
+					List<DetailedKeyValue> collection = JsonConvert.DeserializeObject<List<DetailedKeyValue>>(ex.userException.detail.ToString());
 
-        [JsonProperty("value")]
-        public string Value { get; set; }
-    }
+					collection.ForEach((x) => {
+						Detail += string.Format("{0} ", x.Value);
+					});
+				}
+			}
+		}
+	}
+
+	internal class DetailedKeyValue
+	{
+		[JsonProperty("key")]
+		public string Key { get; set; }
+
+		[JsonProperty("value")]
+		public string Value { get; set; }
+	}
 }

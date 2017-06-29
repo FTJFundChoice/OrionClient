@@ -62,6 +62,7 @@
   <ItemGroup>
     <Compile Include="BaseTest.cs" />
     <Compile Include="Client\ClientTests.cs" />
+    <Compile Include="Conversion\ExceptionConversionTests.cs" />
     <Compile Include="Models\EntityConversionTest.cs" />
     <Compile Include="Portfolio\AccountsTests.cs" />
     <Compile Include="Portfolio\BrokerDealerTests.cs" />
@@ -78,9 +79,7 @@
     <Compile Include="Trading\SleeveStrategyTests.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config">
-      <SubType>Designer</SubType>
-    </None>
+    <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

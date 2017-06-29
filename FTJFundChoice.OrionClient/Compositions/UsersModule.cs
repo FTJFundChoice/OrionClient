@@ -32,17 +32,7 @@ namespace FTJFundChoice.OrionClient.Compositions {
             var request = new Request("Security/Users", Method.POST);
             request.AddParameter("application/json", JsonConvert.SerializeObject(user));
             request.AddQueryParameter("sendEmail", sendEmail.ToString());
-            IResult<UserInfoDetails> result;
-            try
-            {
-                result = await client.ExecuteTaskAsync<UserInfoDetails>(request);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex);
-                throw;
-            }
-            return result;
+            return await client.ExecuteTaskAsync<UserInfoDetails>(request);
         }
 
         public Task<IResult> DeleteAsync(long[] id) {

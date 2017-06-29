@@ -1,1 +1,1 @@
-packages\NuGet.CommandLine.3.5.0\tools\nuget pack FTJFundChoice.OrionClient\FTJFundChoice.OrionClient.csproj -IncludeReferencedProjects -properties owners=FTJFundChoice;desc="Unofficial C# Client for Orion API";Configuration=Release
+packages\NuGet.CommandLine.4.1.0\tools\nuget pack FTJFundChoice.OrionClient\FTJFundChoice.OrionClient.csproj -IncludeReferencedProjects -properties owners=FTJFundChoice;desc="Unofficial C# Client for Orion API";Configuration=Release

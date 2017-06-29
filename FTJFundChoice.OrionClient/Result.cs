@@ -42,23 +42,9 @@ namespace FTJFundChoice.OrionClient {
         public bool Success { get; private set; }
 
         internal OrionException ConvertContentToException() {
-            try {
-                var exception = JsonConvert.DeserializeObject<OrionException>(Content);
-                return exception;
-            }
-            catch (Exception) {
-                // Manually convert the object.
-                // We need to do this when the UserException.UserDetail is a string and not a collection.
-                var dynOrionException = JsonConvert.DeserializeObject<dynamic>(Content);
-                var oEx = new OrionException();
-                oEx.CorrelationId = dynOrionException.correlationId.ToString();
-                oEx.UserException = new UserException();
-                oEx.UserException.Detail = new List<OrionKeyValue>();
-                oEx.UserException.Detail.Add(new OrionKeyValue { Key = "", Value = dynOrionException.userException.detail });
-                oEx.UserException.Type = dynOrionException.userException.type;
-                return oEx;
-            }
-        }
+			var dynEx = JsonConvert.DeserializeObject<dynamic>(Content);
+			return new OrionException(dynEx);
+		}
 
         internal StatusCode ConvertStatusCode(HttpStatusCode status) {
             switch (status) {
