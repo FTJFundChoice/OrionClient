@@ -1,10 +1,10 @@
 ﻿using Newtonsoft.Json;
-using System;
 using System.Collections.Generic;
 
-namespace FTJFundChoice.OrionClient {
+namespace FTJFundChoice.OrionClient
+{
 
-    public class OrionException {
+	public class OrionException {
 
         [JsonProperty("message")]
         public string Message { get; set; }
@@ -28,6 +28,10 @@ namespace FTJFundChoice.OrionClient {
 					Exception = new UserException(ex);
 				}
 			}
+		}
+
+		public override string ToString() {
+			return $"{Message} - {Exception} - {CorrelationId}";
 		}
     }
 
@@ -60,6 +64,11 @@ namespace FTJFundChoice.OrionClient {
 					});
 				}
 			}
+		}
+
+		public override string ToString()
+		{
+			return $"{Type} - {Detail}";
 		}
 	}
 

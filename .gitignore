@@ -8,3 +8,8 @@ packages\*
 *.cache
 /.vs/OrionClient/v15/.suo
 *.suo
+**/Debug
+**/Release
+**/obj
+*.nupkg
+*.nupkg

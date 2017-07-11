@@ -1,15 +1,14 @@
-﻿using FTJFundChoice.OrionClient;
-using FTJFundChoice.OrionClient.Factories;
+﻿using FTJFundChoice.OrionClient.Factories;
 using FTJFundChoice.OrionClient.Interfaces;
 using System;
-using System.Collections;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
 
-namespace FTJFundChoice.OrionClient {
+namespace FTJFundChoice.OrionClient
+{
 
-    public class OrionApiClient : IOrionApiClient {
+	public class OrionApiClient : IOrionApiClient {
 
         #region Privates
 
