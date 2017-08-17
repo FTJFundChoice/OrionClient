@@ -2,6 +2,7 @@
 using FTJFundChoice.OrionClient.Interfaces.BrokerDealers;
 using FTJFundChoice.OrionClient.Interfaces.Clients;
 using FTJFundChoice.OrionClient.Interfaces.Representatives;
+using FTJFundChoice.OrionClient.Interfaces.Settings;
 using FTJFundChoice.OrionClient.Interfaces.SubAdvisors;
 using FTJFundChoice.OrionClient.Interfaces.Trading;
 using FTJFundChoice.OrionClient.Models;
@@ -13,6 +14,7 @@ namespace FTJFundChoice.OrionClient.Interfaces {
         IPortfolioFactory Portfolio { get; }
         ISecurityFactory Security { get; }
         ITradingFactory Trading { get; }
+        ISettingsFactory Settings { get; }
     }
 
     public interface IPortfolioFactory {
@@ -39,5 +41,10 @@ namespace FTJFundChoice.OrionClient.Interfaces {
     {
         ISleeveStrategyModule SleeveStrategies { get; }
 
+    }
+
+    public interface ISettingsFactory
+    {
+        ISettingsModule CustomSettings { get; }
     }
 }

@@ -6,3 +6,10 @@ C:\GitHub\FTJ\OrionClient\FTJFundChoice.OrionClient\bin\Debug\Newtonsoft.Json.xm
 C:\GitHub\FTJ\OrionClient\FTJFundChoice.OrionClient\obj\Debug\FTJFundChoice.OrionClient.csprojResolveAssemblyReference.cache
 C:\GitHub\FTJ\OrionClient\FTJFundChoice.OrionClient\obj\Debug\FTJFundChoice.OrionClient.dll
 C:\GitHub\FTJ\OrionClient\FTJFundChoice.OrionClient\obj\Debug\FTJFundChoice.OrionClient.pdb
+D:\Code\FTJ\OrionClient\FTJFundChoice.OrionClient\bin\Debug\FTJFundChoice.OrionClient.dll.config
+D:\Code\FTJ\OrionClient\FTJFundChoice.OrionClient\bin\Debug\FTJFundChoice.OrionClient.dll
+D:\Code\FTJ\OrionClient\FTJFundChoice.OrionClient\bin\Debug\FTJFundChoice.OrionClient.pdb
+D:\Code\FTJ\OrionClient\FTJFundChoice.OrionClient\bin\Debug\Newtonsoft.Json.dll
+D:\Code\FTJ\OrionClient\FTJFundChoice.OrionClient\bin\Debug\Newtonsoft.Json.xml
+D:\Code\FTJ\OrionClient\FTJFundChoice.OrionClient\obj\Debug\FTJFundChoice.OrionClient.dll
+D:\Code\FTJ\OrionClient\FTJFundChoice.OrionClient\obj\Debug\FTJFundChoice.OrionClient.pdb

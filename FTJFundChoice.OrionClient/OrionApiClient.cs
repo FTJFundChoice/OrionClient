@@ -60,6 +60,14 @@ namespace FTJFundChoice.OrionClient
             }
         }
 
+        public ISettingsFactory Settings
+        {
+            get
+            {
+                return factory.Settings;
+            }
+        }
+
         #endregion Factories
 
         #region Internals

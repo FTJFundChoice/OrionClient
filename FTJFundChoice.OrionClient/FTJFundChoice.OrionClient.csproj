@@ -56,6 +56,7 @@
     <Compile Include="Compositions\Clients\ClientsModule.cs" />
     <Compile Include="Compositions\PlanSponsorsModule.cs" />
     <Compile Include="Compositions\Representatives\RepresentativesVerboseModule.cs" />
+    <Compile Include="Compositions\Settings\SettingsModule.cs" />
     <Compile Include="Compositions\SubAdvisors\SubAdvisorsModule.cs" />
     <Compile Include="Compositions\SubAdvisors\SubAdvisorsSimpleModule.cs" />
     <Compile Include="Compositions\ThirdPartyAdministratorsModule.cs" />
@@ -64,6 +65,7 @@
     <Compile Include="Enums\StatusCode.cs" />
     <Compile Include="Factories\CompositionFactory.cs" />
     <Compile Include="Extensions\RequestExtensions.cs" />
+    <Compile Include="Factories\SettingsFactory.cs" />
     <Compile Include="Factories\PortfolioFactory.cs" />
     <Compile Include="Factories\SecurityFactory.cs" />
     <Compile Include="Factories\TradingFactory.cs" />
@@ -81,6 +83,7 @@
     <Compile Include="Interfaces\IPlanSponsorsModule.cs" />
     <Compile Include="Interfaces\IThirdPartyAdministratorsModule.cs" />
     <Compile Include="Interfaces\Representatives\IRepresentativesModule.cs" />
+    <Compile Include="Interfaces\Settings\ISettingsModule.cs" />
     <Compile Include="Interfaces\SubAdvisors\ISubAdvisorsSimpleModule.cs" />
     <Compile Include="Interfaces\SubAdvisors\ISubAdvisorsModule.cs" />
     <Compile Include="Interfaces\Trading\ISleeveStrategyModule.cs" />
@@ -127,6 +130,7 @@
     <Compile Include="Models\Security\UserDetail.cs" />
     <Compile Include="Models\Security\UserInfoDetails.cs" />
     <Compile Include="Models\Settings\EntityOption.cs" />
+    <Compile Include="Models\Settings\MainThemeLogo.cs" />
     <Compile Include="Models\Token.cs" />
     <Compile Include="Models\Trading\Mandate.cs" />
     <Compile Include="Models\Trading\RiskType.cs" />

@@ -39,6 +39,7 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -76,6 +77,7 @@
     <Compile Include="Security\ProfileTests.cs" />
     <Compile Include="Security\SecurityTests.cs" />
     <Compile Include="Security\UserTests.cs" />
+    <Compile Include="Settings\BrokerDealerCustomLogoTests.cs" />
     <Compile Include="Trading\SleeveStrategyTests.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -90,6 +92,11 @@
       <Project>{e2be932b-32d5-4e67-8507-b35cdb454d3f}</Project>
       <Name>FTJFundChoice.OrionClient</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="TestFiles\What_business_to_start_2013_crop.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

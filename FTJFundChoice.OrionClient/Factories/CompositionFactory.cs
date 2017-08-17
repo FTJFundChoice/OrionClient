@@ -28,5 +28,13 @@ namespace FTJFundChoice.OrionClient.Factories {
                 return new TradingFactory(client);
             }
         }
+
+        public ISettingsFactory Settings
+        {
+            get
+            {
+                return new SettingsFactory(client);
+            }
+        }
     }
 }
