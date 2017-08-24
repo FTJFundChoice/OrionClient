@@ -36,7 +36,7 @@ namespace FTJFundChoice.OrionClient.Test.Settings
             }
 
             Assert.NotEmpty(logo);
-            var result = await Client.Settings.CustomSettings.UploadBrokerDealerLogo("BrokerDealer", bdValue.Id?? 0, logo);
+            var result = await Client.Settings.CustomSettings.UploadMainThemeLogo("BrokerDealer", bdValue.Id?? 0, logo);
 
             Assert.True(result.Success);
         }

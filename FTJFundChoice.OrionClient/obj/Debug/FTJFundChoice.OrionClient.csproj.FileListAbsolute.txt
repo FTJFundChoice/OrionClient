@@ -11,5 +11,7 @@ D:\Code\FTJ\OrionClient\FTJFundChoice.OrionClient\bin\Debug\FTJFundChoice.OrionC
 D:\Code\FTJ\OrionClient\FTJFundChoice.OrionClient\bin\Debug\FTJFundChoice.OrionClient.pdb
 D:\Code\FTJ\OrionClient\FTJFundChoice.OrionClient\bin\Debug\Newtonsoft.Json.dll
 D:\Code\FTJ\OrionClient\FTJFundChoice.OrionClient\bin\Debug\Newtonsoft.Json.xml
+D:\Code\FTJ\OrionClient\FTJFundChoice.OrionClient\obj\Debug\FTJFundChoice.OrionClient.csproj.CoreCompileInputs.cache
 D:\Code\FTJ\OrionClient\FTJFundChoice.OrionClient\obj\Debug\FTJFundChoice.OrionClient.dll
 D:\Code\FTJ\OrionClient\FTJFundChoice.OrionClient\obj\Debug\FTJFundChoice.OrionClient.pdb
+D:\Code\FTJ\OrionClient\FTJFundChoice.OrionClient\obj\Debug\FTJFundChoice.OrionClient.csprojResolveAssemblyReference.cache

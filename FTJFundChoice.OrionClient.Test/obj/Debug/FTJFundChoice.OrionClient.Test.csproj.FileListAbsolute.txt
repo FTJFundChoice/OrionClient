@@ -37,5 +37,6 @@ D:\Code\FTJ\OrionClient\FTJFundChoice.OrionClient.Test\bin\Debug\xunit.assert.xm
 D:\Code\FTJ\OrionClient\FTJFundChoice.OrionClient.Test\bin\Debug\xunit.core.xml
 D:\Code\FTJ\OrionClient\FTJFundChoice.OrionClient.Test\bin\Debug\xunit.execution.desktop.xml
 D:\Code\FTJ\OrionClient\FTJFundChoice.OrionClient.Test\obj\Debug\FTJFundChoice.OrionClient.Test.csprojResolveAssemblyReference.cache
+D:\Code\FTJ\OrionClient\FTJFundChoice.OrionClient.Test\obj\Debug\FTJFundChoice.OrionClient.Test.csproj.CoreCompileInputs.cache
 D:\Code\FTJ\OrionClient\FTJFundChoice.OrionClient.Test\obj\Debug\FTJFundChoice.OrionClient.Test.dll
 D:\Code\FTJ\OrionClient\FTJFundChoice.OrionClient.Test\obj\Debug\FTJFundChoice.OrionClient.Test.pdb

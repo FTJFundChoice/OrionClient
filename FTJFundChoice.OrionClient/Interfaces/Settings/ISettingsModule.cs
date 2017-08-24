@@ -9,6 +9,6 @@ namespace FTJFundChoice.OrionClient.Interfaces.Settings
 {
     public interface ISettingsModule
     {
-        Task<IResult<BrokerDealerVerbose>> UploadBrokerDealerLogo(string entityType, long entityId,byte[] brokerDealerLogo);
+        Task<IResult<BrokerDealerVerbose>> UploadMainThemeLogo(string entityType, long entityId,byte[] brokerDealerLogo);
     }
 }

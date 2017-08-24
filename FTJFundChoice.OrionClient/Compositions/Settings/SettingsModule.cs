@@ -16,7 +16,7 @@ namespace FTJFundChoice.OrionClient.Compositions.Settings
             this.client = client;
         }      
 
-        public async Task<IResult<BrokerDealerVerbose>> UploadBrokerDealerLogo(string entityType, long entityId, byte[] brokerDealerLogo)
+        public async Task<IResult<BrokerDealerVerbose>> UploadMainThemeLogo(string entityType, long entityId, byte[] brokerDealerLogo)
         {
             var request = new Request("Settings/CustomSettings/theme-main-logo?entity={entityType}&entityId={entityId}", Method.PUT);
 
@@ -25,7 +25,10 @@ namespace FTJFundChoice.OrionClient.Compositions.Settings
 
             var logo = new MainThemeLogo()
             {
-                ImageStream = brokerDealerLogo
+                ImageStream = brokerDealerLogo,
+                PromptName = "theme-main-logo",
+                Category = "global",
+                CustomAppSetting = "ClientPortal"
             };
 
             request.AddParameter("application/json", JsonConvert.SerializeObject(logo));

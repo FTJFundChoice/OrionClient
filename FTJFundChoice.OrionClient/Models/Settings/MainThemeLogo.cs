@@ -9,7 +9,24 @@ namespace FTJFundChoice.OrionClient.Models.Settings
 {
     public class MainThemeLogo
     {
-        [JsonProperty("canEdit")]
+        [JsonProperty("promptName")]
+        public string PromptName { get; set; }
+        [JsonProperty("category")]
+        public string Category { get; set; }
+        [JsonProperty("displayName")]
+        public string DisplayName { get; set; }
+        [JsonProperty("description")]
+        public string Description { get; set; }
+        [JsonProperty("value")]
         public byte[] ImageStream { get; set; }
+        [JsonProperty("optionLevel")]
+        public string OptionLevel { get; set; }
+        [JsonProperty("type")]
+        public string Type { get; set; }
+        [JsonProperty("displayOrder")]
+        public int displayorder { get; set; }
+        [JsonProperty("customAppSetting")]
+        public string CustomAppSetting { get; set; }
+
     }
 }
