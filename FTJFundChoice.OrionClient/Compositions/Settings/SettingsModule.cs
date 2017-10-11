@@ -16,7 +16,7 @@ namespace FTJFundChoice.OrionClient.Compositions.Settings
             this.client = client;
         }      
 
-        public async Task<IResult> UploadMainThemeLogo(string entityType, long entityId, string logoData)
+        public async Task<IResult<Logo>> UploadMainThemeLogo(string entityType, long entityId, string logoData)
         {
             var request = new Request($"Settings/CustomSettings/theme-main-logo?entity={entityType}&entityId={entityId}", Method.PUT);
 
@@ -31,12 +31,12 @@ namespace FTJFundChoice.OrionClient.Compositions.Settings
             request.AddParameter("application/json", JsonConvert.SerializeObject(logo));
             //request.AddParameter(mimeType, brokerDealerLogo.ToString());
 
-            return await client.ExecuteTaskAsync<Result>(request);
+            return await client.ExecuteTaskAsync<Logo>(request);
         }
 
-        public async Task<IResult> UploadAdvisorImage(string entityType, long entityId, string logoData)
+        public async Task<IResult<Logo>> UploadAdvisorImage(string entityType, long entityId, string logoData)
         {
-            var request = new Request($"Settings/CustomSettings/advisor-image/Image?entity={entityType}&entityId={entityId}", Method.PUT);
+            var request = new Request($"Settings/CustomSettings/advisor-image?entity={entityType}&entityId={entityId}", Method.PUT);
 
             var logo = new Logo()
             {
@@ -49,7 +49,7 @@ namespace FTJFundChoice.OrionClient.Compositions.Settings
             request.AddParameter("application/json", JsonConvert.SerializeObject(logo));
             //request.AddParameter(mimeType, brokerDealerLogo.ToString());
 
-            return await client.ExecuteTaskAsync<Result>(request);
+            return await client.ExecuteTaskAsync<Logo>(request);
         }
     }
 }
