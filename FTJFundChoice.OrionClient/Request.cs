@@ -56,7 +56,7 @@ namespace FTJFundChoice.OrionClient {
         }
 
         internal void AddParameter(string mediaType, string value) {
-            Content = new StringContent(value, System.Text.Encoding.Default, mediaType);
+            Content = new StringContent(value, System.Text.Encoding.Unicode, mediaType);
         }
 
         internal void AddUrlSegment(string key, string value) {
