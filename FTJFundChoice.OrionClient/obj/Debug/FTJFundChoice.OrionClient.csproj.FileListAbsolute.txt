@@ -15,3 +15,11 @@ D:\Code\FTJ\OrionClient\FTJFundChoice.OrionClient\obj\Debug\FTJFundChoice.OrionC
 D:\Code\FTJ\OrionClient\FTJFundChoice.OrionClient\obj\Debug\FTJFundChoice.OrionClient.dll
 D:\Code\FTJ\OrionClient\FTJFundChoice.OrionClient\obj\Debug\FTJFundChoice.OrionClient.pdb
 D:\Code\FTJ\OrionClient\FTJFundChoice.OrionClient\obj\Debug\FTJFundChoice.OrionClient.csprojResolveAssemblyReference.cache
+C:\Users\Brandon.Mefford\Documents\GitHub\OrionClient\FTJFundChoice.OrionClient\bin\Debug\FTJFundChoice.OrionClient.dll.config
+C:\Users\Brandon.Mefford\Documents\GitHub\OrionClient\FTJFundChoice.OrionClient\bin\Debug\FTJFundChoice.OrionClient.dll
+C:\Users\Brandon.Mefford\Documents\GitHub\OrionClient\FTJFundChoice.OrionClient\bin\Debug\FTJFundChoice.OrionClient.pdb
+C:\Users\Brandon.Mefford\Documents\GitHub\OrionClient\FTJFundChoice.OrionClient\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Brandon.Mefford\Documents\GitHub\OrionClient\FTJFundChoice.OrionClient\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Brandon.Mefford\Documents\GitHub\OrionClient\FTJFundChoice.OrionClient\obj\Debug\FTJFundChoice.OrionClient.csproj.CoreCompileInputs.cache
+C:\Users\Brandon.Mefford\Documents\GitHub\OrionClient\FTJFundChoice.OrionClient\obj\Debug\FTJFundChoice.OrionClient.dll
+C:\Users\Brandon.Mefford\Documents\GitHub\OrionClient\FTJFundChoice.OrionClient\obj\Debug\FTJFundChoice.OrionClient.pdb

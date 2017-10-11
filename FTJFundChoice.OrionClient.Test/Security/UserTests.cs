@@ -32,7 +32,7 @@ namespace FTJFundChoice.OrionClient.Test.Security {
         [Fact]
         public async Task Create() {
             var user = new UserInfoDetails {
-                EntityName = "ORION_CLIENT_TEST",
+                EntityName = "Spécial_character_tést",
                 UserId = Guid.NewGuid().ToString(),
                 Email = "ORION_CLIENT@TEST.123",
                 LastName = "ORION_LAST_TEST",
