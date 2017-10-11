@@ -130,7 +130,7 @@
     <Compile Include="Models\Security\UserDetail.cs" />
     <Compile Include="Models\Security\UserInfoDetails.cs" />
     <Compile Include="Models\Settings\EntityOption.cs" />
-    <Compile Include="Models\Settings\MainThemeLogo.cs" />
+    <Compile Include="Models\Settings\Logo.cs" />
     <Compile Include="Models\Token.cs" />
     <Compile Include="Models\Trading\Mandate.cs" />
     <Compile Include="Models\Trading\RiskType.cs" />

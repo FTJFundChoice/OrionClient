@@ -40,6 +40,7 @@ D:\Code\FTJ\OrionClient\FTJFundChoice.OrionClient.Test\obj\Debug\FTJFundChoice.O
 D:\Code\FTJ\OrionClient\FTJFundChoice.OrionClient.Test\obj\Debug\FTJFundChoice.OrionClient.Test.csproj.CoreCompileInputs.cache
 D:\Code\FTJ\OrionClient\FTJFundChoice.OrionClient.Test\obj\Debug\FTJFundChoice.OrionClient.Test.dll
 D:\Code\FTJ\OrionClient\FTJFundChoice.OrionClient.Test\obj\Debug\FTJFundChoice.OrionClient.Test.pdb
+<<<<<<< Updated upstream
 C:\Users\Brandon.Mefford\Documents\GitHub\OrionClient\FTJFundChoice.OrionClient.Test\bin\Debug\TestFiles\What_business_to_start_2013_crop.jpg
 C:\Users\Brandon.Mefford\Documents\GitHub\OrionClient\FTJFundChoice.OrionClient.Test\bin\Debug\FTJFundChoice.OrionClient.Test.dll.config
 C:\Users\Brandon.Mefford\Documents\GitHub\OrionClient\FTJFundChoice.OrionClient.Test\bin\Debug\FTJFundChoice.OrionClient.Test.dll
@@ -59,3 +60,6 @@ C:\Users\Brandon.Mefford\Documents\GitHub\OrionClient\FTJFundChoice.OrionClient.
 C:\Users\Brandon.Mefford\Documents\GitHub\OrionClient\FTJFundChoice.OrionClient.Test\obj\Debug\FTJFundChoice.OrionClient.Test.csproj.CoreCompileInputs.cache
 C:\Users\Brandon.Mefford\Documents\GitHub\OrionClient\FTJFundChoice.OrionClient.Test\obj\Debug\FTJFundChoice.OrionClient.Test.dll
 C:\Users\Brandon.Mefford\Documents\GitHub\OrionClient\FTJFundChoice.OrionClient.Test\obj\Debug\FTJFundChoice.OrionClient.Test.pdb
+=======
+D:\Code\FTJ\OrionClient\FTJFundChoice.OrionClient.Test\bin\Debug\TestFiles\startup.jpg
+>>>>>>> Stashed changes

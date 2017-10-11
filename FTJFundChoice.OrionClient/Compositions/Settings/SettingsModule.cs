@@ -16,16 +16,13 @@ namespace FTJFundChoice.OrionClient.Compositions.Settings
             this.client = client;
         }      
 
-        public async Task<IResult<BrokerDealerVerbose>> UploadMainThemeLogo(string entityType, long entityId, byte[] brokerDealerLogo)
+        public async Task<IResult> UploadMainThemeLogo(string entityType, long entityId, string logoData)
         {
-            var request = new Request("Settings/CustomSettings/theme-main-logo?entity={entityType}&entityId={entityId}", Method.PUT);
+            var request = new Request($"Settings/CustomSettings/theme-main-logo?entity={entityType}&entityId={entityId}", Method.PUT);
 
-            request.AddUrlSegment("entityType", entityType);
-            request.AddUrlSegment("entityId", entityId.ToString());
-
-            var logo = new MainThemeLogo()
+            var logo = new Logo()
             {
-                ImageStream = brokerDealerLogo,
+                ImageStream = logoData,
                 PromptName = "theme-main-logo",
                 Category = "global",
                 CustomAppSetting = "ClientPortal"
@@ -34,7 +31,25 @@ namespace FTJFundChoice.OrionClient.Compositions.Settings
             request.AddParameter("application/json", JsonConvert.SerializeObject(logo));
             //request.AddParameter(mimeType, brokerDealerLogo.ToString());
 
-            return await client.ExecuteTaskAsync<BrokerDealerVerbose>(request);
+            return await client.ExecuteTaskAsync<Result>(request);
+        }
+
+        public async Task<IResult> UploadAdvisorImage(string entityType, long entityId, string logoData)
+        {
+            var request = new Request($"Settings/CustomSettings/advisor-image/Image?entity={entityType}&entityId={entityId}", Method.PUT);
+
+            var logo = new Logo()
+            {
+                ImageStream = logoData,
+                PromptName = "advisor-image",
+                Category = "global",
+                CustomAppSetting = "ClientPortal"
+            };
+
+            request.AddParameter("application/json", JsonConvert.SerializeObject(logo));
+            //request.AddParameter(mimeType, brokerDealerLogo.ToString());
+
+            return await client.ExecuteTaskAsync<Result>(request);
         }
     }
 }

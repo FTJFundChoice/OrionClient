@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FTJFundChoice.OrionClient.Models.Settings
 {
-    public class MainThemeLogo
+    public class Logo
     {
         [JsonProperty("promptName")]
         public string PromptName { get; set; }
@@ -18,7 +18,7 @@ namespace FTJFundChoice.OrionClient.Models.Settings
         [JsonProperty("description")]
         public string Description { get; set; }
         [JsonProperty("value")]
-        public byte[] ImageStream { get; set; }
+        public string ImageStream { get; set; }
         [JsonProperty("optionLevel")]
         public string OptionLevel { get; set; }
         [JsonProperty("type")]
