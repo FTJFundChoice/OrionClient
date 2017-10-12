@@ -13,3 +13,7 @@ packages\*
 **/obj
 *.nupkg
 *.nupkg
+
+*.nuspec
+
+FTJFundChoice\.OrionClient/nuget\.exe
