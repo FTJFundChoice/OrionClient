@@ -6,5 +6,7 @@ namespace FTJFundChoice.OrionClient {
         IPortfolioFactory Portfolio { get; }
         ISecurityFactory Security { get; }
         ITradingFactory Trading { get; }
+
+        ISettingsFactory Settings { get; }
     }
 }

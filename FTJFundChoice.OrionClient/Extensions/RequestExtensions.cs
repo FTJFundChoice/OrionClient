@@ -2,14 +2,12 @@
 
     internal static class RequestExtensions {
 
-        internal static void AddExpandQueryParameters(this Request request, bool includePorfolio, bool includeUserDefinedFields) {
-            if (includePorfolio) {
-                request.AddQueryParameter("expand", "1");
-            }
-
-            if (includeUserDefinedFields) {
-                request.AddQueryParameter("expand", "32");
-            }
+        internal static void AddExpandQueryParameters(this Request request, params int[] expands) {
+			if (expands != null && expands.Length > 0)
+			{
+				foreach (var expand in expands)
+					request.AddQueryParameter("expand", expand.ToString());
+			}
         }
 
         internal static void AddTopSkipQueryParameters(this Request request, int top, int skip) {

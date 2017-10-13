@@ -1,10 +1,13 @@
-﻿namespace FTJFundChoice.OrionClient.Models.Enums {
+﻿using System.Runtime.Serialization;
+
+namespace FTJFundChoice.OrionClient.Models.Enums {
 
     public enum UserDefineControlMask {
         MultiLineEditor = -2,
         DropDownEditor = -1,
         DropDownList = 0,
-        CheckBox = 1,
+		[EnumMember(Value = "Check box")]
+		CheckBox = 1,
         Currency = 2,
         Date = 3,
         DateTime = 4,
@@ -13,6 +16,7 @@
         Double = 7,
         Time = 8,
         Long = 11,
-        CustomObject = 12
+		[EnumMember(Value = "Custom object")]
+		CustomObject = 12
     }
 }

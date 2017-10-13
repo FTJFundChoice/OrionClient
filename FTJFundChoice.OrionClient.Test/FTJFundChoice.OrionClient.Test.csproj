@@ -34,7 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -70,6 +70,7 @@
     <Compile Include="Portfolio\BrokerDealerTests.cs" />
     <Compile Include="Portfolio\ClientTests.cs" />
     <Compile Include="Portfolio\PlanSponsorTests.cs" />
+    <Compile Include="Portfolio\PlanTests.cs" />
     <Compile Include="Portfolio\RepresentativeTests.cs" />
     <Compile Include="Portfolio\SubAdvisorTests.cs" />
     <Compile Include="Portfolio\ThirdPartyAdminstratorTests.cs" />
@@ -82,9 +83,7 @@
     <Compile Include="Trading\SleeveStrategyTests.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config">
-      <SubType>Designer</SubType>
-    </None>
+    <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -98,10 +97,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="TestFiles\startup.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="TestFiles\What_business_to_start_2013_crop.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,6 +1,7 @@
 ﻿using FTJFundChoice.OrionClient.Enums;
 using FTJFundChoice.OrionClient.Extensions;
 using FTJFundChoice.OrionClient.Interfaces.Representatives;
+using FTJFundChoice.OrionClient.Models.Enums;
 using FTJFundChoice.OrionClient.Models.Portfolio;
 using Newtonsoft.Json;
 using System;
@@ -37,29 +38,35 @@ namespace FTJFundChoice.OrionClient.Compositions.Representatives {
         }
 
         public async Task<IResult<RepresentativeVerbose>> GetAsync(long id) {
-            return await GetAsync(id, true, false);
+            return await GetAsync(id, RepresentativeExpands.Portfolio);
         }
 
-        public async Task<IResult<RepresentativeVerbose>> GetAsync(long id, bool includePorfolio = true, bool includeUserDefinedFields = false) {
+        public async Task<IResult<RepresentativeVerbose>> GetAsync(long id, params RepresentativeExpands[] expands) {
             var request = new Request("Portfolio/Representatives/Verbose/{id}", Method.GET);
             request.AddUrlSegment("id", Convert.ToString(id));
-            request.AddExpandQueryParameters(includePorfolio, includeUserDefinedFields);
+			request.AddExpandQueryParameters(Array.ConvertAll<RepresentativeExpands, int>(expands, delegate (RepresentativeExpands value) { return (int)value; }));
 
-            return await client.ExecuteTaskAsync<RepresentativeVerbose>(request);
+			return await client.ExecuteTaskAsync<RepresentativeVerbose>(request);
         }
 
         public async Task<IResult<IEnumerable<RepresentativeVerbose>>> GetAll() {
-            return await GetAllAsync(10000, 0, null, true, false);
+            return await GetAllAsync(5000, 0, null, RepresentativeExpands.Portfolio);
         }
 
-        public async Task<IResult<IEnumerable<RepresentativeVerbose>>> GetAllAsync(int top = 10000, int skip = 0, bool? isActive = null) {
-            return await GetAllAsync(top, skip, null, true, false);
+		public async Task<IResult<IEnumerable<RepresentativeVerbose>>> GetAllAsync(params RepresentativeExpands[] expands)
+		{
+			return await GetAllAsync(5000, 0, null, expands);
+		}
+
+
+		public async Task<IResult<IEnumerable<RepresentativeVerbose>>> GetAllAsync(int top = 5000, int skip = 0, bool? isActive = null) {
+            return await GetAllAsync(top, skip, null, RepresentativeExpands.Portfolio);
         }
 
-        public async Task<IResult<IEnumerable<RepresentativeVerbose>>> GetAllAsync(int top = 10000, int skip = 0, bool? isActive = null, bool includePorfolio = true, bool includeUserDefinedFields = false) {
+        public async Task<IResult<IEnumerable<RepresentativeVerbose>>> GetAllAsync(int top = 5000, int skip = 0, bool? isActive = null, params RepresentativeExpands[] expands) {
             var request = new Request("Portfolio/Representatives/Verbose", Method.GET);
-            request.AddExpandQueryParameters(includePorfolio, includeUserDefinedFields);
-            request.AddTopSkipQueryParameters(top, skip);
+			request.AddExpandQueryParameters(Array.ConvertAll<RepresentativeExpands, int>(expands, delegate (RepresentativeExpands value) { return (int)value; }));
+			request.AddTopSkipQueryParameters(top, skip);
             request.AddActiveQueryParameters(isActive);
 
             return await client.ExecuteTaskAsync<IEnumerable<RepresentativeVerbose>>(request);

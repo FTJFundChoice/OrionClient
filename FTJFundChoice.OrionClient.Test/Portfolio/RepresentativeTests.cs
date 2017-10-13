@@ -1,4 +1,5 @@
 ﻿using FTJFundChoice.OrionClient.Enums;
+using FTJFundChoice.OrionClient.Models.Enums;
 using FTJFundChoice.OrionClient.Models.Portfolio;
 using System;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace FTJFundChoice.OrionClient.Test.Portfolio {
 
         [Fact]
         public async Task GetAll() {
-            var result = await Client.Portfolio.Representatives.Verbose.GetAllAsync();
+            var result = await Client.Portfolio.Representatives.Verbose.GetAllAsync(RepresentativeExpands.All);
 
             Assert.Equal(result.StatusCode, StatusCode.OK);
             Assert.True(result.Data.Count() > 0);
@@ -29,7 +30,7 @@ namespace FTJFundChoice.OrionClient.Test.Portfolio {
 
         [Fact]
         public async Task GetWithUserDefinedFields() {
-            var result = await Client.Portfolio.Representatives.Verbose.GetAsync(349, false, true);
+            var result = await Client.Portfolio.Representatives.Verbose.GetAsync(349, RepresentativeExpands.UserDefinedFields);
             Assert.Equal(result.StatusCode, StatusCode.OK);
             Assert.NotNull(result.Data.UserDefinedFields);
         }
@@ -77,7 +78,7 @@ namespace FTJFundChoice.OrionClient.Test.Portfolio {
         [Fact]
         public async Task UpdateWithUserDefinedFields() {
             var reps = new Compositions.Representatives.RepresentativesVerboseModule(Client);
-            var result = await reps.GetAsync(1, true, true);
+            var result = await reps.GetAsync(1, RepresentativeExpands.Portfolio, RepresentativeExpands.UserDefinedFields);
             var rep = result.Data;
 
             rep.Portfolio.Address1 = "TEST ADDRESS 2";

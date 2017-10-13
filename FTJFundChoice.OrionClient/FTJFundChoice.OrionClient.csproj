@@ -55,6 +55,8 @@
     <Compile Include="Compositions\Clients\ClientsSimpleModule.cs" />
     <Compile Include="Compositions\Clients\ClientsModule.cs" />
     <Compile Include="Compositions\PlanSponsorsModule.cs" />
+    <Compile Include="Compositions\Plans\PlansModule.cs" />
+    <Compile Include="Compositions\Plans\PlansVerboseModule.cs" />
     <Compile Include="Compositions\Representatives\RepresentativesVerboseModule.cs" />
     <Compile Include="Compositions\Settings\SettingsModule.cs" />
     <Compile Include="Compositions\SubAdvisors\SubAdvisorsModule.cs" />
@@ -65,9 +67,9 @@
     <Compile Include="Enums\StatusCode.cs" />
     <Compile Include="Factories\CompositionFactory.cs" />
     <Compile Include="Extensions\RequestExtensions.cs" />
-    <Compile Include="Factories\SettingsFactory.cs" />
     <Compile Include="Factories\PortfolioFactory.cs" />
     <Compile Include="Factories\SecurityFactory.cs" />
+    <Compile Include="Factories\SettingsFactory.cs" />
     <Compile Include="Factories\TradingFactory.cs" />
     <Compile Include="Helpers\AuthenticationHelpers.cs" />
     <Compile Include="Interfaces\Accounts\IAccountsModule.cs" />
@@ -82,6 +84,8 @@
     <Compile Include="Interfaces\ICompositionFactory.cs" />
     <Compile Include="Interfaces\IPlanSponsorsModule.cs" />
     <Compile Include="Interfaces\IThirdPartyAdministratorsModule.cs" />
+    <Compile Include="Interfaces\Plans\IPlansModule.cs" />
+    <Compile Include="Interfaces\Plans\IPlansVerboseModule.cs" />
     <Compile Include="Interfaces\Representatives\IRepresentativesModule.cs" />
     <Compile Include="Interfaces\Settings\ISettingsModule.cs" />
     <Compile Include="Interfaces\SubAdvisors\ISubAdvisorsSimpleModule.cs" />
@@ -89,10 +93,13 @@
     <Compile Include="Interfaces\Trading\ISleeveStrategyModule.cs" />
     <Compile Include="IOrionApiClient.cs" />
     <Compile Include="Models\Billing\BillRepresentativePlatform.cs" />
+    <Compile Include="Models\Enums\BrokerDealerExpands.cs" />
     <Compile Include="Models\Enums\BrokerDealerStatus.cs" />
     <Compile Include="Models\Enums\ClearingFirm.cs" />
     <Compile Include="Models\Enums\Entity.cs" />
     <Compile Include="Models\Enums\HowIsAdvRegistered.cs" />
+    <Compile Include="Models\Enums\PlanExpands.cs" />
+    <Compile Include="Models\Enums\RepresentativeExpands.cs" />
     <Compile Include="Models\Enums\UserDefineControlMask.cs" />
     <Compile Include="Models\Enums\VideoStatementMethod.cs" />
     <Compile Include="Models\Extensions\EntityExtensions.cs" />
@@ -109,7 +116,14 @@
     <Compile Include="Models\Portfolio\ClientSimple.cs" />
     <Compile Include="Models\Portfolio\Document.cs" />
     <Compile Include="Models\Portfolio\Note.cs" />
+    <Compile Include="Models\Portfolio\ParticipantAccount.cs" />
+    <Compile Include="Models\Portfolio\PlanFee.cs" />
+    <Compile Include="Models\Portfolio\PlanPersonal.cs" />
+    <Compile Include="Models\Portfolio\PlanPlatform.cs" />
+    <Compile Include="Models\Portfolio\PlanPortfolio.cs" />
+    <Compile Include="Models\Portfolio\PlanSponsor.cs" />
     <Compile Include="Models\Portfolio\PlanSponsorSimple.cs" />
+    <Compile Include="Models\Portfolio\PlanVerbose.cs" />
     <Compile Include="Models\Portfolio\RegistrationVerbose.cs" />
     <Compile Include="Models\Portfolio\Representative.cs" />
     <Compile Include="Models\Portfolio\RepresentativePortfolio.cs" />

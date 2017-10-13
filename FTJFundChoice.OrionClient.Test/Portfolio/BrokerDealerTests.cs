@@ -1,4 +1,5 @@
 ﻿using FTJFundChoice.OrionClient.Enums;
+using FTJFundChoice.OrionClient.Models.Enums;
 using FTJFundChoice.OrionClient.Models.Portfolio;
 using System;
 using System.Linq;
@@ -19,7 +20,17 @@ namespace FTJFundChoice.OrionClient.Test.Portfolio {
             Assert.NotNull(result.Data.ToList()[0].Portfolio.OldBDCode);
         }
 
-        [Fact]
+		[Fact]
+		public async Task GetAllWithExpands()
+		{
+			var result = await Client.Portfolio.BrokerDealers.Verbose.GetAllAsync(BrokerDealerExpands.All);
+
+			Assert.Equal(result.StatusCode, StatusCode.OK);
+			Assert.True(result.Data.Count() > 0);
+			Assert.NotNull(result.Data.ToList()[0].Portfolio.OldBDCode);
+		}
+
+		[Fact]
         public async Task Get() {
             var result = await Client.Portfolio.BrokerDealers.Verbose.GetAsync(3);
 

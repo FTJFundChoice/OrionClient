@@ -6,6 +6,7 @@ using FTJFundChoice.OrionClient.Models.Portfolio;
 using FTJFundChoice.OrionClient.Enums;
 using Newtonsoft.Json;
 using FTJFundChoice.OrionClient.Extensions;
+using FTJFundChoice.OrionClient.Models.Enums;
 
 namespace FTJFundChoice.OrionClient.Compositions.BrokerDealers {
 
@@ -48,30 +49,35 @@ namespace FTJFundChoice.OrionClient.Compositions.BrokerDealers {
         }
 
         public async Task<IResult<IEnumerable<BrokerDealerVerbose>>> GetAll() {
-            return await GetAllAsync(10000, 0, true);
+            return await GetAllAsync(5000, 0, true);
         }
 
-        public async Task<IResult<IEnumerable<BrokerDealerVerbose>>> GetAllAsync(int top = 10000, int skip = 0, bool? isActive = true) {
+		public async Task<IResult<IEnumerable<BrokerDealerVerbose>>> GetAllAsync(params BrokerDealerExpands[] expands)
+		{
+			return await GetAllAsync(5000, 0, true, expands);
+		}
+
+		public async Task<IResult<IEnumerable<BrokerDealerVerbose>>> GetAllAsync(int top = 5000, int skip = 0, bool? isActive = true) {
             var request = new Request("Portfolio/BrokerDealers/Verbose", Method.GET);
             request.AddTopSkipQueryParameters(top, skip);
             request.AddActiveQueryParameters(isActive);
             return await client.ExecuteTaskAsync<IEnumerable<BrokerDealerVerbose>>(request);
         }
 
-        public async Task<IResult<IEnumerable<BrokerDealerVerbose>>> GetAllAsync(int top = 10000, int skip = 0, bool? isActive = false, bool includePorfolio = true, bool includeUserDefinedFields = false) {
+        public async Task<IResult<IEnumerable<BrokerDealerVerbose>>> GetAllAsync(int top = 5000, int skip = 0, bool? isActive = false, params BrokerDealerExpands[] expands) {
             var request = new Request("Portfolio/BrokerDealers/Verbose/", Method.GET);
-            request.AddExpandQueryParameters(includePorfolio, includeUserDefinedFields);
-            request.AddTopSkipQueryParameters(top, skip);
+			request.AddExpandQueryParameters(Array.ConvertAll<BrokerDealerExpands, int>(expands, delegate (BrokerDealerExpands value) { return (int)value; }));
+			request.AddTopSkipQueryParameters(top, skip);
             request.AddActiveQueryParameters(isActive);
             return await client.ExecuteTaskAsync<IEnumerable<BrokerDealerVerbose>>(request);
         }
 
-        public async Task<IResult<BrokerDealerVerbose>> GetAsync(long id, bool includePorfolio = true, bool includeUserDefinedFields = false) {
+        public async Task<IResult<BrokerDealerVerbose>> GetAsync(long id, params BrokerDealerExpands[] expands) {
             var request = new Request("Portfolio/BrokerDealers/Verbose/{id}", Method.GET);
             request.AddUrlSegment("id", Convert.ToString(id));
-            request.AddExpandQueryParameters(includePorfolio, includeUserDefinedFields);
+			request.AddExpandQueryParameters(Array.ConvertAll<BrokerDealerExpands, int>(expands, delegate (BrokerDealerExpands value) { return (int)value; }));
 
-            return await client.ExecuteTaskAsync<BrokerDealerVerbose>(request);
+			return await client.ExecuteTaskAsync<BrokerDealerVerbose>(request);
         }
     }
 }

@@ -1,12 +1,14 @@
 ﻿using FTJFundChoice.OrionClient.Compositions;
 using FTJFundChoice.OrionClient.Compositions.BrokerDealers;
 using FTJFundChoice.OrionClient.Compositions.Clients;
+using FTJFundChoice.OrionClient.Compositions.Plans;
 using FTJFundChoice.OrionClient.Compositions.Representatives;
 using FTJFundChoice.OrionClient.Compositions.SubAdvisors;
 using FTJFundChoice.OrionClient.Interfaces;
 using FTJFundChoice.OrionClient.Interfaces.Accounts;
 using FTJFundChoice.OrionClient.Interfaces.BrokerDealers;
 using FTJFundChoice.OrionClient.Interfaces.Clients;
+using FTJFundChoice.OrionClient.Interfaces.Plans;
 using FTJFundChoice.OrionClient.Interfaces.Representatives;
 using FTJFundChoice.OrionClient.Interfaces.SubAdvisors;
 
@@ -50,6 +52,14 @@ namespace FTJFundChoice.OrionClient.Factories {
                 return new ClientsModule(client);
             }
         }
+
+		public IPlansModule Plans
+		{
+			get
+			{
+				return new PlansModule(client);
+			}
+		}
 
         public IPlanSponsorsModule PlanSponsors {
             get {

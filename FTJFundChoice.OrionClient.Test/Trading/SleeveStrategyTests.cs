@@ -11,7 +11,6 @@ namespace FTJFundChoice.OrionClient.Test.Trading
     {
         [Theory]
         [InlineData(9365)]
-        [InlineData(10555)]
         public async Task GetVerboseSleeveStrategy(int entityId)
         {
             var result = await Client.Trading.SleeveStrategies.GetSleeveStrategyVerboseByRepIdAsync(entityId);
@@ -21,7 +20,6 @@ namespace FTJFundChoice.OrionClient.Test.Trading
 
         [Theory]
         [InlineData(9365)]
-        [InlineData(10555)]
         public async Task GetVerboseAndExpandedSleeveStrategy(int entityId)
         {
             var result = await Client.Trading.SleeveStrategies.GetSleeveStrategyExpandedVerboseByRepIdAsync(entityId);
