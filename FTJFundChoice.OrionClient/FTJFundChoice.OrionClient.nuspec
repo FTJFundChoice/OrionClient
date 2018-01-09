@@ -11,7 +11,7 @@
     <iconUrl>http://www.ftjfundchoice.com</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
-    <releaseNotes>Updates for Brandon's changes.</releaseNotes>
+    <releaseNotes>Adding a synchronous version of UploadMainThemeLogo and the methods it uses.</releaseNotes>
     <copyright>Copyright 2017</copyright>
     <tags>Orion Client FTJFundChoice</tags>
   </metadata>
