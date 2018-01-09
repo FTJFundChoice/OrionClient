@@ -17,6 +17,21 @@ namespace FTJFundChoice.OrionClient {
             this.apiCredentials = apiCredentials;
             this.serviceCredentials = serviceCredentials;
         }
+        public void Authenticate(OrionApiClient client, Request request)
+        {
+            if (!AuthenticationHelpers.IsAuthenticated(authToken))
+                if (request.RequestUri.ToString() != AuthenticationHelpers.AuthenticationPath &&
+                    request.RequestUri.ToString() != AuthenticationHelpers.ImpersonationPath)
+                    authToken = AuthenticationHelpers.HandleBasicAuthentication(client, request, apiCredentials);
+
+            if (request.RequestUri.ToString() == AuthenticationHelpers.ImpersonationPath)
+            {
+                impToken = AuthenticationHelpers.HandleBasicAuthentication(client, request, serviceCredentials);
+                AuthenticationHelpers.HandleImpersonation(request, impToken);
+            }
+            else
+                AuthenticationHelpers.ApplyTokenAuthentication(request, authToken);
+        }
 
         public async Task AuthenticateAsync(OrionApiClient client, Request request) {
             if (!AuthenticationHelpers.IsAuthenticated(authToken))

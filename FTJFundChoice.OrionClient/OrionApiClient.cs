@@ -72,6 +72,13 @@ namespace FTJFundChoice.OrionClient
 
         #region Internals
 
+        internal IResult<T> ExecuteTask<T>(Request request)
+        {
+            authenticator.Authenticate(this, request);
+            var result = client.SendAsync(request).Result;
+            return new Result<T>(result);
+        }
+
         internal async Task<IResult<T>> ExecuteTaskAsync<T>(Request request) {
             await authenticator.AuthenticateAsync(this, request);
             var result = await client.SendAsync(request);
