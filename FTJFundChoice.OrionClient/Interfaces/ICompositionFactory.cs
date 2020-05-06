@@ -35,6 +35,7 @@ namespace FTJFundChoice.OrionClient.Interfaces {
         IUsersModule Users { get; }
 
         Task<IResult<Token>> GetImpersonationToken(string entity, string entityId);
+        Task<IResult<Token>> GetImpersonationToken(string entity, string entityId, string loginName);
 
         Task<IResult<Token>> GetToken(string username, string password);
     }

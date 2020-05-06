@@ -34,6 +34,16 @@ namespace FTJFundChoice.OrionClient.Factories {
             return await client.ExecuteTaskAsync<Token>(request);
         }
 
+        public async Task<IResult<Token>> GetImpersonationToken(string entity, string entityId, string loginName)
+        {
+            var request = new Request(Method.GET, AuthenticationHelpers.ImpersonationPath);
+            request.AddHeader("Entity", entity);
+            request.AddHeader("EntityId", entityId);
+            request.AddHeader("LoginName", loginName);
+
+            return await client.ExecuteTaskAsync<Token>(request);
+        }
+
         public async Task<IResult<Token>> GetToken(string username, string password) {
             var request = new Request(Method.GET, AuthenticationHelpers.AuthenticationPath);
 
